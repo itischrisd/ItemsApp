@@ -1,6 +1,7 @@
 package com.kdudek.itemsapp.entity.book;
 
 import com.kdudek.itemsapp.entity.Category;
+import com.kdudek.itemsapp.entity.Storage;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,4 +45,8 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
+
+    @ManyToOne
+    @JoinColumn(name = "storage_id")
+    private Storage storage;
 }
