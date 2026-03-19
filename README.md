@@ -13,4 +13,4 @@ This is an incomplete list of planned work, roughly ordered by priority:
 
 - generalize Books, Storage and Items into one supertype
 - business documentation (MoSCoW)
-- 
+- object relationship mapping to DTOs
