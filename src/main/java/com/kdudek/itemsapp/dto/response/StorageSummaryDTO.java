@@ -4,16 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StorageResponseDTO {
+public class StorageSummaryDTO {
 
     private Long id;
     private String name;
-    private String note;
-    private StorageSummaryDTO parentStorage;
-    private List<StorageSummaryDTO> internalStorages;
 }

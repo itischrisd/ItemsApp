@@ -53,7 +53,7 @@ public class StorageController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StorageResponseDTO update(@PathVariable Long id, StorageUpdateDTO storageUpdateDTO) {
+    public StorageResponseDTO update(@PathVariable Long id, @RequestBody StorageUpdateDTO storageUpdateDTO) {
         return storageService.update(id, storageUpdateDTO);
     }
 

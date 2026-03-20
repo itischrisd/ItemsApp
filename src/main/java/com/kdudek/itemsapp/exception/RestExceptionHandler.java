@@ -12,7 +12,7 @@ import java.time.Instant;
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ProblemDetail handleResourceNotFoundException(ResourceNotFoundException e) {
+    public ProblemDetail handleResourceNotFoundException(Throwable e) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
         problemDetail.setTitle("Resource Not Found");
         problemDetail.setProperty("timestamp", Instant.now());
