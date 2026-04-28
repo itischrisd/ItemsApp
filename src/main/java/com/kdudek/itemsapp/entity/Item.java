@@ -31,13 +31,6 @@ public class Item {
     private String description;
     private String note;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-    @UpdateTimestamp(source = SourceType.DB)
-    private LocalDateTime updatedAt;
-    @Version
-    private Integer version;
-
     @ManyToMany
     @JoinTable(name = "ItemCategory")
     private Set<Category> categories;
@@ -45,4 +38,11 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "storage_id")
     private Storage storage;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    @UpdateTimestamp(source = SourceType.DB)
+    private LocalDateTime updatedAt;
+    @Version
+    private Integer version;
 }

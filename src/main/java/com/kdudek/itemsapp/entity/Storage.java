@@ -30,17 +30,17 @@ public class Storage {
     private String name;
     private String note;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-    @UpdateTimestamp(source = SourceType.DB)
-    private LocalDateTime updatedAt;
-    @Version
-    private Integer version;
-
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private Storage parent;
 
     @OneToMany(mappedBy = "parent")
     private List<Storage> internalStorages;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    @UpdateTimestamp(source = SourceType.DB)
+    private LocalDateTime updatedAt;
+    @Version
+    private Integer version;
 }
