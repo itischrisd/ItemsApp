@@ -3,8 +3,10 @@ package com.kdudek.itemsapp.service;
 import com.kdudek.itemsapp.dto.mapper.StorageMapper;
 import com.kdudek.itemsapp.dto.request.StorageCreateDTO;
 import com.kdudek.itemsapp.dto.request.StorageUpdateDTO;
-import com.kdudek.itemsapp.dto.response.StorageResponseDTO;
+import com.kdudek.itemsapp.dto.response.StorageDetailsDTO;
+import com.kdudek.itemsapp.dto.response.StorageSummaryDTO;
 import com.kdudek.itemsapp.entity.Storage;
+import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.StorageRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,34 +21,58 @@ public class StorageService {
     private final StorageRepository storageRepository;
     private final StorageMapper storageMapper;
 
-    public List<StorageResponseDTO> getAll() {
+    public List<StorageSummaryDTO> getAll() {
         List<Storage> storages = storageRepository.findAll();
-        return storageMapper.mapToDTO(storages);
+        return storageMapper.mapToSummaryDTO(storages);
     }
 
-    public StorageResponseDTO getById(Long id) {
-        return storageRepository.findById(id)
-                .map(storageMapper::mapToDTO)
+    public StorageDetailsDTO getById(Long id) {
+        return storageRepository.findByIdWithChildren(id)
+                .map(storageMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
     }
 
-    public StorageResponseDTO create(StorageCreateDTO storageCreateDTO) {
+    public StorageDetailsDTO create(StorageCreateDTO storageCreateDTO) {
         Storage storage = storageMapper.mapToStorage(storageCreateDTO);
         storageRepository.save(storage);
-        return storageMapper.mapToDTO(storage);
+        return storageMapper.mapToDetailsDTO(storage);
     }
 
-    public StorageResponseDTO update(Long id, StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(Long id, StorageUpdateDTO storageUpdateDTO) {
         Storage storage = storageRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
         storageMapper.updateStorageFromDTO(storageUpdateDTO, storage);
         storageRepository.save(storage);
-        return storageMapper.mapToDTO(storage);
+        return storageMapper.mapToDetailsDTO(storage);
     }
 
     public void delete(Long id) {
         Storage storage = storageRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
         storageRepository.delete(storage);
+    }
+
+    public void addToParent(Long parentId, Long childId) {
+        Storage parent = storageRepository.findById(parentId)
+                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, parentId));
+        Storage child = storageRepository.findById(childId)
+                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, childId));
+        child.setParent(parent);
+        storageRepository.save(child);
+    }
+
+    public void removeFromParent(Long parentId, Long childId) {
+        if (!storageRepository.existsById(parentId)) {
+            throw new ResourceNotFoundException(Storage.class, parentId);
+        }
+        Storage child = storageRepository.findById_AndParent_Id(childId, parentId)
+                .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, parentId, Storage.class, childId));
+        child.setParent(null);
+        storageRepository.save(child);
+    }
+
+    public List<StorageSummaryDTO> getChildStorages(Long id) {
+        List<Storage> childStorages = storageRepository.findAllByParent_Id(id);
+        return storageMapper.mapToSummaryDTO(childStorages);
     }
 }

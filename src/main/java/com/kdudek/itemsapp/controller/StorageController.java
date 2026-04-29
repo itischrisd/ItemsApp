@@ -2,7 +2,8 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.StorageCreateDTO;
 import com.kdudek.itemsapp.dto.request.StorageUpdateDTO;
-import com.kdudek.itemsapp.dto.response.StorageResponseDTO;
+import com.kdudek.itemsapp.dto.response.StorageDetailsDTO;
+import com.kdudek.itemsapp.dto.response.StorageSummaryDTO;
 import com.kdudek.itemsapp.service.StorageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,9 +21,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/storage")
+@RequestMapping("/api/storages")
 @RequiredArgsConstructor
 public class StorageController {
 
@@ -30,30 +32,30 @@ public class StorageController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Collection<StorageResponseDTO> getAll() {
+    public Collection<StorageSummaryDTO> getAll() {
         return storageService.getAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StorageResponseDTO getById(@PathVariable Long id) {
+    public StorageDetailsDTO getById(@PathVariable Long id) {
         return storageService.getById(id);
     }
 
     @PostMapping
-    public ResponseEntity<StorageResponseDTO> create(@RequestBody StorageCreateDTO storageCreateDTO) {
-        StorageResponseDTO storageResponseDTO = storageService.create(storageCreateDTO);
+    public ResponseEntity<StorageDetailsDTO> create(@RequestBody StorageCreateDTO storageCreateDTO) {
+        StorageDetailsDTO storageDetailsDTO = storageService.create(storageCreateDTO);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(storageResponseDTO.getId())
+                .buildAndExpand(storageDetailsDTO.getId())
                 .toUri();
-        return ResponseEntity.created(location).body(storageResponseDTO);
+        return ResponseEntity.created(location).body(storageDetailsDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StorageResponseDTO update(@PathVariable Long id, @RequestBody StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(@PathVariable Long id, @RequestBody StorageUpdateDTO storageUpdateDTO) {
         return storageService.update(id, storageUpdateDTO);
     }
 
@@ -61,5 +63,23 @@ public class StorageController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         storageService.delete(id);
+    }
+
+    @PostMapping("/{parentId}/storages/{childId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void addToParent(@PathVariable Long parentId, @PathVariable Long childId) {
+        storageService.addToParent(parentId, childId);
+    }
+
+    @DeleteMapping("/{parentId}/storages/{childId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeFromParent(@PathVariable Long parentId, @PathVariable Long childId) {
+        storageService.removeFromParent(parentId, childId);
+    }
+
+    @GetMapping("/{id}/storages")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public List<StorageSummaryDTO> getChildStorages(@PathVariable Long id) {
+        return storageService.getChildStorages(id);
     }
 }

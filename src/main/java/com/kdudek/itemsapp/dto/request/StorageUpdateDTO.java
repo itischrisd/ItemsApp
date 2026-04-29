@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class StorageUpdateDTO {
 
-    private Long id;
     private String name;
     private String note;
-    private Long parentId;
 }

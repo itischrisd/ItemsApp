@@ -10,9 +10,10 @@ import java.util.Optional;
 
 public interface StorageRepository extends JpaRepository<Storage, Long> {
 
-    @Query("SELECT s FROM Storage s LEFT JOIN FETCH s.internalStorages LEFT JOIN FETCH s.parent")
-    List<Storage> findAll();
+    @Query("SELECT s FROM Storage s LEFT JOIN FETCH s.internalStorages WHERE s.id = :id")
+    Optional<Storage> findByIdWithChildren(@Param("id") Long id);
 
-    @Query("SELECT s FROM Storage s LEFT JOIN FETCH s.internalStorages LEFT JOIN FETCH s.parent WHERE s.id = :id")
-    Optional<Storage> findById(@Param("id") Long id);
+    Optional<Storage> findById_AndParent_Id(Long id, Long parentId);
+
+    List<Storage> findAllByParent_Id(Long parentId);
 }

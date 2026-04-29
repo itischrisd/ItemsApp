@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PreRemove;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,4 +44,9 @@ public class Storage {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
+
+    @PreRemove
+    private void orphanChildren() {
+        internalStorages.forEach(internalStorage -> internalStorage.setParent(null));
+    }
 }
