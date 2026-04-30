@@ -1,9 +1,9 @@
 package com.kdudek.itemsapp.dto.mapper;
 
-import com.kdudek.itemsapp.dto.request.StorageCreateDTO;
-import com.kdudek.itemsapp.dto.request.StorageUpdateDTO;
-import com.kdudek.itemsapp.dto.response.StorageDetailsDTO;
-import com.kdudek.itemsapp.dto.response.StorageSummaryDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageCreateDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageUpdateDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.entity.Storage;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,7 +22,7 @@ public interface StorageMapper {
     @Mapping(target = "parentStorage", source = "parent")
     StorageDetailsDTO mapToDetailsDTO(Storage storage);
 
-    List<StorageSummaryDTO> mapToSummaryDTO(List<Storage> storages);
+    StorageSummaryDTO mapToSummaryDTO(Storage storage);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "internalStorages", ignore = true)

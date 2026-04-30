@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.dto.response;
+package com.kdudek.itemsapp.dto.response.storage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

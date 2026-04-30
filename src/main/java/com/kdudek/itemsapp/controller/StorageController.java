@@ -1,9 +1,9 @@
 package com.kdudek.itemsapp.controller;
 
-import com.kdudek.itemsapp.dto.request.StorageCreateDTO;
-import com.kdudek.itemsapp.dto.request.StorageUpdateDTO;
-import com.kdudek.itemsapp.dto.response.StorageDetailsDTO;
-import com.kdudek.itemsapp.dto.response.StorageSummaryDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageCreateDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageUpdateDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.service.StorageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,10 +1,10 @@
 package com.kdudek.itemsapp.service;
 
 import com.kdudek.itemsapp.dto.mapper.StorageMapper;
-import com.kdudek.itemsapp.dto.request.StorageCreateDTO;
-import com.kdudek.itemsapp.dto.request.StorageUpdateDTO;
-import com.kdudek.itemsapp.dto.response.StorageDetailsDTO;
-import com.kdudek.itemsapp.dto.response.StorageSummaryDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageCreateDTO;
+import com.kdudek.itemsapp.dto.request.storage.StorageUpdateDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
+import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.entity.Storage;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
@@ -22,8 +22,9 @@ public class StorageService {
     private final StorageMapper storageMapper;
 
     public List<StorageSummaryDTO> getAll() {
-        List<Storage> storages = storageRepository.findAll();
-        return storageMapper.mapToSummaryDTO(storages);
+        return storageRepository.findAll().stream()
+                .map(storageMapper::mapToSummaryDTO)
+                .toList();
     }
 
     public StorageDetailsDTO getById(Long id) {
@@ -72,7 +73,8 @@ public class StorageService {
     }
 
     public List<StorageSummaryDTO> getChildStorages(Long id) {
-        List<Storage> childStorages = storageRepository.findAllByParent_Id(id);
-        return storageMapper.mapToSummaryDTO(childStorages);
+        return storageRepository.findAllByParent_Id(id).stream()
+                .map(storageMapper::mapToSummaryDTO)
+                .toList();
     }
 }
