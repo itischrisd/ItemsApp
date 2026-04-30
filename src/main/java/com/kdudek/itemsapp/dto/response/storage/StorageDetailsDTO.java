@@ -1,19 +1,19 @@
 package com.kdudek.itemsapp.dto.response.storage;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Value
+@Builder
+@Jacksonized
 public class StorageDetailsDTO {
 
-    private Long id;
-    private String name;
-    private String note;
-    private StorageSummaryDTO parentStorage;
-    private List<StorageSummaryDTO> internalStorages;
+    Long id;
+    String name;
+    String note;
+    StorageSummaryDTO parentStorage;
+    List<StorageSummaryDTO> internalStorages;
 }

@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.dto.response.storage;
+package com.kdudek.itemsapp.dto.response.item;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,9 +7,9 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class StorageSummaryDTO {
+public class ItemSummaryDTO {
 
     Long id;
-    String name;
+    String description;
     String note;
 }
