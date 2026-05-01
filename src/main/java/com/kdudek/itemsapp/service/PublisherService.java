@@ -39,7 +39,7 @@ public class PublisherService {
     }
 
     public PublisherDetailsDTO update(Long id, PublisherUpdateDTO publisherUpdateDTO) {
-        Publisher publisher = publisherRepository.findById(id)
+        Publisher publisher = publisherRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
         publisherMapper.updatePublisherFromDTO(publisherUpdateDTO, publisher);
         publisherRepository.save(publisher);

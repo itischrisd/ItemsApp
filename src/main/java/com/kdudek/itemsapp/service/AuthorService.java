@@ -32,18 +32,18 @@ public class AuthorService {
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
     }
 
-    public AuthorSummaryDTO create(AuthorCreateDTO authorCreateDTO) {
+    public AuthorDetailsDTO create(AuthorCreateDTO authorCreateDTO) {
         Author author = authorMapper.mapToAuthor(authorCreateDTO);
         authorRepository.save(author);
-        return authorMapper.mapToSummaryDTO(author);
+        return authorMapper.mapToDetailsDTO(author);
     }
 
-    public AuthorSummaryDTO update(Long id, AuthorUpdateDTO authorUpdateDTO) {
-        Author author = authorRepository.findById(id)
+    public AuthorDetailsDTO update(Long id, AuthorUpdateDTO authorUpdateDTO) {
+        Author author = authorRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
         authorMapper.updateAuthorFromDTO(authorUpdateDTO, author);
         authorRepository.save(author);
-        return authorMapper.mapToSummaryDTO(author);
+        return authorMapper.mapToDetailsDTO(author);
     }
 
     public void delete(Long id) {

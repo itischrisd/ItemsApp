@@ -39,7 +39,7 @@ public class ItemService {
     }
 
     public ItemDetailsDTO update(Long id, ItemUpdateDTO itemUpdateDTO) {
-        Item item = itemRepository.findById(id)
+        Item item = itemRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, id));
         itemMapper.updateItemFromDTO(itemUpdateDTO, item);
         itemRepository.save(item);

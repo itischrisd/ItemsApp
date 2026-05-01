@@ -1,10 +1,10 @@
 package com.kdudek.itemsapp.controller;
 
-import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
-import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
-import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
-import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
-import com.kdudek.itemsapp.service.AuthorService;
+import com.kdudek.itemsapp.dto.request.item.ItemCreateDTO;
+import com.kdudek.itemsapp.dto.request.item.ItemUpdateDTO;
+import com.kdudek.itemsapp.dto.response.item.ItemDetailsDTO;
+import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
+import com.kdudek.itemsapp.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,38 +21,38 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/authors")
-public class AuthorController {
+@RequestMapping("/api/items")
+public class ItemController {
 
-    private final AuthorService authorService;
+    private final ItemService itemService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<AuthorSummaryDTO> getAll() {
-        return authorService.getAll();
+    public List<ItemSummaryDTO> getAll() {
+        return itemService.getAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorDetailsDTO getById(@PathVariable Long id) {
-        return authorService.getById(id);
+    public ItemDetailsDTO getById(@PathVariable Long id) {
+        return itemService.getById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AuthorDetailsDTO create(@RequestBody AuthorCreateDTO authorCreateDTO) {
-        return authorService.create(authorCreateDTO);
+    public ItemDetailsDTO create(@RequestBody ItemCreateDTO itemCreateDTO) {
+        return itemService.create(itemCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorDetailsDTO update(@PathVariable Long id, @RequestBody AuthorUpdateDTO authorUpdateDTO) {
-        return authorService.update(id, authorUpdateDTO);
+    public ItemDetailsDTO update(@PathVariable Long id, @RequestBody ItemUpdateDTO itemUpdateDTO) {
+        return itemService.update(id, itemUpdateDTO);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
-        authorService.delete(id);
+        itemService.delete(id);
     }
 }

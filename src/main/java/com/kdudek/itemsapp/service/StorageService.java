@@ -40,7 +40,7 @@ public class StorageService {
     }
 
     public StorageDetailsDTO update(Long id, StorageUpdateDTO storageUpdateDTO) {
-        Storage storage = storageRepository.findById(id)
+        Storage storage = storageRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
         storageMapper.updateStorageFromDTO(storageUpdateDTO, storage);
         storageRepository.save(storage);

@@ -39,7 +39,7 @@ public class BookService {
     }
 
     public BookDetailsDTO update(Long id, BookUpdateDTO bookUpdateDTO) {
-        Book book = bookRepository.findById(id)
+        Book book = bookRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
         bookMapper.updateBookFromDTO(bookUpdateDTO, book);
         bookRepository.save(book);
