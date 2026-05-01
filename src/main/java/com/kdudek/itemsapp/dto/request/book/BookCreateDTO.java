@@ -5,6 +5,7 @@ import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
 import java.time.Year;
+import java.util.Set;
 
 @Value
 @Builder
@@ -18,4 +19,8 @@ public class BookCreateDTO {
     Integer editionNumber;
     String catalogNumber;
     String note;
+    Set<Integer> authorsIds;
+    Set<Integer> categoriesIds;
+    Integer publisherId;
+    Integer storageId;
 }

@@ -10,8 +10,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValueMappingStrategy;
 
-import java.util.List;
-
 @Mapper(
         componentModel = "spring",
         uses = ReferenceTranslator.class,
@@ -19,10 +17,10 @@ import java.util.List;
 )
 public interface StorageMapper {
 
+    StorageSummaryDTO mapToSummaryDTO(Storage storage);
+
     @Mapping(target = "parentStorage", source = "parent")
     StorageDetailsDTO mapToDetailsDTO(Storage storage);
-
-    StorageSummaryDTO mapToSummaryDTO(Storage storage);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "internalStorages", ignore = true)
