@@ -27,7 +27,7 @@ public class ItemService {
     }
 
     public ItemDetailsDTO getById(Long id) {
-        return itemRepository.findById(id)
+        return itemRepository.findByIdWithRelatedObjects(id)
                 .map(itemMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, id));
     }

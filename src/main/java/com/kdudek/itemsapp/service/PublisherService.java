@@ -27,7 +27,7 @@ public class PublisherService {
     }
 
     public PublisherDetailsDTO getById(Long id) {
-        return publisherRepository.findById(id)
+        return publisherRepository.findByIdWithRelatedObjects(id)
                 .map(publisherMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
     }

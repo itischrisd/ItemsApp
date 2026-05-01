@@ -27,7 +27,7 @@ public class BookService {
     }
 
     public BookDetailsDTO getById(Long id) {
-        return bookRepository.findById(id)
+        return bookRepository.findByIdWithRelatedObjects(id)
                 .map(bookMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
     }

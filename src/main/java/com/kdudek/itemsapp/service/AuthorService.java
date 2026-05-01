@@ -27,7 +27,7 @@ public class AuthorService {
     }
 
     public AuthorDetailsDTO getById(Long id) {
-        return authorRepository.findById(id)
+        return authorRepository.findByIdWithRelatedObjects(id)
                 .map(authorMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
     }

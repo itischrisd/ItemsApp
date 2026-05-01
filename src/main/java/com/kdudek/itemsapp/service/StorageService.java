@@ -28,7 +28,7 @@ public class StorageService {
     }
 
     public StorageDetailsDTO getById(Long id) {
-        return storageRepository.findByIdWithChildren(id)
+        return storageRepository.findByIdWithRelatedObjects(id)
                 .map(storageMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
     }
