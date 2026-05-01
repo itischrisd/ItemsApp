@@ -3,6 +3,7 @@ package com.kdudek.itemsapp.service;
 import com.kdudek.itemsapp.dto.mapper.AuthorMapper;
 import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
 import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
+import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
 import com.kdudek.itemsapp.entity.book.Author;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
@@ -19,16 +20,16 @@ public class AuthorService {
     private final AuthorRepository authorRepository;
     private final AuthorMapper authorMapper;
 
-    public AuthorSummaryDTO getById(Long id) {
-        return authorRepository.findById(id)
-                .map(authorMapper::mapToSummaryDTO)
-                .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
-    }
-
     public List<AuthorSummaryDTO> getAll() {
         return authorRepository.findAll().stream()
                 .map(authorMapper::mapToSummaryDTO)
                 .toList();
+    }
+
+    public AuthorDetailsDTO getById(Long id) {
+        return authorRepository.findById(id)
+                .map(authorMapper::mapToDetailsDTO)
+                .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
     }
 
     public AuthorSummaryDTO create(AuthorCreateDTO authorCreateDTO) {

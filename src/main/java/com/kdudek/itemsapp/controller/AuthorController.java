@@ -2,6 +2,7 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
 import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
+import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
 import com.kdudek.itemsapp.service.AuthorService;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorSummaryDTO getById(@PathVariable Long id) {
+    public AuthorDetailsDTO getById(@PathVariable Long id) {
         return authorService.getById(id);
     }
 
