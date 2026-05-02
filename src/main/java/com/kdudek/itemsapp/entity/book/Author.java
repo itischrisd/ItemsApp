@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.entity.book;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Author {
     private String name;
     private String surname;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(mappedBy = "authors", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Set<Book> books;
 
     @CreationTimestamp
@@ -41,4 +42,14 @@ public class Author {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
+
+    public void addBook(Book book) {
+        this.books.add(book);
+        book.getAuthors().remove(this);
+    }
+
+    public void removeBook(Book book) {
+        this.books.remove(book);
+        book.getAuthors().remove(this);
+    }
 }

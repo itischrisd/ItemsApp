@@ -2,6 +2,7 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.publisher.PublisherCreateDTO;
 import com.kdudek.itemsapp.dto.request.publisher.PublisherUpdateDTO;
+import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherDetailsDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherSummaryDTO;
 import com.kdudek.itemsapp.service.PublisherService;
@@ -54,5 +55,23 @@ public class PublisherController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         publisherService.delete(id);
+    }
+
+    @GetMapping("/{id}/books")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookSummaryDTO> getBooksByPublisherId(@PathVariable Long id) {
+        return publisherService.getBooksByPublisherId(id);
+    }
+
+    @PostMapping("/{publisherId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addBookToPublisher(@PathVariable Long publisherId, @PathVariable Long bookId) {
+        publisherService.addBookToPublisher(publisherId, bookId);
+    }
+
+    @DeleteMapping("/{publisherId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeBookFromPublisher(@PathVariable Long publisherId, @PathVariable Long bookId) {
+        publisherService.removeBookFromPublisher(publisherId, bookId);
     }
 }

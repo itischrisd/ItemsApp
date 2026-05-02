@@ -2,6 +2,7 @@ package com.kdudek.itemsapp.entity.book;
 
 import com.kdudek.itemsapp.entity.Category;
 import com.kdudek.itemsapp.entity.Storage;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -43,15 +44,15 @@ public class Book {
     private String catalogNumber;
     private String note;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "BookAuthor")
     private Set<Author> authors;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "BookCategory")
     private Set<Category> categories;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
@@ -65,4 +66,24 @@ public class Book {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
+
+    public void addAuthor(Author author) {
+        this.authors.add(author);
+        author.getBooks().add(this);
+    }
+
+    public void removeAuthor(Author author) {
+        this.authors.remove(author);
+        author.getBooks().remove(this);
+    }
+
+    public void addPublisher(Publisher publisher) {
+        this.publisher = publisher;
+        publisher.getBooks().add(this);
+    }
+
+    public void removePublisher(Publisher publisher) {
+        this.publisher = null;
+        publisher.getBooks().remove(this);
+    }
 }

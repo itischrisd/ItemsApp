@@ -4,6 +4,7 @@ import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
 import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
+import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.service.AuthorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -54,5 +55,23 @@ public class AuthorController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         authorService.delete(id);
+    }
+
+    @GetMapping("/{id}/books")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookSummaryDTO> getBooksByAuthorId(@PathVariable Long id) {
+        return authorService.getBooksByAuthorId(id);
+    }
+
+    @PostMapping("/{authorId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addBookToAuthor(@PathVariable Long authorId, @PathVariable Long bookId) {
+        authorService.addBookToAuthor(authorId, bookId);
+    }
+
+    @DeleteMapping("/{authorId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeBookFromAuthor(@PathVariable Long authorId, @PathVariable Long bookId) {
+        authorService.removeBookFromAuthor(authorId, bookId);
     }
 }
