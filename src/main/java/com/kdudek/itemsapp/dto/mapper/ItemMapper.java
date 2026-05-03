@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.dto.mapper;
 
+import com.kdudek.itemsapp.config.MapStructConfig;
 import com.kdudek.itemsapp.dto.request.item.ItemCreateDTO;
 import com.kdudek.itemsapp.dto.request.item.ItemUpdateDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemDetailsDTO;
@@ -8,12 +9,10 @@ import com.kdudek.itemsapp.entity.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValueMappingStrategy;
 
 @Mapper(
-        componentModel = "spring",
-        uses = ReferenceTranslator.class,
-        nullValueIterableMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT
+        config = MapStructConfig.class,
+        uses = ReferenceTranslator.class
 )
 public interface ItemMapper {
 

@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.dto.mapper;
 
+import com.kdudek.itemsapp.config.MapStructConfig;
 import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
 import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
@@ -8,12 +9,8 @@ import com.kdudek.itemsapp.entity.book.Author;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValueMappingStrategy;
 
-@Mapper(
-        componentModel = "spring",
-        nullValueIterableMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT
-)
+@Mapper(config = MapStructConfig.class)
 public interface AuthorMapper {
 
     AuthorSummaryDTO mapToSummaryDTO(Author author);

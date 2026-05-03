@@ -1,5 +1,7 @@
 package com.kdudek.itemsapp.entity;
 
+import com.kdudek.itemsapp.entity.book.Book;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +21,7 @@ import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -35,12 +37,18 @@ public class Storage {
     private String name;
     private String note;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "parent_id")
     private Storage parent;
 
-    @OneToMany(mappedBy = "parent")
-    private List<Storage> internalStorages;
+    @OneToMany(mappedBy = "parent", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Set<Storage> internalStorages;
+
+    @OneToMany(mappedBy = "storage", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Set<Book> books;
+
+    @OneToMany(mappedBy = "storage", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Set<Item> items;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

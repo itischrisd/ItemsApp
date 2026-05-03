@@ -1,5 +1,7 @@
 package com.kdudek.itemsapp.dto.response.storage;
 
+import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
+import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -16,4 +18,6 @@ public class StorageDetailsDTO {
     String note;
     StorageSummaryDTO parentStorage;
     List<StorageSummaryDTO> internalStorages;
+    List<ItemSummaryDTO> items;
+    List<BookSummaryDTO> books;
 }
