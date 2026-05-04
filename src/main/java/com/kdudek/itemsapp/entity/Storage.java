@@ -61,4 +61,24 @@ public class Storage {
     private void orphanChildren() {
         internalStorages.forEach(internalStorage -> internalStorage.setParent(null));
     }
+
+    public void addBook(Book book) {
+        this.books.add(book);
+        book.setStorage(this);
+    }
+
+    public void removeBook(Book book) {
+        this.books.remove(book);
+        book.setStorage(null);
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+        item.setStorage(this);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
+        item.setStorage(null);
+    }
 }

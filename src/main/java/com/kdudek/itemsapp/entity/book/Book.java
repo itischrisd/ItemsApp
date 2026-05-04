@@ -66,24 +66,4 @@ public class Book {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
-
-    public void addAuthor(Author author) {
-        this.authors.add(author);
-        author.getBooks().add(this);
-    }
-
-    public void removeAuthor(Author author) {
-        this.authors.remove(author);
-        author.getBooks().remove(this);
-    }
-
-    public void addPublisher(Publisher publisher) {
-        this.publisher = publisher;
-        publisher.getBooks().add(this);
-    }
-
-    public void removePublisher(Publisher publisher) {
-        this.publisher = null;
-        publisher.getBooks().remove(this);
-    }
 }

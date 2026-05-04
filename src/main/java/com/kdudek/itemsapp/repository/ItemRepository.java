@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
@@ -15,4 +16,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
                 LEFT JOIN FETCH i.storage
             WHERE i.id = :id""")
     Optional<Item> findByIdWithRelatedObjects(@Param("id") Long id);
+
+    List<Item> findAllByCategories_Id(Long categoryId);
+
+    List<Item> findAllByStorage_Id(Long storageId);
 }

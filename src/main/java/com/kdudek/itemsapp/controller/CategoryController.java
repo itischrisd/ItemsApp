@@ -2,8 +2,10 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.category.CategoryCreateDTO;
 import com.kdudek.itemsapp.dto.request.category.CategoryUpdateDTO;
+import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.category.CategoryDetailsDTO;
 import com.kdudek.itemsapp.dto.response.category.CategorySummaryDTO;
+import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -54,5 +56,41 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         categoryService.delete(id);
+    }
+
+    @GetMapping("/{id}/books")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookSummaryDTO> getBooksByCategoryId(@PathVariable Long id) {
+        return categoryService.getBooksByCategoryId(id);
+    }
+
+    @PostMapping("/{categoryId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addBookToCategory(@PathVariable Long categoryId, @PathVariable Long bookId) {
+        categoryService.addBookToCategory(categoryId, bookId);
+    }
+
+    @DeleteMapping("/{categoryId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeBookFromCategory(@PathVariable Long categoryId, @PathVariable Long bookId) {
+        categoryService.removeBookFromCategory(categoryId, bookId);
+    }
+
+    @GetMapping("/{id}/items")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ItemSummaryDTO> getItemsByCategoryId(@PathVariable Long id) {
+        return categoryService.getItemsByCategoryId(id);
+    }
+
+    @PostMapping("/{categoryId}/items/{itemId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addItemToCategory(@PathVariable Long categoryId, @PathVariable Long itemId) {
+        categoryService.addItemToCategory(categoryId, itemId);
+    }
+
+    @DeleteMapping("/{categoryId}/items/{itemId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeItemFromCategory(@PathVariable Long categoryId, @PathVariable Long itemId) {
+        categoryService.removeItemFromCategory(categoryId, itemId);
     }
 }

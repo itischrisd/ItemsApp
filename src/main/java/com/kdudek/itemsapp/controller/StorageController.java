@@ -2,6 +2,8 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.storage.StorageCreateDTO;
 import com.kdudek.itemsapp.dto.request.storage.StorageUpdateDTO;
+import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
+import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.service.StorageService;
@@ -81,5 +83,41 @@ public class StorageController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<StorageSummaryDTO> getChildStorages(@PathVariable Long id) {
         return storageService.getChildStorages(id);
+    }
+
+    @GetMapping("/{id}/books")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookSummaryDTO> getBooksByStorageId(@PathVariable Long id) {
+        return storageService.getBooksByStorageId(id);
+    }
+
+    @PostMapping("/{storageId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addBookToStorage(@PathVariable Long storageId, @PathVariable Long bookId) {
+        storageService.addBookToStorage(storageId, bookId);
+    }
+
+    @DeleteMapping("/{storageId}/books/{bookId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeBookFromStorage(@PathVariable Long storageId, @PathVariable Long bookId) {
+        storageService.removeBookFromStorage(storageId, bookId);
+    }
+
+    @GetMapping("/{id}/items")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ItemSummaryDTO> getItemsByStorageId(@PathVariable Long id) {
+        return storageService.getItemsByStorageId(id);
+    }
+
+    @PostMapping("/{storageId}/items/{itemId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addItemToStorage(@PathVariable Long storageId, @PathVariable Long itemId) {
+        storageService.addItemToStorage(storageId, itemId);
+    }
+
+    @DeleteMapping("/{storageId}/items/{itemId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeItemFromStorage(@PathVariable Long storageId, @PathVariable Long itemId) {
+        storageService.removeItemFromStorage(storageId, itemId);
     }
 }

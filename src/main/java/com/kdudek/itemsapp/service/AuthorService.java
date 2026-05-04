@@ -23,8 +23,8 @@ import java.util.List;
 public class AuthorService {
 
     private final AuthorRepository authorRepository;
-    private final BookRepository bookRepository;
     private final AuthorMapper authorMapper;
+    private final BookRepository bookRepository;
     private final BookMapper bookMapper;
 
     public List<AuthorSummaryDTO> getAll() {
@@ -61,6 +61,9 @@ public class AuthorService {
     }
 
     public List<BookSummaryDTO> getBooksByAuthorId(Long id) {
+        if (!authorRepository.existsById(id)) {
+            throw new ResourceNotFoundException(Author.class, id);
+        }
         return bookRepository.findAllByAuthors_Id(id).stream()
                 .map(bookMapper::mapToSummaryDTO)
                 .toList();

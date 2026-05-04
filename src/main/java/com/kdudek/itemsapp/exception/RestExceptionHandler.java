@@ -11,7 +11,10 @@ import java.time.Instant;
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler({
+            ResourceNotFoundException.class,
+            RelatedResourceNotFoundException.class
+    })
     public ProblemDetail handleResourceNotFoundException(Throwable e) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
         problemDetail.setTitle("Resource Not Found");

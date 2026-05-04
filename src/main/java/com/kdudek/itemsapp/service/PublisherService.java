@@ -61,6 +61,9 @@ public class PublisherService {
     }
 
     public List<BookSummaryDTO> getBooksByPublisherId(Long id) {
+        if (!publisherRepository.existsById(id)) {
+            throw new ResourceNotFoundException(Publisher.class, id);
+        }
         return bookRepository.findAllByPublisher_Id(id).stream()
                 .map(bookMapper::mapToSummaryDTO)
                 .toList();

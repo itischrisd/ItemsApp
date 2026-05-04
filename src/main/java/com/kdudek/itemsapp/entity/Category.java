@@ -45,4 +45,24 @@ public class Category {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
+
+    public void addBook(Book book) {
+        this.books.add(book);
+        book.getCategories().remove(this);
+    }
+
+    public void removeBook(Book book) {
+        this.books.remove(book);
+        book.getCategories().remove(this);
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+        item.getCategories().add(this);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
+        item.getCategories().remove(this);
+    }
 }

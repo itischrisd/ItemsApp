@@ -11,5 +11,26 @@ and other belongings, and to be a training ground for modern web app development
 
 This is an incomplete list of planned work, roughly ordered by priority:
 
-- generalize Books, Storage and Items into one supertype
+- finalize REST endpoints
+- Swagger
+- DaisyUI interface
+- jsp / thymeleaf
+- dockerization
+- db (PostreSQL)
+- migrate previous data to db
+- flyway migrations
+- validation
+- error handling
 - business documentation (MoSCoW)
+- env and profiles
+- Etag caching
+- generalize Books, Storage and Items into one supertype
+- JaCoCo
+- tests (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)
+- security (jwt, OAuth)
+- JMS
+- idempotent POST
+- MongoDB
+- Redis caching
+- Scheduled
+- Async
