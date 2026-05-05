@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ItemsApp
+    name: items-app
   main:
     banner-mode: off
   datasource:
