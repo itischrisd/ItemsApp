@@ -11,26 +11,41 @@ and other belongings, and to be a training ground for modern web app development
 
 This is an incomplete list of planned work, roughly ordered by priority:
 
-- finalize REST endpoints
-- Swagger
-- DaisyUI interface
-- jsp / thymeleaf
-- dockerization
-- db (PostreSQL)
-- migrate previous data to db
-- flyway migrations
+  Prio 1 (MUST):
 - validation
 - error handling
 - business documentation (MoSCoW)
-- env and profiles
-- Etag caching
-- generalize Books, Storage and Items into one supertype
-- JaCoCo
-- tests (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)
-- security (jwt, OAuth)
+- Swagger
+- Postman
+- db (PostreSQL)
+- migrate previous data to db
+
+  Prio 2 (nice to have BE):
+- BE dockerization
 - JMS
+- env and profiles
+- flyway migrations
+- generalize Books, Storage and Items into one supertype
 - idempotent POST
+- Etag caching
+
+  Prio 3 (long term future, FE):
+- DaisyUI interface
+- BE+FE dockerization
+- tests (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)
+- JaCoCo
+- security (jwt, OAuth)
+
+To consider:
+- RestTemplate (ext API)
 - MongoDB
 - Redis caching
 - Scheduled
 - Async
+- VPS / cloud hosting
+- CI/CD for this project
+- trivy
+
+  Won't do:
+- thymeleaf / jsp
+- FE framework
