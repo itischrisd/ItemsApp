@@ -21,6 +21,7 @@ This is an incomplete list of planned work, roughly ordered by priority:
 - migrate previous data to db
 
   Prio 2 (nice to have BE):
+- pagination, sorting, filtering
 - BE dockerization
 - JMS
 - env and profiles
