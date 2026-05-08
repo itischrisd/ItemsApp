@@ -5,6 +5,7 @@ import com.kdudek.itemsapp.dto.request.book.BookUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookDetailsDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.service.BookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,13 +41,13 @@ public class BookController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public BookDetailsDTO create(@RequestBody BookCreateDTO bookCreateDTO) {
+    public BookDetailsDTO create(@RequestBody @Valid BookCreateDTO bookCreateDTO) {
         return bookService.create(bookCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public BookDetailsDTO update(@PathVariable Long id, @RequestBody BookUpdateDTO bookUpdateDTO) {
+    public BookDetailsDTO update(@PathVariable Long id, @RequestBody @Valid BookUpdateDTO bookUpdateDTO) {
         return bookService.update(id, bookUpdateDTO);
     }
 

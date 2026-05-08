@@ -17,12 +17,15 @@ import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.ItemRepository;
 import com.kdudek.itemsapp.repository.StorageRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
+@Validated
 @RequiredArgsConstructor
 public class StorageService {
 
@@ -45,13 +48,13 @@ public class StorageService {
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
     }
 
-    public StorageDetailsDTO create(StorageCreateDTO storageCreateDTO) {
+    public StorageDetailsDTO create(@Valid StorageCreateDTO storageCreateDTO) {
         Storage storage = storageMapper.mapToStorage(storageCreateDTO);
         storageRepository.save(storage);
         return storageMapper.mapToDetailsDTO(storage);
     }
 
-    public StorageDetailsDTO update(Long id, StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(Long id, @Valid StorageUpdateDTO storageUpdateDTO) {
         Storage storage = storageRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
         storageMapper.updateStorageFromDTO(storageUpdateDTO, storage);

@@ -6,6 +6,7 @@ import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherDetailsDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherSummaryDTO;
 import com.kdudek.itemsapp.service.PublisherService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,13 +42,13 @@ public class PublisherController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PublisherDetailsDTO create(@RequestBody PublisherCreateDTO publisherCreateDTO) {
+    public PublisherDetailsDTO create(@RequestBody @Valid PublisherCreateDTO publisherCreateDTO) {
         return publisherService.create(publisherCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public PublisherDetailsDTO update(@PathVariable Long id, @RequestBody PublisherUpdateDTO publisherUpdateDTO) {
+    public PublisherDetailsDTO update(@PathVariable Long id, @RequestBody @Valid PublisherUpdateDTO publisherUpdateDTO) {
         return publisherService.update(id, publisherUpdateDTO);
     }
 

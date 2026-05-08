@@ -2,6 +2,7 @@ package com.kdudek.itemsapp.entity;
 
 import com.kdudek.itemsapp.entity.book.Book;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,11 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(
+            nullable = false,
+            unique = true
+    )
     private String name;
 
     @ManyToMany(mappedBy = "categories", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -40,6 +46,7 @@ public class Category {
     private Set<Book> books;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp(source = SourceType.DB)
     private LocalDateTime updatedAt;

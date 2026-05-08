@@ -7,6 +7,7 @@ import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.service.StorageService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class StorageController {
     }
 
     @PostMapping
-    public ResponseEntity<StorageDetailsDTO> create(@RequestBody StorageCreateDTO storageCreateDTO) {
+    public ResponseEntity<StorageDetailsDTO> create(@RequestBody @Valid StorageCreateDTO storageCreateDTO) {
         StorageDetailsDTO storageDetailsDTO = storageService.create(storageCreateDTO);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -57,7 +58,7 @@ public class StorageController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StorageDetailsDTO update(@PathVariable Long id, @RequestBody StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(@PathVariable Long id, @RequestBody @Valid StorageUpdateDTO storageUpdateDTO) {
         return storageService.update(id, storageUpdateDTO);
     }
 

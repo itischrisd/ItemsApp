@@ -1,6 +1,8 @@
 package com.kdudek.itemsapp.entity;
 
+import com.kdudek.itemsapp.common.DomainLimits;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,7 +35,11 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(length = DomainLimits.SHORT_TEXT)
     private String note;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -45,6 +51,7 @@ public class Item {
     private Storage storage;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp(source = SourceType.DB)
     private LocalDateTime updatedAt;

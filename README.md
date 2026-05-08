@@ -25,10 +25,14 @@ This is an incomplete list of planned work, roughly ordered by priority:
 - BE dockerization
 - JMS
 - env and profiles
+- dev, test, prod data
 - flyway migrations
 - generalize Books, Storage and Items into one supertype
+- coverType enumeration
 - idempotent POST
 - Etag caching
+- l18n
+- indices
 
   Prio 3 (long term future, FE):
 - DaisyUI interface

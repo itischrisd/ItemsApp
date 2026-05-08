@@ -7,6 +7,7 @@ import com.kdudek.itemsapp.dto.response.category.CategoryDetailsDTO;
 import com.kdudek.itemsapp.dto.response.category.CategorySummaryDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,13 +43,13 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CategoryDetailsDTO create(@RequestBody CategoryCreateDTO categoryCreateDTO) {
+    public CategoryDetailsDTO create(@RequestBody @Valid CategoryCreateDTO categoryCreateDTO) {
         return categoryService.create(categoryCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public CategoryDetailsDTO update(@PathVariable Long id, @RequestBody CategoryUpdateDTO categoryUpdateDTO) {
+    public CategoryDetailsDTO update(@PathVariable Long id, @RequestBody @Valid CategoryUpdateDTO categoryUpdateDTO) {
         return categoryService.update(id, categoryUpdateDTO);
     }
 

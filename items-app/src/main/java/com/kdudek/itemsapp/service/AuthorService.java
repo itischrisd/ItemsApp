@@ -13,12 +13,15 @@ import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.AuthorRepository;
 import com.kdudek.itemsapp.repository.BookRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
+@Validated
 @RequiredArgsConstructor
 public class AuthorService {
 
@@ -39,13 +42,13 @@ public class AuthorService {
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
     }
 
-    public AuthorDetailsDTO create(AuthorCreateDTO authorCreateDTO) {
+    public AuthorDetailsDTO create(@Valid AuthorCreateDTO authorCreateDTO) {
         Author author = authorMapper.mapToAuthor(authorCreateDTO);
         authorRepository.save(author);
         return authorMapper.mapToDetailsDTO(author);
     }
 
-    public AuthorDetailsDTO update(Long id, AuthorUpdateDTO authorUpdateDTO) {
+    public AuthorDetailsDTO update(Long id, @Valid AuthorUpdateDTO authorUpdateDTO) {
         Author author = authorRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
         authorMapper.updateAuthorFromDTO(authorUpdateDTO, author);

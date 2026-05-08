@@ -6,6 +6,7 @@ import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.service.AuthorService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,13 +42,13 @@ public class AuthorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AuthorDetailsDTO create(@RequestBody AuthorCreateDTO authorCreateDTO) {
+    public AuthorDetailsDTO create(@RequestBody @Valid AuthorCreateDTO authorCreateDTO) {
         return authorService.create(authorCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorDetailsDTO update(@PathVariable Long id, @RequestBody AuthorUpdateDTO authorUpdateDTO) {
+    public AuthorDetailsDTO update(@PathVariable Long id, @RequestBody @Valid AuthorUpdateDTO authorUpdateDTO) {
         return authorService.update(id, authorUpdateDTO);
     }
 

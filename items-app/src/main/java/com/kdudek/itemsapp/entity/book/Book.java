@@ -1,8 +1,10 @@
 package com.kdudek.itemsapp.entity.book;
 
+import com.kdudek.itemsapp.common.DomainLimits;
 import com.kdudek.itemsapp.entity.Category;
 import com.kdudek.itemsapp.entity.Storage;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,12 +38,24 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
     private String title;
+
     private Year yearOfPublication;
+
+    @Column(length = DomainLimits.SHORT_NAME)
     private String coverType;
+
+    @Column(length = DomainLimits.CODE)
     private String serialNumber;
+
     private Integer editionNumber;
+
+    @Column(length = DomainLimits.CODE)
     private String catalogNumber;
+
+    @Column(length = DomainLimits.DESCRIPTION)
     private String note;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -61,6 +75,7 @@ public class Book {
     private Storage storage;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp(source = SourceType.DB)
     private LocalDateTime updatedAt;

@@ -5,6 +5,7 @@ import com.kdudek.itemsapp.dto.request.item.ItemUpdateDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemDetailsDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,13 +41,13 @@ public class ItemController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ItemDetailsDTO create(@RequestBody ItemCreateDTO itemCreateDTO) {
+    public ItemDetailsDTO create(@RequestBody @Valid ItemCreateDTO itemCreateDTO) {
         return itemService.create(itemCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ItemDetailsDTO update(@PathVariable Long id, @RequestBody ItemUpdateDTO itemUpdateDTO) {
+    public ItemDetailsDTO update(@PathVariable Long id, @RequestBody @Valid ItemUpdateDTO itemUpdateDTO) {
         return itemService.update(id, itemUpdateDTO);
     }
 

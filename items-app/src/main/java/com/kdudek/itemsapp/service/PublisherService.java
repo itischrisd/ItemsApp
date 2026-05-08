@@ -13,12 +13,15 @@ import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.PublisherRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
+@Validated
 @RequiredArgsConstructor
 public class PublisherService {
 
@@ -39,13 +42,13 @@ public class PublisherService {
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
     }
 
-    public PublisherDetailsDTO create(PublisherCreateDTO publisherCreateDTO) {
+    public PublisherDetailsDTO create(@Valid PublisherCreateDTO publisherCreateDTO) {
         Publisher publisher = publisherMapper.mapToPublisher(publisherCreateDTO);
         publisherRepository.save(publisher);
         return publisherMapper.mapToDetailsDTO(publisher);
     }
 
-    public PublisherDetailsDTO update(Long id, PublisherUpdateDTO publisherUpdateDTO) {
+    public PublisherDetailsDTO update(Long id, @Valid PublisherUpdateDTO publisherUpdateDTO) {
         Publisher publisher = publisherRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
         publisherMapper.updatePublisherFromDTO(publisherUpdateDTO, publisher);

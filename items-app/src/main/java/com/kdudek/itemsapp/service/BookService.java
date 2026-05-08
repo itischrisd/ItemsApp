@@ -8,12 +8,15 @@ import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.entity.book.Book;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.BookRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
+@Validated
 @RequiredArgsConstructor
 public class BookService {
 
@@ -32,13 +35,13 @@ public class BookService {
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
     }
 
-    public BookDetailsDTO create(BookCreateDTO bookCreateDTO) {
+    public BookDetailsDTO create(@Valid BookCreateDTO bookCreateDTO) {
         Book book = bookMapper.mapToBook(bookCreateDTO);
         bookRepository.save(book);
         return bookMapper.mapToDetailsDTO(book);
     }
 
-    public BookDetailsDTO update(Long id, BookUpdateDTO bookUpdateDTO) {
+    public BookDetailsDTO update(Long id, @Valid BookUpdateDTO bookUpdateDTO) {
         Book book = bookRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
         bookMapper.updateBookFromDTO(bookUpdateDTO, book);
