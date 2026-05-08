@@ -12,8 +12,6 @@ and other belongings, and to be a training ground for modern web app development
 This is an incomplete list of planned work, roughly ordered by priority:
 
   Prio 1 (MUST):
-- validation
-- error handling
 - business documentation (MoSCoW)
 - Swagger
 - Postman
