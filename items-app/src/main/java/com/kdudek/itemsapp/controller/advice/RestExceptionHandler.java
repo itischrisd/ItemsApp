@@ -1,5 +1,7 @@
-package com.kdudek.itemsapp.exception;
+package com.kdudek.itemsapp.controller.advice;
 
+import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
