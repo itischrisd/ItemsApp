@@ -75,7 +75,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ @Column annotations in entites (with suitable constraints)  
 ✅ Exception handling (through Controller Advice)  
 ✅ Exceptions for Service layer  
-❌ Swagger interface  
+✅ Swagger interface  
 ❌ OpenAPI documentation  
 ❌ Postman collection  
 ✅ Project documentation with MoSCoW model  
@@ -92,7 +92,8 @@ Planned user functionality and technical elements has been split into categories
 ❌ Partial responses (GraphQL-like)  
 ❌ Dockerization for backend  
 ❌ JMS (for future integration)  
-❌ Profiles  
+✅ Spring Profiles  
+✅ Maven Profiles  
 ❌ Data for dev, test, prod environments  
 ❌ .env files  
 ❌ Flyway migrations  
