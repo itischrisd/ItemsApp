@@ -68,8 +68,10 @@ public class Storage {
     private Integer version;
 
     @PreRemove
-    private void orphanChildren() {
+    private void preRemove() {
         internalStorages.forEach(internalStorage -> internalStorage.setParent(null));
+        books.forEach(book -> book.setStorage(null));
+        items.forEach(item -> item.setStorage(null));
     }
 
     public void addBook(Book book) {

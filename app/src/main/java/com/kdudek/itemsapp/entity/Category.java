@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PreRemove;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -52,6 +53,12 @@ public class Category {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
+
+    @PreRemove
+    private void preRemove() {
+        books.forEach(book -> book.getCategories().remove(this));
+        items.forEach(item -> item.getCategories().remove(this));
+    }
 
     public void addBook(Book book) {
         this.books.add(book);
