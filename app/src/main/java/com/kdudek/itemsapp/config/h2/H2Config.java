@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.config;
+package com.kdudek.itemsapp.config.h2;
 
 import org.h2.tools.Server;
 import org.springframework.context.annotation.Bean;
@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.sql.SQLException;
 
-@Configuration
 @Profile("dev")
+@Configuration
 public class H2Config {
 
     @Bean(initMethod = "start", destroyMethod = "stop")

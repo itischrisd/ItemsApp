@@ -76,10 +76,11 @@ Planned user functionality and technical elements has been split into categories
 ✅ Exception handling (through Controller Advice)  
 ✅ Exceptions for Service layer  
 ✅ Swagger interface  
-❌ OpenAPI documentation  
 ❌ Postman collection  
+✅ Test data for H2  
 ✅ Project documentation with MoSCoW model  
 ❌ PostgreSQL for testing and prod  
+❌ Test data for Postgres  
 ❌ Data ingest for prod
 
 ### Should have
@@ -100,7 +101,8 @@ Planned user functionality and technical elements has been split into categories
 ❌ generalize Books, Storage and Items into one supertype  
 ❌ coverType as enumeration  
 ❌ ETag and Last-Modified (for client-side caching)  
-❌ Indices for db
+❌ Indices for db  
+❌ OpenAPI documentation
 
 ### Could have
 
@@ -111,7 +113,8 @@ Planned user functionality and technical elements has been split into categories
 ❌ Security (jwt, OAuth)  
 ❌ l18n  
 ❌ Tests: unit, module, integration, system (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)  
-❌ JaCoCo
+❌ JaCoCo  
+❌ Mobile app
 
 ### Won't have
 
