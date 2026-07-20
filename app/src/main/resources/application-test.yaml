@@ -9,6 +9,8 @@ spring:
   h2:
     console:
       enabled: false
+  flyway:
+    enabled: true
 springdoc:
   api-docs:
     enabled: true

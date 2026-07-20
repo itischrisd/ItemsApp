@@ -5,3 +5,6 @@ spring:
     banner-mode: off
   jpa:
     open-in-view: true
+  jackson:
+    mapper:
+      sort-properties-alphabetically: false

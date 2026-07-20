@@ -6,14 +6,14 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate.format_sql: false
   h2:
     console:
       enabled: true
   flyway:
-    enabled: false
+    enabled: true
 springdoc:
   api-docs:
     enabled: true

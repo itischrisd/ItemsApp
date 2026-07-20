@@ -76,12 +76,12 @@ Planned user functionality and technical elements has been split into categories
 ✅ Exception handling (through Controller Advice)  
 ✅ Exceptions for Service layer  
 ✅ Swagger interface  
-❌ Postman collection  
+✅ Postman collection  
 ✅ Test data for H2  
 ✅ Project documentation with MoSCoW model  
-❌ PostgreSQL for testing and prod  
+✅ PostgreSQL for testing and prod  
 ❌ Test data for Postgres  
-❌ Data ingest for prod
+✅ Data ingest for prod
 
 ### Should have
 
@@ -97,7 +97,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Maven Profiles  
 ❌ Data for dev, test, prod environments  
 ❌ .env files  
-❌ Flyway migrations  
+✅ Flyway migrations  
 ❌ generalize Books, Storage and Items into one supertype  
 ❌ coverType as enumeration  
 ❌ ETag and Last-Modified (for client-side caching)  
