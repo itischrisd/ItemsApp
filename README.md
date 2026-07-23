@@ -79,8 +79,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Postman collection  
 ✅ Test data for H2  
 ✅ Project documentation with MoSCoW model  
-✅ PostgreSQL for testing and prod  
-❌ Test data for Postgres  
+✅ PostgreSQL for testing and prod
 ✅ Data ingest for prod
 
 ### Should have
@@ -92,10 +91,9 @@ Planned user functionality and technical elements has been split into categories
 ❌ Sorting  
 ❌ Partial responses (GraphQL-like)  
 ❌ Dockerization for backend  
-❌ JMS (for future integration)  
 ✅ Spring Profiles  
 ✅ Maven Profiles  
-❌ Data for dev, test, prod environments  
+✅ Data for dev, test, prod environments  
 ❌ .env files  
 ✅ Flyway migrations  
 ❌ generalize Books, Storage and Items into one supertype  
@@ -123,6 +121,7 @@ Planned user functionality and technical elements has been split into categories
 ❌ Thymeleaf / jsp / templating  
 ❌ Session-based UI  
 ❌ Frontend with JS framework
+❌ JMS
 
 ### To consider in the future
 
@@ -135,4 +134,5 @@ good to consider in the future:
 - Async
 - VPS / cloud hosting / home lab
 - CI / CD pipeline(s)
+- backup and test data management
 - trivy
