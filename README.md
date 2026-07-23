@@ -46,6 +46,10 @@ _TO DO_
 
 _TO DO_
 
+## Database diagram
+
+![ERD database diagram](./other/erd.svg)
+
 ## Planned functions and elements
 
 Planned user functionality and technical elements has been split into categories following MoSCoW model.  
@@ -84,7 +88,7 @@ Planned user functionality and technical elements has been split into categories
 
 ### Should have
 
-❌ Normalized DB schema, with documentation    
+✅ Normalized DB schema, with documentation    
 ❌ Response headers (Content-Length, Location for POST)  
 ❌ Pagination  
 ❌ Filtering  
