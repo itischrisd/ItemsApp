@@ -12,7 +12,7 @@ import org.mapstruct.MappingTarget;
 
 @Mapper(
         config = MapStructConfig.class,
-        uses = ReferenceTranslator.class
+        uses = {ReferenceTranslator.class, YearMapper.class}
 )
 public interface BookMapper {
 

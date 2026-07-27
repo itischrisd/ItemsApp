@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.dto.response.author;
+package com.kdudek.itemsapp.dto.response.publisher;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,9 +7,8 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class AuthorSummaryDTO {
+public class PublisherResponseDTO {
 
     Long id;
     String name;
-    String surname;
 }

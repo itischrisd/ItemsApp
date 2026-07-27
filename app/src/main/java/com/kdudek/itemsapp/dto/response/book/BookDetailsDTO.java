@@ -1,14 +1,13 @@
 package com.kdudek.itemsapp.dto.response.book;
 
-import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
-import com.kdudek.itemsapp.dto.response.category.CategorySummaryDTO;
-import com.kdudek.itemsapp.dto.response.publisher.PublisherSummaryDTO;
+import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
+import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
+import com.kdudek.itemsapp.dto.response.publisher.PublisherResponseDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-import java.time.Year;
 import java.util.Set;
 
 @Value
@@ -18,14 +17,14 @@ public class BookDetailsDTO {
 
     Long id;
     String title;
-    Year yearOfPublication;
+    Integer yearOfPublication;
     String coverType;
     String serialNumber;
     Integer editionNumber;
     String catalogNumber;
     String note;
-    Set<AuthorSummaryDTO> authors;
-    Set<CategorySummaryDTO> categories;
-    PublisherSummaryDTO publisher;
+    Set<AuthorResponseDTO> authors;
+    Set<CategoryResponseDTO> categories;
+    PublisherResponseDTO publisher;
     StorageSummaryDTO storage;
 }

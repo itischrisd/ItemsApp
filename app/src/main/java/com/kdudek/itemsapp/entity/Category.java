@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.PreRemove;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -40,10 +41,18 @@ public class Category {
     )
     private String name;
 
-    @ManyToMany(mappedBy = "categories", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(
+            mappedBy = "categories",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+    )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Item> items;
 
-    @ManyToMany(mappedBy = "categories", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(
+            mappedBy = "categories",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+    )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Book> books;
 
     @CreationTimestamp
@@ -53,30 +62,4 @@ public class Category {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
-
-    @PreRemove
-    private void preRemove() {
-        books.forEach(book -> book.getCategories().remove(this));
-        items.forEach(item -> item.getCategories().remove(this));
-    }
-
-    public void addBook(Book book) {
-        this.books.add(book);
-        book.getCategories().remove(this);
-    }
-
-    public void removeBook(Book book) {
-        this.books.remove(book);
-        book.getCategories().remove(this);
-    }
-
-    public void addItem(Item item) {
-        this.items.add(item);
-        item.getCategories().add(this);
-    }
-
-    public void removeItem(Item item) {
-        this.items.remove(item);
-        item.getCategories().remove(this);
-    }
 }

@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.PreRemove;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -43,7 +44,11 @@ public class Author {
     @Column(length = DomainLimits.SHORT_NAME)
     private String surname;
 
-    @ManyToMany(mappedBy = "authors", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(
+            mappedBy = "authors",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+    )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Book> books;
 
     @CreationTimestamp
@@ -53,19 +58,4 @@ public class Author {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
-
-    @PreRemove
-    private void preRemove() {
-        books.forEach(book -> book.getAuthors().remove(this));
-    }
-
-    public void addBook(Book book) {
-        this.books.add(book);
-        book.getAuthors().remove(this);
-    }
-
-    public void removeBook(Book book) {
-        this.books.remove(book);
-        book.getAuthors().remove(this);
-    }
 }

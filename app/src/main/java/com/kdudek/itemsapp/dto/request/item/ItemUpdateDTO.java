@@ -15,6 +15,7 @@ public class ItemUpdateDTO {
     @NotBlank
     @Size(max = DomainLimits.LONG_NAME)
     String description;
+
     @Size(max = DomainLimits.SHORT_TEXT)
     String note;
 }

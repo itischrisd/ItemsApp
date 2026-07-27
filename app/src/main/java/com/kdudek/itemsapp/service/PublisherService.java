@@ -5,8 +5,7 @@ import com.kdudek.itemsapp.dto.mapper.PublisherMapper;
 import com.kdudek.itemsapp.dto.request.publisher.PublisherCreateDTO;
 import com.kdudek.itemsapp.dto.request.publisher.PublisherUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
-import com.kdudek.itemsapp.dto.response.publisher.PublisherDetailsDTO;
-import com.kdudek.itemsapp.dto.response.publisher.PublisherSummaryDTO;
+import com.kdudek.itemsapp.dto.response.publisher.PublisherResponseDTO;
 import com.kdudek.itemsapp.entity.book.Book;
 import com.kdudek.itemsapp.entity.book.Publisher;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
@@ -15,10 +14,10 @@ import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.PublisherRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
-import java.util.List;
 
 @Service
 @Validated
@@ -30,30 +29,29 @@ public class PublisherService {
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
 
-    public List<PublisherSummaryDTO> getAll() {
-        return publisherRepository.findAll().stream()
-                .map(publisherMapper::mapToSummaryDTO)
-                .toList();
+    public Page<PublisherResponseDTO> getAll(Pageable pageable) {
+        return publisherRepository.findAll(pageable)
+                .map(publisherMapper::mapToDTO);
     }
 
-    public PublisherDetailsDTO getById(Long id) {
-        return publisherRepository.findByIdWithRelatedObjects(id)
-                .map(publisherMapper::mapToDetailsDTO)
+    public PublisherResponseDTO getById(Long id) {
+        return publisherRepository.findById(id)
+                .map(publisherMapper::mapToDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
     }
 
-    public PublisherDetailsDTO create(@Valid PublisherCreateDTO publisherCreateDTO) {
+    public PublisherResponseDTO create(@Valid PublisherCreateDTO publisherCreateDTO) {
         Publisher publisher = publisherMapper.mapToPublisher(publisherCreateDTO);
         publisherRepository.save(publisher);
-        return publisherMapper.mapToDetailsDTO(publisher);
+        return publisherMapper.mapToDTO(publisher);
     }
 
-    public PublisherDetailsDTO update(Long id, @Valid PublisherUpdateDTO publisherUpdateDTO) {
-        Publisher publisher = publisherRepository.findByIdWithRelatedObjects(id)
+    public PublisherResponseDTO update(Long id, @Valid PublisherUpdateDTO publisherUpdateDTO) {
+        Publisher publisher = publisherRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
         publisherMapper.updatePublisherFromDTO(publisherUpdateDTO, publisher);
         publisherRepository.save(publisher);
-        return publisherMapper.mapToDetailsDTO(publisher);
+        return publisherMapper.mapToDTO(publisher);
     }
 
     public void delete(Long id) {
@@ -63,32 +61,35 @@ public class PublisherService {
         publisherRepository.deleteById(id);
     }
 
-    public List<BookSummaryDTO> getBooksByPublisherId(Long id) {
+    public Page<BookSummaryDTO> getBooksByPublisherId(Long id, Pageable pageable) {
         if (!publisherRepository.existsById(id)) {
             throw new ResourceNotFoundException(Publisher.class, id);
         }
-        return bookRepository.findAllByPublisher_Id(id).stream()
-                .map(bookMapper::mapToSummaryDTO)
-                .toList();
+        return bookRepository.findAllByPublisher_Id(id, pageable)
+                .map(bookMapper::mapToSummaryDTO);
     }
 
     public void addBookToPublisher(Long publisherId, Long bookId) {
-        Publisher publisher = publisherRepository.findByIdWithRelatedObjects(publisherId)
-                .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, publisherId));
+        if (!publisherRepository.existsById(publisherId)) {
+            throw new ResourceNotFoundException(Publisher.class, publisherId);
+        }
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
-        publisher.addBook(book);
-        publisherRepository.save(publisher);
+        Publisher publisherProxy = publisherRepository.getReferenceById(publisherId);
+        book.setPublisher(publisherProxy);
+        bookRepository.save(book);
     }
 
     public void removeBookFromPublisher(Long publisherId, Long bookId) {
-        Publisher publisher = publisherRepository.findByIdWithRelatedObjects(publisherId)
-                .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, publisherId));
-        Book book = publisher.getBooks().stream()
-                .filter(b -> b.getId().equals(bookId))
-                .findAny()
+        if (!publisherRepository.existsById(publisherId)) {
+            throw new ResourceNotFoundException(Publisher.class, publisherId);
+        }
+        Book book = bookRepository.findByIdWithPublisher(bookId)
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Publisher.class, publisherId, Book.class, bookId));
-        publisher.removeBook(book);
-        publisherRepository.save(publisher);
+        if (!publisherId.equals(book.getPublisher().getId())) {
+            throw new RelatedResourceNotFoundException(Publisher.class, publisherId, Book.class, bookId);
+        }
+        book.setPublisher(null);
+        bookRepository.save(book);
     }
 }

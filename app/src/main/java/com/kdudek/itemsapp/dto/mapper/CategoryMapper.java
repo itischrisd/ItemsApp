@@ -3,8 +3,7 @@ package com.kdudek.itemsapp.dto.mapper;
 import com.kdudek.itemsapp.config.MapStructConfig;
 import com.kdudek.itemsapp.dto.request.category.CategoryCreateDTO;
 import com.kdudek.itemsapp.dto.request.category.CategoryUpdateDTO;
-import com.kdudek.itemsapp.dto.response.category.CategoryDetailsDTO;
-import com.kdudek.itemsapp.dto.response.category.CategorySummaryDTO;
+import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
 import com.kdudek.itemsapp.entity.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,9 +12,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(config = MapStructConfig.class)
 public interface CategoryMapper {
 
-    CategorySummaryDTO mapToSummaryDTO(Category category);
-
-    CategoryDetailsDTO mapToDetailsDTO(Category category);
+    CategoryResponseDTO mapToDTO(Category category);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)

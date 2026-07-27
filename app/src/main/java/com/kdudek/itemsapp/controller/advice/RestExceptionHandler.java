@@ -10,7 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.data.core.PropertyReferenceException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -108,7 +110,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.CONFLICT,
                 "Operation couldn't be completed due to data conflict."
         );
-        problemDetail.setTitle("Datbase Conflict");
+        problemDetail.setTitle("Database Conflict");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
@@ -120,7 +122,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.CONFLICT,
                 "Operation couldn't be completed due to data conflict."
         );
-        problemDetail.setTitle("Datbase Conflict");
+        problemDetail.setTitle("Database Conflict");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
@@ -132,6 +134,28 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Operation requested for stale data."
         );
         problemDetail.setTitle("Conflict");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(PropertyReferenceException.class)
+    public ProblemDetail handlePropertyReference(PropertyReferenceException e) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                "Invalid property name used: " + e.getPropertyName()
+        );
+        problemDetail.setTitle("Unknown property name");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public ProblemDetail handleInvalidDataAccessApiUsage(InvalidDataAccessApiUsageException e) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                "Invalid sort expression or unknown property name used"
+        );
+        problemDetail.setTitle("Invalid sort expression");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }

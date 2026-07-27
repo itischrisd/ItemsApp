@@ -10,10 +10,10 @@ import com.kdudek.itemsapp.exception.ResourceNotFoundException;
 import com.kdudek.itemsapp.repository.ItemRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
-import java.util.List;
 
 @Service
 @Validated
@@ -23,10 +23,9 @@ public class ItemService {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
-    public List<ItemSummaryDTO> getAll() {
-        return itemRepository.findAll().stream()
-                .map(itemMapper::mapToSummaryDTO)
-                .toList();
+    public Page<ItemSummaryDTO> getAll(Pageable pageable) {
+        return itemRepository.findAll(pageable)
+                .map(itemMapper::mapToSummaryDTO);
     }
 
     public ItemDetailsDTO getById(Long id) {
@@ -38,7 +37,9 @@ public class ItemService {
     public ItemDetailsDTO create(@Valid ItemCreateDTO itemCreateDTO) {
         Item item = itemMapper.mapToItem(itemCreateDTO);
         itemRepository.save(item);
-        return itemMapper.mapToDetailsDTO(item);
+        return itemRepository.findByIdWithRelatedObjects(item.getId())
+                .map(itemMapper::mapToDetailsDTO)
+                .orElseThrow(IllegalStateException::new);
     }
 
     public ItemDetailsDTO update(Long id, @Valid ItemUpdateDTO itemUpdateDTO) {

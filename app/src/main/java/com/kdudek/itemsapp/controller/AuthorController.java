@@ -2,12 +2,14 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.author.AuthorCreateDTO;
 import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
-import com.kdudek.itemsapp.dto.response.author.AuthorDetailsDTO;
-import com.kdudek.itemsapp.dto.response.author.AuthorSummaryDTO;
+import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
+import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.service.AuthorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/authors")
@@ -30,25 +30,28 @@ public class AuthorController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<AuthorSummaryDTO> getAll() {
-        return authorService.getAll();
+    public PageResponse<AuthorResponseDTO> getAll(@ParameterObject Pageable pageable) {
+        return PageResponse.of(authorService.getAll(pageable));
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorDetailsDTO getById(@PathVariable Long id) {
+    public AuthorResponseDTO getById(@PathVariable Long id) {
         return authorService.getById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AuthorDetailsDTO create(@RequestBody @Valid AuthorCreateDTO authorCreateDTO) {
+    public AuthorResponseDTO create(@RequestBody @Valid AuthorCreateDTO authorCreateDTO) {
         return authorService.create(authorCreateDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AuthorDetailsDTO update(@PathVariable Long id, @RequestBody @Valid AuthorUpdateDTO authorUpdateDTO) {
+    public AuthorResponseDTO update(
+            @PathVariable Long id,
+            @RequestBody @Valid AuthorUpdateDTO authorUpdateDTO
+    ) {
         return authorService.update(id, authorUpdateDTO);
     }
 
@@ -60,19 +63,28 @@ public class AuthorController {
 
     @GetMapping("/{id}/books")
     @ResponseStatus(HttpStatus.OK)
-    public List<BookSummaryDTO> getBooksByAuthorId(@PathVariable Long id) {
-        return authorService.getBooksByAuthorId(id);
+    public PageResponse<BookSummaryDTO> getBooksByAuthorId(
+            @PathVariable Long id,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(authorService.getBooksByAuthorId(id, pageable));
     }
 
     @PostMapping("/{authorId}/books/{bookId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addBookToAuthor(@PathVariable Long authorId, @PathVariable Long bookId) {
+    public void addBookToAuthor(
+            @PathVariable Long authorId,
+            @PathVariable Long bookId
+    ) {
         authorService.addBookToAuthor(authorId, bookId);
     }
 
     @DeleteMapping("/{authorId}/books/{bookId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeBookFromAuthor(@PathVariable Long authorId, @PathVariable Long bookId) {
+    public void removeBookFromAuthor(
+            @PathVariable Long authorId,
+            @PathVariable Long bookId
+    ) {
         authorService.removeBookFromAuthor(authorId, bookId);
     }
 }

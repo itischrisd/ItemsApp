@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PreRemove;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,7 +35,10 @@ public class Publisher {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "publisher", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(
+            mappedBy = "publisher",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+    )
     private Set<Book> books;
 
     @CreationTimestamp
@@ -46,19 +48,4 @@ public class Publisher {
     private LocalDateTime updatedAt;
     @Version
     private Integer version;
-
-    @PreRemove
-    private void preRemove() {
-        books.forEach(book -> book.setPublisher(null));
-    }
-
-    public void addBook(Book book) {
-        this.books.add(book);
-        book.setPublisher(this);
-    }
-
-    public void removeBook(Book book) {
-        this.books.remove(book);
-        book.setPublisher(null);
-    }
 }

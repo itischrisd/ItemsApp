@@ -3,12 +3,15 @@ package com.kdudek.itemsapp.controller;
 import com.kdudek.itemsapp.dto.request.storage.StorageCreateDTO;
 import com.kdudek.itemsapp.dto.request.storage.StorageUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
+import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.service.StorageService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,8 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/storages")
@@ -35,8 +36,8 @@ public class StorageController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Collection<StorageSummaryDTO> getAll() {
-        return storageService.getAll();
+    public PageResponse<StorageSummaryDTO> getAll(@ParameterObject Pageable pageable) {
+        return PageResponse.of(storageService.getAll(pageable));
     }
 
     @GetMapping("/{id}")
@@ -58,7 +59,10 @@ public class StorageController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StorageDetailsDTO update(@PathVariable Long id, @RequestBody @Valid StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(
+            @PathVariable Long id,
+            @RequestBody @Valid StorageUpdateDTO storageUpdateDTO
+    ) {
         return storageService.update(id, storageUpdateDTO);
     }
 
@@ -68,57 +72,84 @@ public class StorageController {
         storageService.delete(id);
     }
 
+    @GetMapping("/{id}/storages")
+    @ResponseStatus(HttpStatus.OK)
+    public PageResponse<StorageSummaryDTO> getChildStorages(
+            @PathVariable Long id,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(storageService.getChildStorages(id, pageable));
+    }
+
     @PostMapping("/{parentId}/storages/{childId}")
     @ResponseStatus(HttpStatus.OK)
-    public void addToParent(@PathVariable Long parentId, @PathVariable Long childId) {
+    public void addToParent(
+            @PathVariable Long parentId,
+            @PathVariable Long childId
+    ) {
         storageService.addToParent(parentId, childId);
     }
 
     @DeleteMapping("/{parentId}/storages/{childId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeFromParent(@PathVariable Long parentId, @PathVariable Long childId) {
+    public void removeFromParent(
+            @PathVariable Long parentId,
+            @PathVariable Long childId
+    ) {
         storageService.removeFromParent(parentId, childId);
-    }
-
-    @GetMapping("/{id}/storages")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public List<StorageSummaryDTO> getChildStorages(@PathVariable Long id) {
-        return storageService.getChildStorages(id);
     }
 
     @GetMapping("/{id}/books")
     @ResponseStatus(HttpStatus.OK)
-    public List<BookSummaryDTO> getBooksByStorageId(@PathVariable Long id) {
-        return storageService.getBooksByStorageId(id);
+    public PageResponse<BookSummaryDTO> getBooksByStorageId(
+            @PathVariable Long id,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(storageService.getBooksByStorageId(id, pageable));
     }
 
     @PostMapping("/{storageId}/books/{bookId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addBookToStorage(@PathVariable Long storageId, @PathVariable Long bookId) {
+    public void addBookToStorage(
+            @PathVariable Long storageId,
+            @PathVariable Long bookId
+    ) {
         storageService.addBookToStorage(storageId, bookId);
     }
 
     @DeleteMapping("/{storageId}/books/{bookId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeBookFromStorage(@PathVariable Long storageId, @PathVariable Long bookId) {
+    public void removeBookFromStorage(
+            @PathVariable Long storageId,
+            @PathVariable Long bookId
+    ) {
         storageService.removeBookFromStorage(storageId, bookId);
     }
 
     @GetMapping("/{id}/items")
     @ResponseStatus(HttpStatus.OK)
-    public List<ItemSummaryDTO> getItemsByStorageId(@PathVariable Long id) {
-        return storageService.getItemsByStorageId(id);
+    public PageResponse<ItemSummaryDTO> getItemsByStorageId(
+            @PathVariable Long id,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(storageService.getItemsByStorageId(id, pageable));
     }
 
     @PostMapping("/{storageId}/items/{itemId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addItemToStorage(@PathVariable Long storageId, @PathVariable Long itemId) {
+    public void addItemToStorage(
+            @PathVariable Long storageId,
+            @PathVariable Long itemId
+    ) {
         storageService.addItemToStorage(storageId, itemId);
     }
 
     @DeleteMapping("/{storageId}/items/{itemId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeItemFromStorage(@PathVariable Long storageId, @PathVariable Long itemId) {
+    public void removeItemFromStorage(
+            @PathVariable Long storageId,
+            @PathVariable Long itemId
+    ) {
         storageService.removeItemFromStorage(storageId, itemId);
     }
 }

@@ -20,10 +20,13 @@ public class ItemCreateDTO {
     @NotBlank
     @Size(max = DomainLimits.LONG_NAME)
     String description;
+
     @Size(max = DomainLimits.SHORT_TEXT)
     String note;
+
     @ExistsInDatabase(entity = Category.class)
-    Set<Integer> categoriesIds;
+    Set<Long> categoriesIds;
+
     @ExistsInDatabase(entity = Storage.class)
     Integer storageId;
 }

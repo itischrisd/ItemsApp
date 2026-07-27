@@ -19,10 +19,10 @@ import com.kdudek.itemsapp.repository.ItemRepository;
 import com.kdudek.itemsapp.repository.StorageRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
-import java.util.List;
 
 @Service
 @Validated
@@ -36,14 +36,13 @@ public class StorageService {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
-    public List<StorageSummaryDTO> getAll() {
-        return storageRepository.findAll().stream()
-                .map(storageMapper::mapToSummaryDTO)
-                .toList();
+    public Page<StorageSummaryDTO> getAll(Pageable pageable) {
+        return storageRepository.findAll(pageable)
+                .map(storageMapper::mapToSummaryDTO);
     }
 
     public StorageDetailsDTO getById(Long id) {
-        return storageRepository.findByIdWithRelatedObjects(id)
+        return storageRepository.findByIdWithParent(id)
                 .map(storageMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
     }
@@ -55,7 +54,7 @@ public class StorageService {
     }
 
     public StorageDetailsDTO update(Long id, @Valid StorageUpdateDTO storageUpdateDTO) {
-        Storage storage = storageRepository.findByIdWithRelatedObjects(id)
+        Storage storage = storageRepository.findByIdWithParent(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
         storageMapper.updateStorageFromDTO(storageUpdateDTO, storage);
         storageRepository.save(storage);
@@ -68,12 +67,22 @@ public class StorageService {
         storageRepository.delete(storage);
     }
 
+    public Page<StorageSummaryDTO> getChildStorages(Long id, Pageable pageable) {
+        if (!storageRepository.existsById(id)) {
+            throw new ResourceNotFoundException(Storage.class, id);
+        }
+        return storageRepository.findAllByParent_Id(id, pageable)
+                .map(storageMapper::mapToSummaryDTO);
+    }
+
     public void addToParent(Long parentId, Long childId) {
-        Storage parent = storageRepository.findById(parentId)
-                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, parentId));
+        if (!storageRepository.existsById(parentId)) {
+            throw new ResourceNotFoundException(Storage.class, parentId);
+        }
         Storage child = storageRepository.findById(childId)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, childId));
-        child.setParent(parent);
+        Storage parentProxy = storageRepository.getReferenceById(parentId);
+        child.setParent(parentProxy);
         storageRepository.save(child);
     }
 
@@ -81,73 +90,76 @@ public class StorageService {
         if (!storageRepository.existsById(parentId)) {
             throw new ResourceNotFoundException(Storage.class, parentId);
         }
-        Storage child = storageRepository.findById_AndParent_Id(childId, parentId)
+        Storage child = storageRepository.findById(childId)
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, parentId, Storage.class, childId));
+        if (!parentId.equals(child.getParent().getId())) {
+            throw new RelatedResourceNotFoundException(Storage.class, parentId, Storage.class, childId);
+        }
         child.setParent(null);
         storageRepository.save(child);
     }
 
-    public List<StorageSummaryDTO> getChildStorages(Long id) {
-        return storageRepository.findAllByParent_Id(id).stream()
-                .map(storageMapper::mapToSummaryDTO)
-                .toList();
-    }
-
-    public List<BookSummaryDTO> getBooksByStorageId(Long id) {
+    public Page<BookSummaryDTO> getBooksByStorageId(Long id, Pageable pageable) {
         if (!storageRepository.existsById(id)) {
             throw new ResourceNotFoundException(Storage.class, id);
         }
-        return bookRepository.findAllByStorage_Id(id).stream()
-                .map(bookMapper::mapToSummaryDTO)
-                .toList();
+        return bookRepository.findAllByStorage_Id(id, pageable)
+                .map(bookMapper::mapToSummaryDTO);
     }
 
     public void addBookToStorage(Long storageId, Long bookId) {
-        Storage storage = storageRepository.findByIdWithBooks(storageId)
-                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, storageId));
+        if (!storageRepository.existsById(storageId)) {
+            throw new ResourceNotFoundException(Storage.class, storageId);
+        }
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
-        storage.addBook(book);
-        storageRepository.save(storage);
+        Storage storageProxy = storageRepository.getReferenceById(storageId);
+        book.setStorage(storageProxy);
+        bookRepository.save(book);
     }
 
     public void removeBookFromStorage(Long storageId, Long bookId) {
-        Storage storage = storageRepository.findByIdWithBooks(storageId)
-                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, storageId));
-        Book book = storage.getBooks().stream()
-                .filter(b -> b.getId().equals(bookId))
-                .findAny()
+        if (!storageRepository.existsById(storageId)) {
+            throw new ResourceNotFoundException(Storage.class, storageId);
+        }
+        Book book = bookRepository.findByIdWithStorage(bookId)
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, storageId, Book.class, bookId));
-        storage.removeBook(book);
-        storageRepository.save(storage);
+        if (!storageId.equals(book.getStorage().getId())) {
+            throw new RelatedResourceNotFoundException(Storage.class, storageId, Book.class, bookId);
+        }
+        book.setStorage(null);
+        bookRepository.save(book);
     }
 
-    public List<ItemSummaryDTO> getItemsByStorageId(Long id) {
+    public Page<ItemSummaryDTO> getItemsByStorageId(Long id, Pageable pageable) {
         if (!storageRepository.existsById(id)) {
             throw new ResourceNotFoundException(Storage.class, id);
         }
-        return itemRepository.findAllByStorage_Id(id).stream()
-                .map(itemMapper::mapToSummaryDTO)
-                .toList();
+        return itemRepository.findAllByStorage_Id(id, pageable)
+                .map(itemMapper::mapToSummaryDTO);
     }
 
     public void addItemToStorage(Long storageId, Long itemId) {
-        Storage storage = storageRepository.findByIdWithItems(storageId)
-                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, storageId));
+        if (!storageRepository.existsById(storageId)) {
+            throw new ResourceNotFoundException(Storage.class, storageId);
+        }
         Item item = itemRepository.findById(itemId)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, itemId));
-        storage.addItem(item);
-        storageRepository.save(storage);
+        Storage storageProxy = storageRepository.getReferenceById(storageId);
+        item.setStorage(storageProxy);
+        itemRepository.save(item);
     }
 
     public void removeItemFromStorage(Long storageId, Long itemId) {
-        Storage storage = storageRepository.findByIdWithItems(storageId)
-                .orElseThrow(() -> new ResourceNotFoundException(Storage.class, storageId));
-        Item item = storage.getItems().stream()
-                .filter(i -> i.getId().equals(itemId))
-                .findAny()
-                .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, storageId, Book.class, itemId));
-        storage.removeItem(item);
-        storageRepository.save(storage);
+        if (!storageRepository.existsById(storageId)) {
+            throw new ResourceNotFoundException(Storage.class, storageId);
+        }
+        Item item = itemRepository.findByIdWithStorage(itemId)
+                .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, storageId, Item.class, itemId));
+        if (!storageId.equals(item.getStorage().getId())) {
+            throw new RelatedResourceNotFoundException(Storage.class, storageId, Item.class, itemId);
+        }
+        item.setStorage(null);
+        itemRepository.save(item);
     }
 }

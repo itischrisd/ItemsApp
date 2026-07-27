@@ -17,8 +17,10 @@ public class StorageCreateDTO {
     @NotBlank
     @Size(max = DomainLimits.LONG_NAME)
     private String name;
+
     @Size(max = DomainLimits.DESCRIPTION)
     private String note;
+
     @ExistsInDatabase(entity = Storage.class)
     private Long parentId;
 }

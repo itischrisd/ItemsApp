@@ -15,6 +15,7 @@ public class StorageUpdateDTO {
     @NotBlank
     @Size(max = DomainLimits.LONG_NAME)
     private String name;
+
     @Size(max = DomainLimits.DESCRIPTION)
     private String note;
 }

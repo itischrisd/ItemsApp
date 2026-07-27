@@ -6,8 +6,7 @@ import com.kdudek.itemsapp.dto.mapper.ItemMapper;
 import com.kdudek.itemsapp.dto.request.category.CategoryCreateDTO;
 import com.kdudek.itemsapp.dto.request.category.CategoryUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
-import com.kdudek.itemsapp.dto.response.category.CategoryDetailsDTO;
-import com.kdudek.itemsapp.dto.response.category.CategorySummaryDTO;
+import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.entity.Category;
 import com.kdudek.itemsapp.entity.Item;
@@ -19,10 +18,10 @@ import com.kdudek.itemsapp.repository.CategoryRepository;
 import com.kdudek.itemsapp.repository.ItemRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
-import java.util.List;
 
 @Service
 @Validated
@@ -36,30 +35,29 @@ public class CategoryService {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
-    public List<CategorySummaryDTO> getAll() {
-        return categoryRepository.findAll().stream()
-                .map(categoryMapper::mapToSummaryDTO)
-                .toList();
+    public Page<CategoryResponseDTO> getAll(Pageable pageable) {
+        return categoryRepository.findAll(pageable)
+                .map(categoryMapper::mapToDTO);
     }
 
-    public CategoryDetailsDTO getById(Long id) {
-        return categoryRepository.findByIdWithRelatedObjects(id)
-                .map(categoryMapper::mapToDetailsDTO)
+    public CategoryResponseDTO getById(Long id) {
+        return categoryRepository.findById(id)
+                .map(categoryMapper::mapToDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, id));
     }
 
-    public CategoryDetailsDTO create(@Valid CategoryCreateDTO categoryCreateDTO) {
+    public CategoryResponseDTO create(@Valid CategoryCreateDTO categoryCreateDTO) {
         Category category = categoryMapper.mapToCategory(categoryCreateDTO);
         categoryRepository.save(category);
-        return categoryMapper.mapToDetailsDTO(category);
+        return categoryMapper.mapToDTO(category);
     }
 
-    public CategoryDetailsDTO update(Long id, @Valid CategoryUpdateDTO categoryUpdateDTO) {
-        Category category = categoryRepository.findByIdWithRelatedObjects(id)
+    public CategoryResponseDTO update(Long id, @Valid CategoryUpdateDTO categoryUpdateDTO) {
+        Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, id));
         categoryMapper.updateCategoryFromDTO(categoryUpdateDTO, category);
         categoryRepository.save(category);
-        return categoryMapper.mapToDetailsDTO(category);
+        return categoryMapper.mapToDTO(category);
     }
 
     public void delete(Long id) {
@@ -69,61 +67,65 @@ public class CategoryService {
         categoryRepository.deleteById(id);
     }
 
-    public List<BookSummaryDTO> getBooksByCategoryId(Long id) {
+    public Page<BookSummaryDTO> getBooksByCategoryId(Long id, Pageable pageable) {
         if (!categoryRepository.existsById(id)) {
             throw new ResourceNotFoundException(Category.class, id);
         }
-        return bookRepository.findAllByCategories_Id(id).stream()
-                .map(bookMapper::mapToSummaryDTO)
-                .toList();
+        return bookRepository.findAllByCategories_Id(id, pageable)
+                .map(bookMapper::mapToSummaryDTO);
     }
 
     public void addBookToCategory(Long categoryId, Long bookId) {
-        Category category = categoryRepository.findByIdWithBooks(categoryId)
+        Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId));
-        Book book = bookRepository.findById(bookId)
+        Book book = bookRepository.findByIdWithCategories(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
-        category.addBook(book);
-        categoryRepository.save(category);
+        book.getCategories().add(category);
+        bookRepository.save(book);
     }
 
     public void removeBookFromCategory(Long categoryId, Long bookId) {
-        Category category = categoryRepository.findByIdWithBooks(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId));
-        Book book = category.getBooks().stream()
-                .filter(b -> b.getId().equals(bookId))
-                .findAny()
+        if (!categoryRepository.existsById(categoryId)) {
+            throw new ResourceNotFoundException(Category.class, categoryId);
+        }
+        Book book = bookRepository.findByIdWithCategories(bookId)
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Book.class, bookId));
-        category.removeBook(book);
-        categoryRepository.save(category);
+        Category category = book.getCategories().stream()
+                .filter(c -> c.getId().equals(categoryId))
+                .findFirst()
+                .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Book.class, bookId));
+        book.getCategories().remove(category);
+        bookRepository.save(book);
     }
 
-    public List<ItemSummaryDTO> getItemsByCategoryId(Long id) {
+    public Page<ItemSummaryDTO> getItemsByCategoryId(Long id, Pageable pageable) {
         if (!categoryRepository.existsById(id)) {
             throw new ResourceNotFoundException(Category.class, id);
         }
-        return itemRepository.findAllByCategories_Id(id).stream()
-                .map(itemMapper::mapToSummaryDTO)
-                .toList();
+        return itemRepository.findAllByCategories_Id(id, pageable)
+                .map(itemMapper::mapToSummaryDTO);
     }
 
     public void addItemToCategory(Long categoryId, Long itemId) {
-        Category category = categoryRepository.findByIdWithItems(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId));
-        Item item = itemRepository.findById(itemId)
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId) );
+        Item item = itemRepository.findByIdWithCategories(itemId)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, itemId));
-        category.addItem(item);
-        categoryRepository.save(category);
+        item.getCategories().add(category);
+        itemRepository.save(item);
     }
 
     public void removeItemFromCategory(Long categoryId, Long itemId) {
-        Category category = categoryRepository.findByIdWithItems(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId));
-        Item item = category.getItems().stream()
-                .filter(i -> i.getId().equals(itemId))
-                .findAny()
-                .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Book.class, itemId));
-        category.removeItem(item);
-        categoryRepository.save(category);
+        if (!categoryRepository.existsById(categoryId)) {
+            throw new ResourceNotFoundException(Category.class, categoryId);
+        }
+        Item item = itemRepository.findByIdWithCategories((itemId))
+                .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Item.class, itemId));
+        Category category = item.getCategories().stream()
+                .filter(c -> c.getId().equals(categoryId))
+                .findFirst()
+                .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Item.class, itemId));
+        item.getCategories().remove(category);
+        itemRepository.save(item);
     }
 }

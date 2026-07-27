@@ -16,6 +16,7 @@ public class AuthorUpdateDTO {
     @NotBlank
     @Size(max = DomainLimits.SHORT_NAME)
     String name;
+
     @NullableNotBlank
     @Size(max = DomainLimits.SHORT_NAME)
     String surname;

@@ -63,7 +63,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Timestamps (creation and update), version for entities  
 ✅ JPA repositories  
 ✅ Relations between entities  
-✅ JPQL queries (to fetch object with associated objects)    
+✅ JPQL queries with EntityGraphs (to fetch object with associated objects)    
 ✅ DTOs (request and response)  
 ✅ Lombok annotations for entities and DTOs (proper choice)  
 ✅ MapStruct mappers     
@@ -90,10 +90,8 @@ Planned user functionality and technical elements has been split into categories
 
 ✅ Normalized DB schema, with documentation    
 ❌ Response headers (Content-Length, Location for POST)  
-❌ Pagination  
-❌ Filtering  
-❌ Sorting  
-❌ Partial responses (GraphQL-like)  
+✅ Pagination  
+✅ Sorting  
 ❌ Dockerization for backend  
 ✅ Spring Profiles  
 ✅ Maven Profiles  
@@ -113,6 +111,7 @@ Planned user functionality and technical elements has been split into categories
 ❌ Dockerization for full stack  
 ❌ Redis for local caching  
 ❌ Security (jwt, OAuth)  
+❌ Filtering  
 ❌ l18n  
 ❌ Tests: unit, module, integration, system (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)  
 ❌ JaCoCo  
@@ -126,6 +125,7 @@ Planned user functionality and technical elements has been split into categories
 ❌ Session-based UI  
 ❌ Frontend with JS framework
 ❌ JMS
+❌ Partial responses (GraphQL-like)  
 
 ### To consider in the future
 
