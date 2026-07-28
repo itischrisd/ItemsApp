@@ -89,15 +89,16 @@ Planned user functionality and technical elements has been split into categories
 ### Should have
 
 ✅ Normalized DB schema, with documentation    
-❌ Response headers (Content-Length, Location for POST)  
+✅ Flyway migrations  
+✅ Location for POST  
 ✅ Pagination  
 ✅ Sorting  
-❌ Dockerization for backend  
+✅ Filtering (RSQL)
 ✅ Spring Profiles  
 ✅ Maven Profiles  
 ✅ Data for dev, test, prod environments  
 ❌ .env files  
-✅ Flyway migrations  
+❌ Dockerization for backend  
 ❌ generalize Books, Storage and Items into one supertype  
 ❌ coverType as enumeration  
 ❌ ETag and Last-Modified (for client-side caching)  
@@ -107,11 +108,10 @@ Planned user functionality and technical elements has been split into categories
 ### Could have
 
 ❌ Idempotency-Key for POST  
-❌ Frontend with DaisyUI  
 ❌ Dockerization for full stack  
-❌ Redis for local caching  
+❌ Frontend with DaisyUI  
 ❌ Security (jwt, OAuth)  
-❌ Filtering  
+❌ Redis for local caching  
 ❌ l18n  
 ❌ Tests: unit, module, integration, system (JUnit, AssertJ, Mockito, MockMvc, repositories, WireMock, RestAssured)  
 ❌ JaCoCo  
