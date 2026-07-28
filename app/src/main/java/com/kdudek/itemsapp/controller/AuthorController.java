@@ -5,11 +5,13 @@ import com.kdudek.itemsapp.dto.request.author.AuthorUpdateDTO;
 import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.common.PageResponse;
+import com.kdudek.itemsapp.entity.book.Author;
 import com.kdudek.itemsapp.service.AuthorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +32,11 @@ public class AuthorController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PageResponse<AuthorResponseDTO> getAll(@ParameterObject Pageable pageable) {
-        return PageResponse.of(authorService.getAll(pageable));
+    public PageResponse<AuthorResponseDTO> getAll(
+            Specification<Author> specification,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(authorService.getAll(specification, pageable));
     }
 
     @GetMapping("/{id}")

@@ -7,11 +7,13 @@ import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
+import com.kdudek.itemsapp.entity.Storage;
 import com.kdudek.itemsapp.service.StorageService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,8 +38,11 @@ public class StorageController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PageResponse<StorageSummaryDTO> getAll(@ParameterObject Pageable pageable) {
-        return PageResponse.of(storageService.getAll(pageable));
+    public PageResponse<StorageSummaryDTO> getAll(
+            Specification<Storage> specification,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(storageService.getAll(specification, pageable));
     }
 
     @GetMapping("/{id}")

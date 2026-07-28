@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -36,8 +37,8 @@ public class StorageService {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
-    public Page<StorageSummaryDTO> getAll(Pageable pageable) {
-        return storageRepository.findAll(pageable)
+    public Page<StorageSummaryDTO> getAll(Specification<Storage> specification, Pageable pageable) {
+        return storageRepository.findAll(specification, pageable)
                 .map(storageMapper::mapToSummaryDTO);
     }
 

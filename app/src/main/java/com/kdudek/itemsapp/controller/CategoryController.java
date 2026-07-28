@@ -6,11 +6,13 @@ import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
 import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
+import com.kdudek.itemsapp.entity.Category;
 import com.kdudek.itemsapp.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +33,11 @@ public class CategoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PageResponse<CategoryResponseDTO> getAll(@ParameterObject Pageable pageable) {
-        return PageResponse.of(categoryService.getAll(pageable));
+    public PageResponse<CategoryResponseDTO> getAll(
+            Specification<Category> specification,
+            @ParameterObject Pageable pageable
+    ) {
+        return PageResponse.of(categoryService.getAll(specification, pageable));
     }
 
     @GetMapping("/{id}")

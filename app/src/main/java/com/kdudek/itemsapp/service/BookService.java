@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -23,8 +24,8 @@ public class BookService {
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
 
-    public Page<BookSummaryDTO> getAll(Pageable pageable) {
-        return bookRepository.findAll(pageable)
+    public Page<BookSummaryDTO> getAll(Specification<Book> specification, Pageable pageable) {
+        return bookRepository.findAll(specification, pageable)
                 .map(bookMapper::mapToSummaryDTO);
     }
 

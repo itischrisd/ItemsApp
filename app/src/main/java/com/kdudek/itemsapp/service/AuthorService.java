@@ -16,6 +16,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -29,8 +30,8 @@ public class AuthorService {
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
 
-    public Page<AuthorResponseDTO> getAll(Pageable pageable) {
-        return authorRepository.findAll(pageable)
+    public Page<AuthorResponseDTO> getAll(Specification<Author> specification, Pageable pageable) {
+        return authorRepository.findAll(specification, pageable)
                 .map(authorMapper::maptoDTO);
     }
 
