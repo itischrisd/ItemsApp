@@ -2,16 +2,19 @@ package com.kdudek.itemsapp.controller;
 
 import com.kdudek.itemsapp.dto.request.publisher.PublisherCreateDTO;
 import com.kdudek.itemsapp.dto.request.publisher.PublisherUpdateDTO;
+import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherResponseDTO;
 import com.kdudek.itemsapp.entity.book.Publisher;
 import com.kdudek.itemsapp.service.PublisherService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor
@@ -47,8 +53,18 @@ public class PublisherController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PublisherResponseDTO create(@RequestBody @Valid PublisherCreateDTO publisherCreateDTO) {
-        return publisherService.create(publisherCreateDTO);
+    public PublisherResponseDTO create(
+            @RequestBody @Valid PublisherCreateDTO publisherCreateDTO,
+            HttpServletResponse response
+    ) {
+        PublisherResponseDTO created = publisherService.create(publisherCreateDTO);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(created.getId())
+                .toUri();
+        response.setHeader(HttpHeaders.LOCATION, location.toString());
+        return created;
     }
 
     @PutMapping("/{id}")

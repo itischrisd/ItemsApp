@@ -98,9 +98,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Maven Profiles  
 ✅ Data for dev, test, prod environments  
 ❌ .env files  
-❌ Dockerization for backend  
-❌ generalize Books, Storage and Items into one supertype  
-❌ coverType as enumeration  
+❌ Dockerization for backend   
 ❌ ETag and Last-Modified (for client-side caching)  
 ❌ Indices for db  
 ❌ OpenAPI documentation
@@ -110,6 +108,8 @@ Planned user functionality and technical elements has been split into categories
 ❌ Idempotency-Key for POST  
 ❌ Dockerization for full stack  
 ❌ Frontend with DaisyUI  
+❌ generalize Books, Storage and Items into one supertype  
+❌ coverType as enumeration
 ❌ Security (jwt, OAuth)  
 ❌ Redis for local caching  
 ❌ l18n  

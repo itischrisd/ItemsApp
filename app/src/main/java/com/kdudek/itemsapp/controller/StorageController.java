@@ -9,13 +9,14 @@ import com.kdudek.itemsapp.dto.response.storage.StorageDetailsDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.entity.Storage;
 import com.kdudek.itemsapp.service.StorageService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,14 +53,19 @@ public class StorageController {
     }
 
     @PostMapping
-    public ResponseEntity<StorageDetailsDTO> create(@RequestBody @Valid StorageCreateDTO storageCreateDTO) {
-        StorageDetailsDTO storageDetailsDTO = storageService.create(storageCreateDTO);
+    @ResponseStatus(HttpStatus.CREATED)
+    public StorageDetailsDTO create(
+            @RequestBody @Valid StorageCreateDTO storageCreateDTO,
+            HttpServletResponse response
+    ) {
+        StorageDetailsDTO created = storageService.create(storageCreateDTO);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(storageDetailsDTO.getId())
+                .buildAndExpand(created.getId())
                 .toUri();
-        return ResponseEntity.created(location).body(storageDetailsDTO);
+        response.setHeader(HttpHeaders.LOCATION, location.toString());
+        return created;
     }
 
     @PutMapping("/{id}")
