@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.sql.SQLException;
 
-@Profile("dev")
+@Profile("h2")
 @Configuration
 public class H2Config {
 

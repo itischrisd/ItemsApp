@@ -94,10 +94,9 @@ Planned user functionality and technical elements has been split into categories
 ✅ Pagination  
 ✅ Sorting  
 ✅ Filtering (RSQL)
-✅ Spring Profiles  
-✅ Maven Profiles  
+✅ Spring Profiles   
 ✅ Data for dev, test, prod environments  
-❌ .env files  
+✅ Flat Spring profiles with env vars, flat pom.xml
 ❌ Dockerization for backend   
 ❌ ETag and Last-Modified (for client-side caching)  
 ❌ Indices for db  

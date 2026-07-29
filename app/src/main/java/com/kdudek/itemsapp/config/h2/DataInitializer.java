@@ -24,7 +24,7 @@ import java.time.Year;
 import java.util.List;
 import java.util.Set;
 
-@Profile("dev")
+@Profile("h2")
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements ApplicationRunner {

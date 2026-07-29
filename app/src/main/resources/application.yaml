@@ -3,8 +3,25 @@ spring:
     name: items-app
   main:
     banner-mode: off
-  jpa:
-    open-in-view: true
   jackson:
     mapper:
       sort-properties-alphabetically: false
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+  flyway:
+    enabled: true
+springdoc:
+  api-docs:
+    enabled: ${ENABLE_SWAGGER:false}
+  swagger-ui:
+    enabled: ${ENABLE_SWAGGER:false}
