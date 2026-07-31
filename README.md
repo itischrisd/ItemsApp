@@ -98,7 +98,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Data for dev, test, prod environments  
 ✅ Flat Spring profiles with env vars, flat pom.xml
 ✅ Dockerization for backend   
-❌ Ephemeral data in db for test  
+✅ Ephemeral data in db for test  
 ❌ ETag and Last-Modified (for client-side caching)  
 ❌ Indices for db  
 ❌ OpenAPI documentation

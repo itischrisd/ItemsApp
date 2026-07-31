@@ -1,0 +1,3784 @@
+--
+-- PostgreSQL database dump
+--
+
+\restrict RRPeEcX01LfeEdsSNVNFan3H7g5Pm7heYTsvhfZRayqUEscu1GoMhenbB3z6lxv
+
+-- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
+-- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Data for Name: author; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.author (id, name, surname, created_at, updated_at, version) FROM stdin;
+1	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+2	James	Williams	2026-05-18 21:16:44.570625	\N	0
+3	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+4	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+5	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+6	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+7	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+8	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+9	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+10	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+11	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+12	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+13	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+14	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+15	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+16	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+17	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+18	John	\N	2026-05-18 21:16:44.570625	\N	0
+19	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+20	James	Williams	2026-05-18 21:16:44.570625	\N	0
+21	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+22	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+23	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+24	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+25	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+26	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+27	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+28	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+29	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+30	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+31	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+32	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+33	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+34	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+35	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+36	John	\N	2026-05-18 21:16:44.570625	\N	0
+37	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+38	James	Williams	2026-05-18 21:16:44.570625	\N	0
+39	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+40	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+41	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+42	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+43	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+44	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+45	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+46	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+47	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+48	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+49	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+50	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+51	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+52	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+53	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+54	John	\N	2026-05-18 21:16:44.570625	\N	0
+55	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+56	James	Williams	2026-05-18 21:16:44.570625	\N	0
+57	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+58	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+59	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+60	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+61	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+62	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+63	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+64	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+65	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+66	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+67	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+68	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+69	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+70	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+71	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+72	John	\N	2026-05-18 21:16:44.570625	\N	0
+73	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+74	James	Williams	2026-05-18 21:16:44.570625	\N	0
+75	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+76	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+77	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+78	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+79	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+80	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+81	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+82	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+83	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+84	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+85	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+86	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+87	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+88	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+89	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+90	John	\N	2026-05-18 21:16:44.570625	\N	0
+91	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+92	James	Williams	2026-05-18 21:16:44.570625	\N	0
+93	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+94	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+95	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+96	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+97	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+98	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+99	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+100	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+101	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+102	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+103	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+104	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+105	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+106	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+107	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+108	John	\N	2026-05-18 21:16:44.570625	\N	0
+109	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+110	James	Williams	2026-05-18 21:16:44.570625	\N	0
+111	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+112	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+113	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+114	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+115	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+116	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+117	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+118	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+119	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+120	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+121	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+122	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+123	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+124	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+125	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+126	John	\N	2026-05-18 21:16:44.570625	\N	0
+127	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+128	James	Williams	2026-05-18 21:16:44.570625	\N	0
+129	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+130	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+131	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+132	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+133	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+134	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+135	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+136	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+137	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+138	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+139	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+140	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+141	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+142	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+143	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+144	John	\N	2026-05-18 21:16:44.570625	\N	0
+145	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+146	James	Williams	2026-05-18 21:16:44.570625	\N	0
+147	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+148	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+149	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+150	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+151	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+152	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+153	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+154	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+155	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+156	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+157	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+158	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+159	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+160	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+161	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+162	John	\N	2026-05-18 21:16:44.570625	\N	0
+163	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+164	James	Williams	2026-05-18 21:16:44.570625	\N	0
+165	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+166	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+167	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+168	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+169	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+170	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+171	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+172	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+173	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+174	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+175	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+176	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+177	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+178	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+179	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+180	John	\N	2026-05-18 21:16:44.570625	\N	0
+181	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+182	James	Williams	2026-05-18 21:16:44.570625	\N	0
+183	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+184	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+185	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+186	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+187	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+188	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+189	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+190	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+191	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+192	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+193	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+194	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+195	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+196	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+197	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+198	John	\N	2026-05-18 21:16:44.570625	\N	0
+199	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+200	James	Williams	2026-05-18 21:16:44.570625	\N	0
+201	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+202	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+203	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+204	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+205	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+206	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+207	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+208	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+209	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+210	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+211	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+212	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+213	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+214	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+215	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+216	John	\N	2026-05-18 21:16:44.570625	\N	0
+217	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+218	James	Williams	2026-05-18 21:16:44.570625	\N	0
+219	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+220	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+221	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+222	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+223	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+224	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+225	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+226	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+227	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+228	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+229	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+230	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+231	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+232	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+233	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+234	John	\N	2026-05-18 21:16:44.570625	\N	0
+235	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+236	James	Williams	2026-05-18 21:16:44.570625	\N	0
+237	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+238	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+239	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+240	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+241	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+242	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+243	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+244	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+245	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+246	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+247	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+248	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+249	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+250	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+251	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+252	John	\N	2026-05-18 21:16:44.570625	\N	0
+253	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+254	James	Williams	2026-05-18 21:16:44.570625	\N	0
+255	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+256	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+257	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+258	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+259	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+260	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+261	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+262	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+263	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+264	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+265	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+266	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+267	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+268	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+269	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+270	John	\N	2026-05-18 21:16:44.570625	\N	0
+271	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+272	James	Williams	2026-05-18 21:16:44.570625	\N	0
+273	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+274	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+275	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+276	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+277	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+278	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+279	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+280	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+281	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+282	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+283	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+284	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+285	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+286	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+287	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+288	John	\N	2026-05-18 21:16:44.570625	\N	0
+289	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+290	James	Williams	2026-05-18 21:16:44.570625	\N	0
+291	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+292	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+293	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+294	Michael	Miller	2026-05-18 21:16:44.570625	\N	0
+295	Linda	Davis	2026-05-18 21:16:44.570625	\N	0
+296	William	Rodriguez	2026-05-18 21:16:44.570625	\N	0
+297	Elizabeth	\N	2026-05-18 21:16:44.570625	\N	0
+298	David	Hernandez	2026-05-18 21:16:44.570625	\N	0
+299	Barbara	Lopez	2026-05-18 21:16:44.570625	\N	0
+300	Richard	Gonzalez	2026-05-18 21:16:44.570625	\N	0
+301	Susan	Wilson	2026-05-18 21:16:44.570625	\N	0
+302	Joseph	Anderson	2026-05-18 21:16:44.570625	\N	0
+303	Jessica	Thomas	2026-05-18 21:16:44.570625	\N	0
+304	Thomas	Taylor	2026-05-18 21:16:44.570625	\N	0
+305	Sarah	Moore	2026-05-18 21:16:44.570625	\N	0
+306	John	\N	2026-05-18 21:16:44.570625	\N	0
+307	Mary	Johnson	2026-05-18 21:16:44.570625	\N	0
+308	James	Williams	2026-05-18 21:16:44.570625	\N	0
+309	Patricia	Brown	2026-05-18 21:16:44.570625	\N	0
+310	Robert	Jones	2026-05-18 21:16:44.570625	\N	0
+311	Jennifer	Garcia	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: publisher; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.publisher (id, name, created_at, updated_at, version) FROM stdin;
+1	Beta Books	2026-05-18 21:16:44.570625	\N	0
+2	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+3	Delta Media	2026-05-18 21:16:44.570625	\N	0
+4	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+5	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+6	Helion House	2026-05-18 21:16:44.570625	\N	0
+7	National Press	2026-05-18 21:16:44.570625	\N	0
+8	Literary House	2026-05-18 21:16:44.570625	\N	0
+9	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+10	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+11	Beta Books	2026-05-18 21:16:44.570625	\N	0
+12	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+13	Delta Media	2026-05-18 21:16:44.570625	\N	0
+14	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+15	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+16	Helion House	2026-05-18 21:16:44.570625	\N	0
+17	National Press	2026-05-18 21:16:44.570625	\N	0
+18	Literary House	2026-05-18 21:16:44.570625	\N	0
+19	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+20	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+21	Beta Books	2026-05-18 21:16:44.570625	\N	0
+22	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+23	Delta Media	2026-05-18 21:16:44.570625	\N	0
+24	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+25	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+26	Helion House	2026-05-18 21:16:44.570625	\N	0
+27	National Press	2026-05-18 21:16:44.570625	\N	0
+28	Literary House	2026-05-18 21:16:44.570625	\N	0
+29	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+30	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+31	Beta Books	2026-05-18 21:16:44.570625	\N	0
+32	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+33	Delta Media	2026-05-18 21:16:44.570625	\N	0
+34	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+35	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+36	Helion House	2026-05-18 21:16:44.570625	\N	0
+37	National Press	2026-05-18 21:16:44.570625	\N	0
+38	Literary House	2026-05-18 21:16:44.570625	\N	0
+39	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+40	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+41	Beta Books	2026-05-18 21:16:44.570625	\N	0
+42	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+43	Delta Media	2026-05-18 21:16:44.570625	\N	0
+44	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+45	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+46	Helion House	2026-05-18 21:16:44.570625	\N	0
+47	National Press	2026-05-18 21:16:44.570625	\N	0
+48	Literary House	2026-05-18 21:16:44.570625	\N	0
+49	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+50	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+51	Beta Books	2026-05-18 21:16:44.570625	\N	0
+52	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+53	Delta Media	2026-05-18 21:16:44.570625	\N	0
+54	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+55	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+56	Helion House	2026-05-18 21:16:44.570625	\N	0
+57	National Press	2026-05-18 21:16:44.570625	\N	0
+58	Literary House	2026-05-18 21:16:44.570625	\N	0
+59	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+60	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+61	Beta Books	2026-05-18 21:16:44.570625	\N	0
+62	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+63	Delta Media	2026-05-18 21:16:44.570625	\N	0
+64	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+65	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+66	Helion House	2026-05-18 21:16:44.570625	\N	0
+67	National Press	2026-05-18 21:16:44.570625	\N	0
+68	Literary House	2026-05-18 21:16:44.570625	\N	0
+69	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+70	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+71	Beta Books	2026-05-18 21:16:44.570625	\N	0
+72	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+73	Delta Media	2026-05-18 21:16:44.570625	\N	0
+74	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+75	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+76	Helion House	2026-05-18 21:16:44.570625	\N	0
+77	National Press	2026-05-18 21:16:44.570625	\N	0
+78	Literary House	2026-05-18 21:16:44.570625	\N	0
+79	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+80	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+81	Beta Books	2026-05-18 21:16:44.570625	\N	0
+82	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+83	Delta Media	2026-05-18 21:16:44.570625	\N	0
+84	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+85	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+86	Helion House	2026-05-18 21:16:44.570625	\N	0
+87	National Press	2026-05-18 21:16:44.570625	\N	0
+88	Literary House	2026-05-18 21:16:44.570625	\N	0
+89	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+90	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+91	Beta Books	2026-05-18 21:16:44.570625	\N	0
+92	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+93	Delta Media	2026-05-18 21:16:44.570625	\N	0
+94	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+95	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+96	Helion House	2026-05-18 21:16:44.570625	\N	0
+97	National Press	2026-05-18 21:16:44.570625	\N	0
+98	Literary House	2026-05-18 21:16:44.570625	\N	0
+99	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+100	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+101	Beta Books	2026-05-18 21:16:44.570625	\N	0
+102	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+103	Delta Media	2026-05-18 21:16:44.570625	\N	0
+104	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+105	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+106	Helion House	2026-05-18 21:16:44.570625	\N	0
+107	National Press	2026-05-18 21:16:44.570625	\N	0
+108	Literary House	2026-05-18 21:16:44.570625	\N	0
+109	Academic Publishing	2026-05-18 21:16:44.570625	\N	0
+110	Alpha Publishing	2026-05-18 21:16:44.570625	\N	0
+111	Beta Books	2026-05-18 21:16:44.570625	\N	0
+112	Gamma Press	2026-05-18 21:16:44.570625	\N	0
+113	Delta Media	2026-05-18 21:16:44.570625	\N	0
+114	Epsilon Editions	2026-05-18 21:16:44.570625	\N	0
+115	Zeta Publications	2026-05-18 21:16:44.570625	\N	0
+116	Helion House	2026-05-18 21:16:44.570625	\N	0
+117	National Press	2026-05-18 21:16:44.570625	\N	0
+118	Literary House	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: storage; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.storage (id, name, note, parent_id, created_at, updated_at, version) FROM stdin;
+1	Main Room	\N	\N	2026-05-18 21:16:44.570625	\N	0
+2	Basement	\N	1	2026-05-18 21:16:44.570625	\N	0
+3	Bedroom	\N	1	2026-05-18 21:16:44.570625	\N	0
+4	Kitchen	\N	1	2026-05-18 21:16:44.570625	\N	0
+5	Living Room	\N	1	2026-05-18 21:16:44.570625	\N	0
+6	Wardrobe	\N	5	2026-05-18 21:16:44.570625	\N	0
+7	Attic	\N	\N	2026-05-18 21:16:44.570625	\N	0
+8	Garage	\N	\N	2026-05-18 21:16:44.570625	\N	0
+9	Office	\N	8	2026-05-18 21:16:44.570625	\N	0
+10	Pantry	\N	8	2026-05-18 21:16:44.570625	\N	0
+11	Closet	\N	8	2026-05-18 21:16:44.570625	\N	0
+12	Cupboard	\N	8	2026-05-18 21:16:44.570625	\N	0
+13	Rack 1	\N	8	2026-05-18 21:16:44.570625	\N	0
+14	Rack 2	\N	8	2026-05-18 21:16:44.570625	\N	0
+15	Crate 1	\N	8	2026-05-18 21:16:44.570625	\N	0
+16	Crate 2	\N	8	2026-05-18 21:16:44.570625	\N	0
+17	Trunk 1	\N	8	2026-05-18 21:16:44.570625	\N	0
+18	Trunk 2	\N	8	2026-05-18 21:16:44.570625	\N	0
+19	Desk	\N	8	2026-05-18 21:16:44.570625	\N	0
+20	Table	\N	8	2026-05-18 21:16:44.570625	\N	0
+21	Sideboard	\N	8	2026-05-18 21:16:44.570625	\N	0
+22	Chest	\N	8	2026-05-18 21:16:44.570625	\N	0
+23	Bench	no packaging	8	2026-05-18 21:16:44.570625	\N	0
+24	Locker 1	brand new	8	2026-05-18 21:16:44.570625	\N	0
+25	Locker 2	used	8	2026-05-18 21:16:44.570625	\N	0
+26	Shelf A	\N	8	2026-05-18 21:16:44.570625	\N	0
+27	Shelf B	English edition	8	2026-05-18 21:16:44.570625	\N	0
+28	Shelf C	special edition	8	2026-05-18 21:16:44.570625	\N	0
+29	Shelf D	library copy	8	2026-05-18 21:16:44.570625	\N	0
+30	Drawer 1	\N	28	2026-05-18 21:16:44.570625	\N	0
+31	Drawer 2	\N	28	2026-05-18 21:16:44.570625	\N	0
+32	Box 1	\N	8	2026-05-18 21:16:44.570625	\N	0
+33	Box 2	no packaging	8	2026-05-18 21:16:44.570625	\N	0
+34	Box 3	brand new	8	2026-05-18 21:16:44.570625	\N	0
+35	Box 4	\N	8	2026-05-18 21:16:44.570625	\N	0
+36	Container 1	\N	8	2026-05-18 21:16:44.570625	\N	0
+37	Container 2	English edition	8	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: book; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.book (id, title, year_of_publication, cover_type, serial_number, edition_number, catalog_number, note, publisher_id, storage_id, created_at, updated_at, version) FROM stdin;
+1	Art History vol 1	1997	Softcover	978-0-0000001-1	1	\N	\N	1	17	2026-05-18 21:16:44.570625	\N	0
+2	Exercise Book vol 2	2018	Plastic	978-0-0000002-1	5	\N	signed copy	2	6	2026-05-18 21:16:44.570625	\N	0
+3	Intro to Physics vol 3	\N	Paper	978-0-0000003-1	\N	\N	no packaging	2	6	2026-05-18 21:16:44.570625	\N	0
+4	Cookbook vol 4	\N	Plastic	\N	\N	\N	brand new	2	6	2026-05-18 21:16:44.570625	\N	0
+5	Travel Guide vol 5	2018	Plastic	978-0-0000005-1	\N	\N	used	2	6	2026-05-18 21:16:44.570625	\N	0
+6	Selected Novels vol 6	2017	Laminated	978-0-0000006-1	\N	\N	color black	2	6	2026-05-18 21:16:44.570625	\N	0
+7	Collected Poems vol 7	2017	Softcover	978-0-0000007-1	\N	\N	English edition	2	6	2026-05-18 21:16:44.570625	\N	0
+8	General Encyclopedia vol 8	2018	Laminated	978-0-0000008-1	\N	\N	special edition	3	6	2026-05-18 21:16:44.570625	\N	0
+9	Language Dictionary vol 9	2022	Laminated	978-0-0000009-1	\N	\N	library copy	2	6	2026-05-18 21:16:44.570625	\N	0
+10	IT Basics vol 10	\N	Laminated	978-0-0000010-1	\N	\N	good condition	4	6	2026-05-18 21:16:44.570625	\N	0
+11	Art History vol 11	\N	Softcover	978-0-0000011-1	\N	\N	\N	2	6	2026-05-18 21:16:44.570625	\N	0
+12	Exercise Book vol 12	\N	Softcover	978-0-0000012-1	\N	\N	\N	2	6	2026-05-18 21:16:44.570625	\N	0
+13	Intro to Physics vol 13	\N	Softcover	\N	\N	\N	no packaging	2	6	2026-05-18 21:16:44.570625	\N	0
+14	Cookbook vol 14	2014	Spiral Bound	978-0-0000014-1	5	\N	brand new	2	6	2026-05-18 21:16:44.570625	\N	0
+15	Travel Guide vol 15	2013	Spiral Bound	978-0-0000015-1	5	\N	used	2	6	2026-05-18 21:16:44.570625	\N	0
+16	Selected Novels vol 16	2017	Plastic	978-0-0000016-1	8	\N	color black	2	6	2026-05-18 21:16:44.570625	\N	0
+17	Collected Poems vol 17	\N	Paper	978-0-0000017-1	\N	\N	\N	5	6	2026-05-18 21:16:44.570625	\N	0
+18	General Encyclopedia vol 18	2014	Softcover	978-0-0000018-1	1	\N	special edition	6	6	2026-05-18 21:16:44.570625	\N	0
+19	Language Dictionary vol 19	2017	Paper	978-0-0000019-1	13	\N	library copy	7	6	2026-05-18 21:16:44.570625	\N	0
+20	IT Basics vol 20	2022	Paper	978-0-0000020-1	4	\N	good condition	7	6	2026-05-18 21:16:44.570625	\N	0
+21	Art History vol 21	2021	Softcover	978-0-0000021-1	2	\N	\N	8	17	2026-05-18 21:16:44.570625	\N	0
+22	Exercise Book vol 22	1987	Softcover	978-0-0000022-1	\N	\N	\N	9	17	2026-05-18 21:16:44.570625	\N	0
+23	Intro to Physics vol 23	2014	Softcover	978-0-0000023-1	23	\N	no packaging	10	6	2026-05-18 21:16:44.570625	\N	0
+24	Cookbook vol 24	1999	Softcover	978-0-0000024-1	1	\N	\N	11	6	2026-05-18 21:16:44.570625	\N	0
+25	Travel Guide vol 25	2000	Softcover	978-0-0000025-1	\N	\N	\N	12	17	2026-05-18 21:16:44.570625	\N	0
+26	Selected Novels vol 26	\N	Softcover	978-0-0000026-1	\N	\N	\N	13	17	2026-05-18 21:16:44.570625	\N	0
+27	Collected Poems vol 27	2016	Softcover	978-0-0000027-1	4	\N	\N	14	17	2026-05-18 21:16:44.570625	\N	0
+28	General Encyclopedia vol 28	2005	Hardcover	978-0-0000028-1	\N	\N	special edition	15	17	2026-05-18 21:16:44.570625	\N	0
+29	Language Dictionary vol 29	2007	Hardcover	978-0-0000029-1	5	\N	\N	16	17	2026-05-18 21:16:44.570625	\N	0
+30	IT Basics vol 30	2004	Hardcover	978-0-0000030-1	\N	\N	good condition	17	17	2026-05-18 21:16:44.570625	\N	0
+31	Art History vol 31	1996	Softcover	978-0-0000031-1	1	\N	slightly damaged	18	17	2026-05-18 21:16:44.570625	\N	0
+32	Exercise Book vol 32	1996	Softcover	978-0-0000032-1	1	\N	signed copy	18	17	2026-05-18 21:16:44.570625	\N	0
+33	Intro to Physics vol 33	2002	Hardcover	978-0-0000033-1	\N	\N	\N	16	17	2026-05-18 21:16:44.570625	\N	0
+34	Cookbook vol 34	2020	Softcover	978-0-0000034-1	1	\N	brand new	19	17	2026-05-18 21:16:44.570625	\N	0
+35	Travel Guide vol 35	2021	Softcover	978-0-0000035-1	1	\N	used	20	17	2026-05-18 21:16:44.570625	\N	0
+36	Selected Novels vol 36	2014	Softcover	978-0-0000036-1	\N	\N	color black	21	17	2026-05-18 21:16:44.570625	\N	0
+37	Collected Poems vol 37	2018	Softcover	978-0-0000037-1	9	\N	\N	22	17	2026-05-18 21:16:44.570625	\N	0
+38	General Encyclopedia vol 38	2018	Softcover	978-0-0000038-1	7	\N	\N	22	17	2026-05-18 21:16:44.570625	\N	0
+39	Language Dictionary vol 39	2018	Softcover	978-0-0000039-1	4	\N	\N	22	17	2026-05-18 21:16:44.570625	\N	0
+40	IT Basics vol 40	2015	Softcover	978-0-0000040-1	3	\N	\N	23	17	2026-05-18 21:16:44.570625	\N	0
+41	Art History vol 41	2009	Softcover	978-0-0000041-1	6	CAT-0041	slightly damaged	24	12	2026-05-18 21:16:44.570625	\N	0
+42	Exercise Book vol 42	2017	Softcover	978-0-0000042-1	2	\N	\N	25	12	2026-05-18 21:16:44.570625	\N	0
+43	Intro to Physics vol 43	2020	Softcover	978-0-0000043-1	\N	\N	\N	26	17	2026-05-18 21:16:44.570625	\N	0
+44	Cookbook vol 44	2015	Softcover	978-0-0000044-1	\N	\N	brand new	27	17	2026-05-18 21:16:44.570625	\N	0
+45	Travel Guide vol 45	2012	Softcover	978-0-0000045-1	\N	\N	\N	28	17	2026-05-18 21:16:44.570625	\N	0
+46	Selected Novels vol 46	2019	Softcover	978-0-0000046-1	2	\N	\N	29	17	2026-05-18 21:16:44.570625	\N	0
+47	Collected Poems vol 47	1993	Softcover	978-0-0000047-1	\N	CAT-0047	English edition	24	12	2026-05-18 21:16:44.570625	\N	0
+48	General Encyclopedia vol 48	2004	Pamphlet	978-0-0000048-1	\N	CAT-0048	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+49	Language Dictionary vol 49	2003	Softcover	978-0-0000049-1	2	\N	\N	31	17	2026-05-18 21:16:44.570625	\N	0
+50	IT Basics vol 50	2016	Softcover	978-0-0000050-1	1	\N	\N	23	17	2026-05-18 21:16:44.570625	\N	0
+51	Art History vol 51	2021	Softcover	978-0-0000051-1	\N	\N	\N	26	12	2026-05-18 21:16:44.570625	\N	0
+52	Exercise Book vol 52	2016	Softcover	978-0-0000052-1	\N	\N	\N	26	12	2026-05-18 21:16:44.570625	\N	0
+53	Intro to Physics vol 53	2019	Hardcover	978-0-0000053-1	1	\N	\N	32	17	2026-05-18 21:16:44.570625	\N	0
+54	Cookbook vol 54	2016	Hardcover	978-0-0000054-1	\N	\N	\N	14	17	2026-05-18 21:16:44.570625	\N	0
+55	Travel Guide vol 55	2017	Hardcover	978-0-0000055-1	1	\N	\N	33	17	2026-05-18 21:16:44.570625	\N	0
+56	Selected Novels vol 56	2013	Hardcover	978-0-0000056-1	2	\N	\N	34	6	2026-05-18 21:16:44.570625	\N	0
+57	Collected Poems vol 57	2018	Softcover	978-0-0000057-1	1	\N	\N	35	6	2026-05-18 21:16:44.570625	\N	0
+58	General Encyclopedia vol 58	2009	Hardcover	978-0-0000058-1	6	CAT-0058	special edition	24	11	2026-05-18 21:16:44.570625	\N	0
+59	Language Dictionary vol 59	2019	Hardcover	978-0-0000059-1	\N	CAT-0059	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+60	IT Basics vol 60	2019	Hardcover	978-0-0000060-1	\N	CAT-0060	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+61	Art History vol 61	2011	Softcover	978-0-0000061-1	\N	CAT-0061	slightly damaged	24	9	2026-05-18 21:16:44.570625	\N	0
+62	Exercise Book vol 62	2002	Hardcover	978-0-0000062-1	\N	CAT-0062	\N	24	12	2026-05-18 21:16:44.570625	\N	0
+63	Intro to Physics vol 63	2016	Softcover	978-0-0000063-1	\N	CAT-0063	no packaging	24	11	2026-05-18 21:16:44.570625	\N	0
+64	Cookbook vol 64	1998	Softcover	978-0-0000064-1	\N	CAT-0064	\N	24	9	2026-05-18 21:16:44.570625	\N	0
+65	Travel Guide vol 65	2000	Softcover	978-0-0000065-1	\N	CAT-0065	used	24	9	2026-05-18 21:16:44.570625	\N	0
+66	Selected Novels vol 66	2016	Hardcover	978-0-0000066-1	\N	CAT-0066	color black	24	11	2026-05-18 21:16:44.570625	\N	0
+67	Collected Poems vol 67	2004	Softcover	978-0-0000067-1	\N	CAT-0067	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+68	General Encyclopedia vol 68	2016	Soft Leather	978-0-0000068-1	\N	CAT-0068	special edition	36	10	2026-05-18 21:16:44.570625	\N	0
+69	Language Dictionary vol 69	2012	Hardcover	978-0-0000069-1	\N	CAT-0069	library copy	24	11	2026-05-18 21:16:44.570625	\N	0
+70	IT Basics vol 70	2012	Hardcover	978-0-0000070-1	\N	CAT-0070	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+71	Art History vol 71	2018	Hardcover	978-0-0000071-1	2	CAT-0071	slightly damaged	37	9	2026-05-18 21:16:44.570625	\N	0
+72	Exercise Book vol 72	2019	Hardcover	978-0-0000072-1	\N	CAT-0072	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+73	Intro to Physics vol 73	2017	Softcover	978-0-0000073-1	1	\N	\N	38	9	2026-05-18 21:16:44.570625	\N	0
+74	Cookbook vol 74	2018	Hardcover	978-0-0000074-1	4	CAT-0074	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+75	Travel Guide vol 75	2020	Softcover	978-0-0000075-1	4	CAT-0075	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+76	Selected Novels vol 76	2015	Softcover	978-0-0000076-1	3	\N	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+77	Collected Poems vol 77	2003	Softcover	978-0-0000077-1	2	\N	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+78	General Encyclopedia vol 78	1991	Softcover	\N	1	\N	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+79	Language Dictionary vol 79	2011	Softcover	978-0-0000079-1	5	CAT-0079	library copy	24	11	2026-05-18 21:16:44.570625	\N	0
+80	IT Basics vol 80	2011	Softcover	978-0-0000080-1	5	CAT-0080	good condition	24	11	2026-05-18 21:16:44.570625	\N	0
+81	Art History vol 81	2020	Softcover	978-0-0000081-1	2	CAT-0081	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+82	Exercise Book vol 82	1991	Softcover	978-0-0000082-1	1	\N	signed copy	39	9	2026-05-18 21:16:44.570625	\N	0
+83	Intro to Physics vol 83	2019	Hardcover	978-0-0000083-1	\N	CAT-0083	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+84	Cookbook vol 84	2009	Hardcover	978-0-0000084-1	\N	\N	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+85	Travel Guide vol 85	2012	Softcover	978-0-0000085-1	\N	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+86	Selected Novels vol 86	2018	Softcover	978-0-0000086-1	\N	CAT-0086	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+87	Collected Poems vol 87	2015	Leather	978-0-0000087-1	\N	CAT-0087	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+88	General Encyclopedia vol 88	2018	Pamphlet	978-0-0000088-1	\N	CAT-0088	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+89	Language Dictionary vol 89	2014	Pamphlet	978-0-0000089-1	\N	CAT-0089	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+90	IT Basics vol 90	2017	Pamphlet	978-0-0000090-1	\N	CAT-0090	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+91	Art History vol 91	2018	Pamphlet	978-0-0000091-1	\N	CAT-0091	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+92	Exercise Book vol 92	\N	Pamphlet	978-0-0000092-1	2	\N	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+93	Intro to Physics vol 93	2017	Pamphlet	978-0-0000093-1	\N	CAT-0093	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+94	Cookbook vol 94	2007	Pamphlet	978-0-0000094-1	\N	CAT-0094	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+95	Travel Guide vol 95	2007	Pamphlet	978-0-0000095-1	\N	CAT-0095	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+96	Selected Novels vol 96	2007	Pamphlet	978-0-0000096-1	\N	CAT-0096	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+97	Collected Poems vol 97	2007	Pamphlet	978-0-0000097-1	\N	CAT-0097	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+98	General Encyclopedia vol 98	2008	Hardcover	978-0-0000098-1	6	CAT-0098	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+99	Language Dictionary vol 99	2008	Pamphlet	978-0-0000099-1	\N	CAT-0099	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+100	IT Basics vol 100	2011	Pamphlet	978-0-0000100-1	\N	CAT-0100	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+101	Art History vol 101	1988	Pamphlet	978-0-0000101-1	\N	CAT-0101	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+102	Exercise Book vol 102	1997	Pamphlet	978-0-0000102-1	\N	CAT-0102	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+103	Intro to Physics vol 103	1991	Pamphlet	978-0-0000103-1	\N	CAT-0103	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+104	Cookbook vol 104	1990	Pamphlet	978-0-0000104-1	\N	CAT-0104	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+105	Travel Guide vol 105	1986	Pamphlet	978-0-0000105-1	\N	CAT-0105	used	24	13	2026-05-18 21:16:44.570625	\N	0
+106	Selected Novels vol 106	2010	Pamphlet	978-0-0000106-1	\N	CAT-0106	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+107	Collected Poems vol 107	2017	Pamphlet	978-0-0000107-1	\N	CAT-0107	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+108	General Encyclopedia vol 108	2010	Pamphlet	978-0-0000108-1	\N	CAT-0108	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+109	Language Dictionary vol 109	2014	Pamphlet	978-0-0000109-1	\N	CAT-0109	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+110	IT Basics vol 110	1990	Pamphlet	978-0-0000110-1	\N	CAT-0110	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+111	Art History vol 111	1990	Pamphlet	978-0-0000111-1	\N	\N	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+112	Exercise Book vol 112	2018	Pamphlet	978-0-0000112-1	\N	\N	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+113	Intro to Physics vol 113	2018	Laminated	978-0-0000113-1	\N	\N	no packaging	3	6	2026-05-18 21:16:44.570625	\N	0
+114	Cookbook vol 114	2006	Softcover	978-0-0000114-1	\N	CAT-0114	brand new	24	12	2026-05-18 21:16:44.570625	\N	0
+115	Travel Guide vol 115	\N	Pamphlet	978-0-0000115-1	\N	\N	used	36	13	2026-05-18 21:16:44.570625	\N	0
+116	Selected Novels vol 116	2013	Pamphlet	978-0-0000116-1	\N	\N	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+117	Collected Poems vol 117	1986	Softcover	978-0-0000117-1	\N	CAT-0117	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+118	General Encyclopedia vol 118	2017	Hardcover	978-0-0000118-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+119	Language Dictionary vol 119	2011	Softcover	978-0-0000119-1	2	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+120	IT Basics vol 120	2010	Softcover	978-0-0000120-1	7	CAT-0120	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+121	Art History vol 121	2018	Softcover	978-0-0000121-1	\N	CAT-0121	slightly damaged	36	13	2026-05-18 21:16:44.570625	\N	0
+122	Exercise Book vol 122	2016	Softcover	978-0-0000122-1	3	CAT-0122	signed copy	36	13	2026-05-18 21:16:44.570625	\N	0
+123	Intro to Physics vol 123	2015	Softcover	978-0-0000123-1	\N	CAT-0123	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+124	Cookbook vol 124	2017	Hardcover	978-0-0000124-1	\N	CAT-0124	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+125	Travel Guide vol 125	1997	Softcover	978-0-0000125-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+126	Selected Novels vol 126	1997	Softcover	978-0-0000126-1	\N	\N	color black	41	12	2026-05-18 21:16:44.570625	\N	0
+127	Collected Poems vol 127	2005	Softcover	978-0-0000127-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+128	General Encyclopedia vol 128	2013	Soft Leather	978-0-0000128-1	\N	\N	\N	42	13	2026-05-18 21:16:44.570625	\N	0
+129	Language Dictionary vol 129	2019	Softcover	978-0-0000129-1	\N	CAT-0129	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+130	IT Basics vol 130	2018	Soft Leather	978-0-0000130-1	\N	CAT-0130	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+131	Art History vol 131	2017	Softcover	978-0-0000131-1	\N	CAT-0131	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+132	Exercise Book vol 132	2018	Softcover	978-0-0000132-1	\N	CAT-0132	\N	24	12	2026-05-18 21:16:44.570625	\N	0
+133	Intro to Physics vol 133	1992	Softcover	978-0-0000133-1	\N	CAT-0133	\N	24	12	2026-05-18 21:16:44.570625	\N	0
+134	Cookbook vol 134	2017	Softcover	978-0-0000134-1	\N	CAT-0134	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+135	Travel Guide vol 135	1974	Hardcover	978-0-0000135-1	\N	\N	used	41	12	2026-05-18 21:16:44.570625	\N	0
+136	Selected Novels vol 136	\N	Softcover	978-0-0000136-1	\N	\N	color black	24	12	2026-05-18 21:16:44.570625	\N	0
+137	Collected Poems vol 137	\N	Softcover	978-0-0000137-1	\N	\N	English edition	24	12	2026-05-18 21:16:44.570625	\N	0
+138	General Encyclopedia vol 138	\N	Softcover	978-0-0000138-1	\N	\N	special edition	24	12	2026-05-18 21:16:44.570625	\N	0
+139	Language Dictionary vol 139	1992	Softcover	978-0-0000139-1	\N	CAT-0139	\N	24	12	2026-05-18 21:16:44.570625	\N	0
+140	IT Basics vol 140	2018	Softcover	978-0-0000140-1	2	\N	\N	14	12	2026-05-18 21:16:44.570625	\N	0
+141	Art History vol 141	2018	Softcover	978-0-0000141-1	3	\N	\N	14	12	2026-05-18 21:16:44.570625	\N	0
+142	Exercise Book vol 142	1998	Softcover	978-0-0000142-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+143	Intro to Physics vol 143	1999	Softcover	978-0-0000143-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+144	Cookbook vol 144	1988	Softcover	978-0-0000144-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+145	Travel Guide vol 145	2020	Softcover	978-0-0000145-1	\N	\N	\N	26	12	2026-05-18 21:16:44.570625	\N	0
+146	Selected Novels vol 146	2020	Softcover	978-0-0000146-1	\N	\N	\N	43	12	2026-05-18 21:16:44.570625	\N	0
+147	Collected Poems vol 147	2016	Softcover	978-0-0000147-1	\N	\N	\N	26	12	2026-05-18 21:16:44.570625	\N	0
+148	General Encyclopedia vol 148	2021	Hardcover	978-0-0000148-1	3	CAT-0148	special edition	37	13	2026-05-18 21:16:44.570625	\N	0
+149	Language Dictionary vol 149	2017	Hardcover	978-0-0000149-1	\N	CAT-0149	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+150	IT Basics vol 150	2018	Hardcover	978-0-0000150-1	\N	CAT-0150	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+151	Art History vol 151	\N	Softcover	978-0-0000151-1	\N	\N	slightly damaged	24	12	2026-05-18 21:16:44.570625	\N	0
+152	Exercise Book vol 152	1993	Leather	978-0-0000152-1	\N	CAT-0152	signed copy	24	12	2026-05-18 21:16:44.570625	\N	0
+153	Intro to Physics vol 153	2014	Softcover	978-0-0000153-1	\N	CAT-0153	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+154	Cookbook vol 154	1993	Softcover	978-0-0000154-1	\N	CAT-0154	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+155	Travel Guide vol 155	1993	Hardcover	978-0-0000155-1	\N	CAT-0155	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+156	Selected Novels vol 156	2019	Softcover	978-0-0000156-1	\N	CAT-0156	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+157	Collected Poems vol 157	2012	Softcover	978-0-0000157-1	\N	CAT-0157	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+158	General Encyclopedia vol 158	2008	Softcover	978-0-0000158-1	6	CAT-0158	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+159	Language Dictionary vol 159	2016	Softcover	978-0-0000159-1	\N	CAT-0159	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+160	IT Basics vol 160	2016	Hardcover	978-0-0000160-1	\N	CAT-0160	\N	24	11	2026-05-18 21:16:44.570625	\N	0
+161	Art History vol 161	\N	Softcover	978-0-0000161-1	\N	\N	slightly damaged	24	11	2026-05-18 21:16:44.570625	\N	0
+162	Exercise Book vol 162	1996	Softcover	978-0-0000162-1	\N	\N	\N	41	12	2026-05-18 21:16:44.570625	\N	0
+163	Intro to Physics vol 163	2005	Softcover	978-0-0000163-1	1	CAT-0163	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+164	Cookbook vol 164	2019	Softcover	978-0-0000164-1	3	CAT-0164	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+165	Travel Guide vol 165	2018	Softcover	978-0-0000165-1	2	CAT-0165	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+166	Selected Novels vol 166	2009	Softcover	978-0-0000166-1	4	CAT-0166	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+167	Collected Poems vol 167	2019	Softcover	978-0-0000167-1	1	CAT-0167	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+168	General Encyclopedia vol 168	2015	Softcover	978-0-0000168-1	2	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+169	Language Dictionary vol 169	2019	Softcover	978-0-0000169-1	2	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+170	IT Basics vol 170	2018	Softcover	978-0-0000170-1	\N	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+171	Art History vol 171	2018	Softcover	978-0-0000171-1	\N	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+172	Exercise Book vol 172	2017	Pamphlet	978-0-0000172-1	\N	\N	\N	40	9	2026-05-18 21:16:44.570625	\N	0
+173	Intro to Physics vol 173	2019	Softcover	978-0-0000173-1	\N	CAT-0173	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+174	Cookbook vol 174	2017	Softcover	978-0-0000174-1	\N	CAT-0174	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+175	Travel Guide vol 175	2009	Softcover	978-0-0000175-1	\N	CAT-0175	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+176	Selected Novels vol 176	2017	Softcover	978-0-0000176-1	\N	CAT-0176	\N	36	9	2026-05-18 21:16:44.570625	\N	0
+177	Collected Poems vol 177	2019	Softcover	978-0-0000177-1	\N	CAT-0177	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+178	General Encyclopedia vol 178	2016	Softcover	978-0-0000178-1	8	CAT-0178	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+179	Language Dictionary vol 179	2017	Softcover	978-0-0000179-1	9	CAT-0179	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+180	IT Basics vol 180	2018	Pamphlet	978-0-0000180-1	3	CAT-0180	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+181	Art History vol 181	2016	Pamphlet	978-0-0000181-1	\N	\N	slightly damaged	36	13	2026-05-18 21:16:44.570625	\N	0
+182	Exercise Book vol 182	2018	Pamphlet	978-0-0000182-1	\N	\N	signed copy	36	13	2026-05-18 21:16:44.570625	\N	0
+183	Intro to Physics vol 183	2014	Pamphlet	978-0-0000183-1	\N	\N	no packaging	36	13	2026-05-18 21:16:44.570625	\N	0
+184	Cookbook vol 184	2017	Pamphlet	978-0-0000184-1	\N	\N	brand new	36	13	2026-05-18 21:16:44.570625	\N	0
+185	Travel Guide vol 185	2016	Pamphlet	978-0-0000185-1	\N	\N	used	36	13	2026-05-18 21:16:44.570625	\N	0
+186	Selected Novels vol 186	2018	Pamphlet	978-0-0000186-1	\N	\N	color black	36	13	2026-05-18 21:16:44.570625	\N	0
+187	Collected Poems vol 187	2018	Pamphlet	978-0-0000187-1	\N	\N	English edition	36	13	2026-05-18 21:16:44.570625	\N	0
+188	General Encyclopedia vol 188	2018	Pamphlet	978-0-0000188-1	\N	CAT-0188	special edition	36	13	2026-05-18 21:16:44.570625	\N	0
+189	Language Dictionary vol 189	2019	Softcover	978-0-0000189-1	\N	CAT-0189	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+190	IT Basics vol 190	2019	Softcover	978-0-0000190-1	\N	CAT-0190	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+191	Art History vol 191	2012	Softcover	978-0-0000191-1	\N	CAT-0191	\N	36	10	2026-05-18 21:16:44.570625	\N	0
+192	Exercise Book vol 192	2009	Softcover	978-0-0000192-1	\N	\N	signed copy	36	10	2026-05-18 21:16:44.570625	\N	0
+193	Intro to Physics vol 193	2019	Softcover	978-0-0000193-1	\N	\N	\N	44	17	2026-05-18 21:16:44.570625	\N	0
+194	Cookbook vol 194	2016	Pamphlet	978-0-0000194-1	\N	CAT-0194	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+195	Travel Guide vol 195	2014	Pamphlet	978-0-0000195-1	\N	CAT-0195	used	24	13	2026-05-18 21:16:44.570625	\N	0
+196	Selected Novels vol 196	2005	Pamphlet	978-0-0000196-1	\N	CAT-0196	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+197	Collected Poems vol 197	2014	Pamphlet	978-0-0000197-1	\N	CAT-0197	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+198	General Encyclopedia vol 198	2014	Pamphlet	978-0-0000198-1	\N	CAT-0198	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+199	Language Dictionary vol 199	2012	Pamphlet	978-0-0000199-1	\N	CAT-0199	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+200	IT Basics vol 200	2011	Pamphlet	978-0-0000200-1	\N	CAT-0200	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+201	Art History vol 201	2016	Pamphlet	978-0-0000201-1	\N	CAT-0201	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+202	Exercise Book vol 202	2016	Pamphlet	978-0-0000202-1	\N	CAT-0202	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+203	Intro to Physics vol 203	2016	Pamphlet	978-0-0000203-1	\N	CAT-0203	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+204	Cookbook vol 204	2007	Pamphlet	978-0-0000204-1	\N	CAT-0204	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+205	Travel Guide vol 205	2012	Pamphlet	978-0-0000205-1	\N	CAT-0205	used	24	13	2026-05-18 21:16:44.570625	\N	0
+206	Selected Novels vol 206	2011	Pamphlet	978-0-0000206-1	\N	CAT-0206	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+207	Collected Poems vol 207	2016	Pamphlet	978-0-0000207-1	\N	CAT-0207	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+208	General Encyclopedia vol 208	2018	Pamphlet	978-0-0000208-1	\N	CAT-0208	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+209	Language Dictionary vol 209	2005	Pamphlet	978-0-0000209-1	\N	CAT-0209	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+210	IT Basics vol 210	2014	Pamphlet	978-0-0000210-1	\N	CAT-0210	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+211	Art History vol 211	2016	Pamphlet	978-0-0000211-1	\N	CAT-0211	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+212	Exercise Book vol 212	2016	Pamphlet	978-0-0000212-1	\N	CAT-0212	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+213	Intro to Physics vol 213	2016	Pamphlet	978-0-0000213-1	\N	CAT-0213	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+214	Cookbook vol 214	2018	Pamphlet	978-0-0000214-1	\N	CAT-0214	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+215	Travel Guide vol 215	2020	Magazine	978-0-0000215-1	2	CAT-0215	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+216	Selected Novels vol 216	2012	Pamphlet	978-0-0000216-1	\N	CAT-0216	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+217	Collected Poems vol 217	2016	Pamphlet	978-0-0000217-1	\N	CAT-0217	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+218	General Encyclopedia vol 218	1986	Pamphlet	978-0-0000218-1	\N	CAT-0218	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+219	Language Dictionary vol 219	1988	Pamphlet	978-0-0000219-1	\N	CAT-0219	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+220	IT Basics vol 220	1992	Pamphlet	978-0-0000220-1	\N	CAT-0220	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+221	Art History vol 221	1986	Pamphlet	978-0-0000221-1	\N	CAT-0221	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+222	Exercise Book vol 222	1988	Pamphlet	978-0-0000222-1	\N	CAT-0222	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+223	Intro to Physics vol 223	1983	Pamphlet	978-0-0000223-1	\N	CAT-0223	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+224	Cookbook vol 224	1983	Pamphlet	978-0-0000224-1	\N	CAT-0224	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+225	Travel Guide vol 225	2004	Pamphlet	978-0-0000225-1	\N	CAT-0225	used	24	13	2026-05-18 21:16:44.570625	\N	0
+226	Selected Novels vol 226	2000	Pamphlet	978-0-0000226-1	\N	CAT-0226	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+227	Collected Poems vol 227	2008	Pamphlet	978-0-0000227-1	\N	CAT-0227	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+228	General Encyclopedia vol 228	1992	Pamphlet	978-0-0000228-1	\N	CAT-0228	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+229	Language Dictionary vol 229	1991	Pamphlet	978-0-0000229-1	\N	CAT-0229	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+230	IT Basics vol 230	1983	Pamphlet	978-0-0000230-1	\N	CAT-0230	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+231	Art History vol 231	1991	Pamphlet	978-0-0000231-1	\N	CAT-0231	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+232	Exercise Book vol 232	1985	Pamphlet	978-0-0000232-1	\N	CAT-0232	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+233	Intro to Physics vol 233	1996	Pamphlet	978-0-0000233-1	\N	CAT-0233	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+234	Cookbook vol 234	1998	Pamphlet	978-0-0000234-1	\N	CAT-0234	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+235	Travel Guide vol 235	1987	Pamphlet	978-0-0000235-1	\N	CAT-0235	used	24	13	2026-05-18 21:16:44.570625	\N	0
+236	Selected Novels vol 236	1988	Pamphlet	978-0-0000236-1	\N	CAT-0236	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+237	Collected Poems vol 237	2010	Pamphlet	978-0-0000237-1	\N	CAT-0237	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+238	General Encyclopedia vol 238	1998	Pamphlet	978-0-0000238-1	\N	CAT-0238	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+239	Language Dictionary vol 239	2008	Pamphlet	978-0-0000239-1	\N	CAT-0239	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+240	IT Basics vol 240	2010	Pamphlet	978-0-0000240-1	\N	CAT-0240	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+241	Art History vol 241	2014	Pamphlet	978-0-0000241-1	\N	CAT-0241	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+242	Exercise Book vol 242	2020	Pamphlet	978-0-0000242-1	\N	CAT-0242	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+243	Intro to Physics vol 243	1986	Pamphlet	978-0-0000243-1	\N	CAT-0243	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+244	Cookbook vol 244	1988	Pamphlet	978-0-0000244-1	\N	CAT-0244	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+245	Travel Guide vol 245	1992	Pamphlet	978-0-0000245-1	\N	CAT-0245	used	24	13	2026-05-18 21:16:44.570625	\N	0
+246	Selected Novels vol 246	1986	Pamphlet	978-0-0000246-1	\N	CAT-0246	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+247	Collected Poems vol 247	1988	Pamphlet	978-0-0000247-1	\N	CAT-0247	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+248	General Encyclopedia vol 248	1983	Pamphlet	978-0-0000248-1	\N	CAT-0248	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+249	Language Dictionary vol 249	1983	Pamphlet	978-0-0000249-1	\N	CAT-0249	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+250	IT Basics vol 250	2004	Pamphlet	978-0-0000250-1	\N	CAT-0250	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+251	Art History vol 251	1983	Pamphlet	978-0-0000251-1	\N	CAT-0251	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+252	Exercise Book vol 252	1987	Pamphlet	978-0-0000252-1	\N	CAT-0252	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+253	Intro to Physics vol 253	1993	Pamphlet	978-0-0000253-1	\N	CAT-0253	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+254	Cookbook vol 254	2018	Pamphlet	978-0-0000254-1	\N	CAT-0254	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+255	Travel Guide vol 255	2018	Pamphlet	978-0-0000255-1	\N	CAT-0255	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+256	Selected Novels vol 256	2018	Pamphlet	978-0-0000256-1	\N	CAT-0256	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+257	Collected Poems vol 257	2016	Pamphlet	978-0-0000257-1	\N	CAT-0257	\N	24	13	2026-05-18 21:16:44.570625	\N	0
+258	General Encyclopedia vol 258	\N	Pamphlet	978-0-0000258-1	\N	\N	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+259	Language Dictionary vol 259	\N	Pamphlet	978-0-0000259-1	\N	\N	library copy	24	13	2026-05-18 21:16:44.570625	\N	0
+260	IT Basics vol 260	\N	Pamphlet	978-0-0000260-1	\N	\N	good condition	24	13	2026-05-18 21:16:44.570625	\N	0
+261	Art History vol 261	\N	Pamphlet	978-0-0000261-1	\N	\N	slightly damaged	24	13	2026-05-18 21:16:44.570625	\N	0
+262	Exercise Book vol 262	\N	Pamphlet	978-0-0000262-1	\N	\N	signed copy	24	13	2026-05-18 21:16:44.570625	\N	0
+263	Intro to Physics vol 263	\N	Pamphlet	978-0-0000263-1	\N	\N	no packaging	24	13	2026-05-18 21:16:44.570625	\N	0
+264	Cookbook vol 264	\N	Pamphlet	978-0-0000264-1	\N	\N	brand new	24	13	2026-05-18 21:16:44.570625	\N	0
+265	Travel Guide vol 265	\N	Pamphlet	978-0-0000265-1	\N	\N	used	24	13	2026-05-18 21:16:44.570625	\N	0
+266	Selected Novels vol 266	\N	Pamphlet	978-0-0000266-1	\N	\N	color black	24	13	2026-05-18 21:16:44.570625	\N	0
+267	Collected Poems vol 267	\N	Pamphlet	978-0-0000267-1	\N	\N	English edition	24	13	2026-05-18 21:16:44.570625	\N	0
+268	General Encyclopedia vol 268	\N	Pamphlet	978-0-0000268-1	\N	\N	special edition	24	13	2026-05-18 21:16:44.570625	\N	0
+269	Language Dictionary vol 269	2018	Pamphlet	978-0-0000269-1	\N	CAT-0269	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+270	IT Basics vol 270	2018	Pamphlet	978-0-0000270-1	\N	CAT-0270	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+271	Art History vol 271	2018	Pamphlet	978-0-0000271-1	\N	CAT-0271	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+272	Exercise Book vol 272	2018	Pamphlet	978-0-0000272-1	\N	CAT-0272	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+273	Intro to Physics vol 273	2017	Pamphlet	978-0-0000273-1	\N	CAT-0273	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+274	Cookbook vol 274	2018	Pamphlet	978-0-0000274-1	\N	CAT-0274	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+275	Travel Guide vol 275	2017	Pamphlet	978-0-0000275-1	\N	CAT-0275	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+276	Selected Novels vol 276	2017	Pamphlet	978-0-0000276-1	\N	CAT-0276	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+277	Collected Poems vol 277	2017	Pamphlet	978-0-0000277-1	\N	CAT-0277	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+278	General Encyclopedia vol 278	2017	Pamphlet	978-0-0000278-1	\N	CAT-0278	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+279	Language Dictionary vol 279	2018	Pamphlet	978-0-0000279-1	\N	CAT-0279	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+280	IT Basics vol 280	2017	Pamphlet	978-0-0000280-1	\N	CAT-0280	\N	38	13	2026-05-18 21:16:44.570625	\N	0
+281	Art History vol 281	\N	Pamphlet	978-0-0000281-1	\N	CAT-0281	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+282	Exercise Book vol 282	\N	Pamphlet	978-0-0000282-1	\N	\N	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+283	Intro to Physics vol 283	2017	Pamphlet	978-0-0000283-1	4	CAT-0283	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+284	Cookbook vol 284	\N	Pamphlet	978-0-0000284-1	\N	CAT-0284	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+285	Travel Guide vol 285	2020	Pamphlet	978-0-0000285-1	3	CAT-0285	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+286	Selected Novels vol 286	2017	Pamphlet	978-0-0000286-1	2	CAT-0286	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+287	Collected Poems vol 287	2018	Pamphlet	978-0-0000287-1	3	CAT-0287	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+288	General Encyclopedia vol 288	2019	Pamphlet	978-0-0000288-1	5	CAT-0288	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+289	Language Dictionary vol 289	2011	Pamphlet	978-0-0000289-1	2	CAT-0289	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+290	IT Basics vol 290	2019	Pamphlet	978-0-0000290-1	3	CAT-0290	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+291	Art History vol 291	2019	Pamphlet	978-0-0000291-1	2	CAT-0291	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+292	Exercise Book vol 292	2021	Pamphlet	978-0-0000292-1	4	CAT-0292	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+293	Intro to Physics vol 293	2019	Pamphlet	978-0-0000293-1	2	CAT-0293	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+294	Cookbook vol 294	2020	Pamphlet	978-0-0000294-1	4	CAT-0294	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+295	Travel Guide vol 295	2019	Pamphlet	978-0-0000295-1	3	CAT-0295	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+296	Selected Novels vol 296	2018	Pamphlet	978-0-0000296-1	1	CAT-0296	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+297	Collected Poems vol 297	2019	Pamphlet	978-0-0000297-1	1	CAT-0297	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+298	General Encyclopedia vol 298	\N	Pamphlet	978-0-0000298-1	\N	CAT-0298	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+299	Language Dictionary vol 299	2010	Pamphlet	978-0-0000299-1	1	CAT-0299	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+300	IT Basics vol 300	2010	Pamphlet	978-0-0000300-1	1	CAT-0300	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+301	Art History vol 301	2019	Pamphlet	978-0-0000301-1	2	CAT-0301	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+302	Exercise Book vol 302	2013	Pamphlet	978-0-0000302-1	2	CAT-0302	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+303	Intro to Physics vol 303	2019	Pamphlet	978-0-0000303-1	1	CAT-0303	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+304	Cookbook vol 304	2011	Pamphlet	978-0-0000304-1	1	CAT-0304	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+305	Travel Guide vol 305	2020	Pamphlet	978-0-0000305-1	2	CAT-0305	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+306	Selected Novels vol 306	2020	Pamphlet	978-0-0000306-1	1	CAT-0306	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+307	Collected Poems vol 307	2012	Pamphlet	978-0-0000307-1	1	CAT-0307	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+308	General Encyclopedia vol 308	2021	Pamphlet	978-0-0000308-1	1	CAT-0308	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+309	Language Dictionary vol 309	2017	Pamphlet	978-0-0000309-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+310	IT Basics vol 310	2017	Pamphlet	978-0-0000310-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+311	Art History vol 311	2017	Pamphlet	978-0-0000311-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+312	Exercise Book vol 312	2018	Pamphlet	978-0-0000312-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+313	Intro to Physics vol 313	\N	Pamphlet	978-0-0000313-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+314	Cookbook vol 314	2013	Pamphlet	978-0-0000314-1	\N	CAT-0314	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+315	Travel Guide vol 315	2017	Pamphlet	978-0-0000315-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+316	Selected Novels vol 316	2018	Pamphlet	978-0-0000316-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+317	Collected Poems vol 317	2017	Pamphlet	978-0-0000317-1	\N	CAT-0317	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+318	General Encyclopedia vol 318	2012	Pamphlet	978-0-0000318-1	\N	CAT-0318	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+319	Language Dictionary vol 319	2018	Pamphlet	978-0-0000319-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+320	IT Basics vol 320	2015	Pamphlet	978-0-0000320-1	\N	CAT-0320	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+321	Art History vol 321	2018	Pamphlet	978-0-0000321-1	\N	\N	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+322	Exercise Book vol 322	2018	Pamphlet	978-0-0000322-1	\N	CAT-0322	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+323	Intro to Physics vol 323	2018	Pamphlet	978-0-0000323-1	\N	CAT-0323	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+324	Cookbook vol 324	2017	Pamphlet	978-0-0000324-1	\N	CAT-0324	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+325	Travel Guide vol 325	2017	Pamphlet	978-0-0000325-1	\N	CAT-0325	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+326	Selected Novels vol 326	2014	Pamphlet	978-0-0000326-1	\N	CAT-0326	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+327	Collected Poems vol 327	2017	Pamphlet	978-0-0000327-1	\N	CAT-0327	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+328	General Encyclopedia vol 328	2018	Pamphlet	978-0-0000328-1	\N	CAT-0328	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+329	Language Dictionary vol 329	2014	Pamphlet	978-0-0000329-1	\N	CAT-0329	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+330	IT Basics vol 330	2014	Pamphlet	978-0-0000330-1	\N	CAT-0330	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+331	Art History vol 331	2014	Pamphlet	978-0-0000331-1	\N	CAT-0331	\N	40	13	2026-05-18 21:16:44.570625	\N	0
+332	Exercise Book vol 332	2019	Pamphlet	978-0-0000332-1	\N	CAT-0332	signed copy	36	13	2026-05-18 21:16:44.570625	\N	0
+333	Intro to Physics vol 333	2019	Pamphlet	978-0-0000333-1	\N	CAT-0333	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+334	Cookbook vol 334	2016	Pamphlet	978-0-0000334-1	\N	CAT-0334	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+335	Travel Guide vol 335	2019	Pamphlet	978-0-0000335-1	\N	CAT-0335	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+336	Selected Novels vol 336	2017	Pamphlet	978-0-0000336-1	\N	CAT-0336	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+337	Collected Poems vol 337	2018	Pamphlet	978-0-0000337-1	\N	CAT-0337	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+338	General Encyclopedia vol 338	2018	Pamphlet	978-0-0000338-1	\N	CAT-0338	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+339	Language Dictionary vol 339	2019	Pamphlet	978-0-0000339-1	\N	CAT-0339	library copy	36	13	2026-05-18 21:16:44.570625	\N	0
+340	IT Basics vol 340	2019	Pamphlet	978-0-0000340-1	\N	CAT-0340	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+341	Art History vol 341	2018	Pamphlet	978-0-0000341-1	\N	CAT-0341	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+342	Exercise Book vol 342	2018	Pamphlet	978-0-0000342-1	\N	CAT-0342	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+343	Intro to Physics vol 343	2016	Pamphlet	978-0-0000343-1	\N	CAT-0343	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+344	Cookbook vol 344	2019	Pamphlet	978-0-0000344-1	\N	CAT-0344	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+345	Travel Guide vol 345	2018	Pamphlet	978-0-0000345-1	\N	CAT-0345	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+346	Selected Novels vol 346	2015	Pamphlet	978-0-0000346-1	\N	CAT-0346	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+347	Collected Poems vol 347	2016	Pamphlet	978-0-0000347-1	\N	CAT-0347	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+348	General Encyclopedia vol 348	2014	Pamphlet	978-0-0000348-1	\N	CAT-0348	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+349	Language Dictionary vol 349	2016	Pamphlet	978-0-0000349-1	\N	CAT-0349	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+350	IT Basics vol 350	2018	Pamphlet	978-0-0000350-1	\N	CAT-0350	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+351	Art History vol 351	2018	Pamphlet	978-0-0000351-1	\N	CAT-0351	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+352	Exercise Book vol 352	2018	Pamphlet	978-0-0000352-1	\N	CAT-0352	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+353	Intro to Physics vol 353	\N	Pamphlet	978-0-0000353-1	\N	CAT-0353	no packaging	36	13	2026-05-18 21:16:44.570625	\N	0
+354	Cookbook vol 354	2017	Pamphlet	978-0-0000354-1	\N	CAT-0354	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+355	Travel Guide vol 355	2017	Pamphlet	978-0-0000355-1	\N	CAT-0355	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+356	Selected Novels vol 356	2018	Pamphlet	978-0-0000356-1	\N	CAT-0356	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+357	Collected Poems vol 357	2019	Pamphlet	978-0-0000357-1	\N	CAT-0357	English edition	36	13	2026-05-18 21:16:44.570625	\N	0
+358	General Encyclopedia vol 358	2018	Pamphlet	978-0-0000358-1	\N	CAT-0358	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+359	Language Dictionary vol 359	2018	Pamphlet	978-0-0000359-1	\N	CAT-0359	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+360	IT Basics vol 360	2016	Pamphlet	978-0-0000360-1	\N	CAT-0360	good condition	36	13	2026-05-18 21:16:44.570625	\N	0
+361	Art History vol 361	2016	Pamphlet	978-0-0000361-1	\N	CAT-0361	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+362	Exercise Book vol 362	2017	Pamphlet	978-0-0000362-1	\N	CAT-0362	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+363	Intro to Physics vol 363	2017	Pamphlet	978-0-0000363-1	\N	CAT-0363	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+364	Cookbook vol 364	2017	Pamphlet	978-0-0000364-1	\N	CAT-0364	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+365	Travel Guide vol 365	2017	Pamphlet	978-0-0000365-1	\N	CAT-0365	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+366	Selected Novels vol 366	2018	Pamphlet	978-0-0000366-1	\N	CAT-0366	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+367	Collected Poems vol 367	2018	Pamphlet	978-0-0000367-1	\N	CAT-0367	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+368	General Encyclopedia vol 368	2018	Pamphlet	978-0-0000368-1	\N	CAT-0368	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+369	Language Dictionary vol 369	2018	Pamphlet	978-0-0000369-1	\N	CAT-0369	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+370	IT Basics vol 370	\N	Pamphlet	978-0-0000370-1	\N	CAT-0370	good condition	36	13	2026-05-18 21:16:44.570625	\N	0
+371	Art History vol 371	\N	Pamphlet	978-0-0000371-1	\N	CAT-0371	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+372	Exercise Book vol 372	\N	Pamphlet	978-0-0000372-1	\N	CAT-0372	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+373	Intro to Physics vol 373	2009	Pamphlet	978-0-0000373-1	1	CAT-0373	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+374	Cookbook vol 374	2019	Pamphlet	978-0-0000374-1	5	CAT-0374	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+375	Travel Guide vol 375	2006	Pamphlet	978-0-0000375-1	\N	CAT-0375	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+376	Selected Novels vol 376	2019	Pamphlet	978-0-0000376-1	2	CAT-0376	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+377	Collected Poems vol 377	2019	Pamphlet	978-0-0000377-1	3	CAT-0377	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+378	General Encyclopedia vol 378	\N	Softcover	978-0-0000378-1	\N	CAT-0378	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+379	Language Dictionary vol 379	2020	Magazine	978-0-0000379-1	2	CAT-0379	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+380	IT Basics vol 380	2021	Magazine	978-0-0000380-1	2	CAT-0380	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+381	Art History vol 381	2021	Magazine	978-0-0000381-1	3	CAT-0381	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+382	Exercise Book vol 382	2021	Magazine	978-0-0000382-1	4	CAT-0382	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+383	Intro to Physics vol 383	2021	Magazine	978-0-0000383-1	5	CAT-0383	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+384	Cookbook vol 384	2021	Magazine	978-0-0000384-1	6	CAT-0384	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+385	Travel Guide vol 385	2022	Magazine	978-0-0000385-1	1	CAT-0385	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+386	Selected Novels vol 386	2016	Magazine	978-0-0000386-1	\N	CAT-0386	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+387	Collected Poems vol 387	2018	Magazine	978-0-0000387-1	\N	CAT-0387	English edition	36	13	2026-05-18 21:16:44.570625	\N	0
+388	General Encyclopedia vol 388	2020	Magazine	978-0-0000388-1	2	CAT-0388	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+389	Language Dictionary vol 389	2021	Magazine	978-0-0000389-1	2	CAT-0389	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+390	IT Basics vol 390	2021	Magazine	978-0-0000390-1	3	CAT-0390	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+391	Art History vol 391	2021	Magazine	978-0-0000391-1	4	CAT-0391	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+392	Exercise Book vol 392	2021	Magazine	978-0-0000392-1	5	CAT-0392	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+393	Intro to Physics vol 393	2021	Magazine	978-0-0000393-1	6	CAT-0393	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+394	Cookbook vol 394	2022	Magazine	978-0-0000394-1	1	CAT-0394	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+395	Travel Guide vol 395	2020	Magazine	978-0-0000395-1	\N	CAT-0395	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+396	Selected Novels vol 396	2021	Magazine	978-0-0000396-1	2	CAT-0396	\N	37	13	2026-05-18 21:16:44.570625	\N	0
+397	Collected Poems vol 397	2020	Magazine	978-0-0000397-1	\N	\N	English edition	37	13	2026-05-18 21:16:44.570625	\N	0
+398	General Encyclopedia vol 398	2020	Magazine	978-0-0000398-1	3	CAT-0398	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+399	Language Dictionary vol 399	2020	Magazine	978-0-0000399-1	1	CAT-0399	\N	36	13	2026-05-18 21:16:44.570625	\N	0
+400	IT Basics vol 400	2012	Softcover	978-0-0000400-1	\N	CAT-0400	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+401	Art History vol 401	2002	Softcover	978-0-0000401-1	\N	CAT-0401	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+402	Exercise Book vol 402	1998	Softcover	978-0-0000402-1	\N	CAT-0402	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+403	Intro to Physics vol 403	2010	Softcover	978-0-0000403-1	\N	CAT-0403	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+404	Cookbook vol 404	2018	Softcover	978-0-0000404-1	\N	CAT-0404	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+405	Travel Guide vol 405	2003	Softcover	978-0-0000405-1	\N	CAT-0405	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+406	Selected Novels vol 406	\N	Softcover	978-0-0000406-1	\N	CAT-0406	color black	24	14	2026-05-18 21:16:44.570625	\N	0
+407	Collected Poems vol 407	2011	Softcover	978-0-0000407-1	\N	CAT-0407	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+408	General Encyclopedia vol 408	2016	Magazine	978-0-0000408-1	2	CAT-0408	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+409	Language Dictionary vol 409	2019	Spiral Bound	978-0-0000409-1	\N	\N	library copy	24	14	2026-05-18 21:16:44.570625	\N	0
+410	IT Basics vol 410	2013	Softcover	978-0-0000410-1	1	CAT-0410	\N	37	9	2026-05-18 21:16:44.570625	\N	0
+411	Art History vol 411	2017	Softcover	978-0-0000411-1	6	CAT-0411	slightly damaged	24	14	2026-05-18 21:16:44.570625	\N	0
+412	Exercise Book vol 412	2008	Softcover	978-0-0000412-1	6	CAT-0412	signed copy	24	14	2026-05-18 21:16:44.570625	\N	0
+413	Intro to Physics vol 413	2007	Binder	978-0-0000413-1	\N	CAT-0413	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+414	Cookbook vol 414	\N	Binder	978-0-0000414-1	\N	\N	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+415	Travel Guide vol 415	1998	Binder	978-0-0000415-1	\N	CAT-0415	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+416	Selected Novels vol 416	2003	Binder	978-0-0000416-1	\N	CAT-0416	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+417	Collected Poems vol 417	1993	Binder	978-0-0000417-1	\N	CAT-0417	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+418	General Encyclopedia vol 418	1985	Binder	978-0-0000418-1	\N	CAT-0418	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+419	Language Dictionary vol 419	1991	Binder	978-0-0000419-1	\N	CAT-0419	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+420	IT Basics vol 420	1997	Binder	978-0-0000420-1	\N	CAT-0420	\N	24	14	2026-05-18 21:16:44.570625	\N	0
+421	Art History vol 421	2011	Softcover	978-0-0000421-1	\N	CAT-0421	slightly damaged	30	6	2026-05-18 21:16:44.570625	\N	0
+422	Exercise Book vol 422	2011	Softcover	978-0-0000422-1	\N	CAT-0422	signed copy	30	6	2026-05-18 21:16:44.570625	\N	0
+423	Intro to Physics vol 423	2002	Softcover	978-0-0000423-1	\N	CAT-0423	no packaging	30	6	2026-05-18 21:16:44.570625	\N	0
+424	Cookbook vol 424	2002	Hardcover	978-0-0000424-1	\N	CAT-0424	brand new	30	6	2026-05-18 21:16:44.570625	\N	0
+425	Travel Guide vol 425	2003	Softcover	978-0-0000425-1	\N	CAT-0425	used	30	6	2026-05-18 21:16:44.570625	\N	0
+426	Selected Novels vol 426	2003	Hardcover	978-0-0000426-1	\N	CAT-0426	color black	30	6	2026-05-18 21:16:44.570625	\N	0
+427	Collected Poems vol 427	2003	Softcover	978-0-0000427-1	\N	CAT-0427	English edition	30	6	2026-05-18 21:16:44.570625	\N	0
+428	General Encyclopedia vol 428	2003	Softcover	978-0-0000428-1	\N	CAT-0428	special edition	30	6	2026-05-18 21:16:44.570625	\N	0
+429	Language Dictionary vol 429	2003	Softcover	978-0-0000429-1	\N	CAT-0429	library copy	30	6	2026-05-18 21:16:44.570625	\N	0
+430	IT Basics vol 430	2003	Softcover	978-0-0000430-1	\N	CAT-0430	good condition	30	6	2026-05-18 21:16:44.570625	\N	0
+431	Art History vol 431	2005	Hardcover	978-0-0000431-1	\N	CAT-0431	slightly damaged	30	6	2026-05-18 21:16:44.570625	\N	0
+432	Exercise Book vol 432	2013	Softcover	978-0-0000432-1	\N	CAT-0432	signed copy	30	6	2026-05-18 21:16:44.570625	\N	0
+433	Intro to Physics vol 433	2004	Softcover	978-0-0000433-1	\N	CAT-0433	no packaging	30	6	2026-05-18 21:16:44.570625	\N	0
+434	Cookbook vol 434	2004	Softcover	978-0-0000434-1	\N	CAT-0434	brand new	30	6	2026-05-18 21:16:44.570625	\N	0
+435	Travel Guide vol 435	2004	Softcover	978-0-0000435-1	\N	CAT-0435	used	30	6	2026-05-18 21:16:44.570625	\N	0
+436	Selected Novels vol 436	2005	Softcover	978-0-0000436-1	\N	CAT-0436	color black	30	6	2026-05-18 21:16:44.570625	\N	0
+437	Collected Poems vol 437	2006	Softcover	978-0-0000437-1	\N	CAT-0437	English edition	30	6	2026-05-18 21:16:44.570625	\N	0
+438	General Encyclopedia vol 438	2005	Softcover	978-0-0000438-1	\N	CAT-0438	special edition	30	6	2026-05-18 21:16:44.570625	\N	0
+439	Language Dictionary vol 439	2005	Softcover	978-0-0000439-1	\N	\N	\N	30	6	2026-05-18 21:16:44.570625	\N	0
+440	IT Basics vol 440	2006	Softcover	978-0-0000440-1	\N	CAT-0440	good condition	30	6	2026-05-18 21:16:44.570625	\N	0
+441	Art History vol 441	2006	Softcover	978-0-0000441-1	\N	CAT-0441	slightly damaged	30	6	2026-05-18 21:16:44.570625	\N	0
+442	Exercise Book vol 442	2006	Softcover	978-0-0000442-1	\N	CAT-0442	signed copy	30	6	2026-05-18 21:16:44.570625	\N	0
+443	Intro to Physics vol 443	2007	Softcover	978-0-0000443-1	\N	CAT-0443	no packaging	30	6	2026-05-18 21:16:44.570625	\N	0
+444	Cookbook vol 444	2007	Softcover	978-0-0000444-1	\N	CAT-0444	brand new	30	6	2026-05-18 21:16:44.570625	\N	0
+445	Travel Guide vol 445	2008	Softcover	978-0-0000445-1	\N	CAT-0445	used	30	6	2026-05-18 21:16:44.570625	\N	0
+446	Selected Novels vol 446	2010	Softcover	978-0-0000446-1	\N	CAT-0446	color black	30	6	2026-05-18 21:16:44.570625	\N	0
+447	Collected Poems vol 447	2008	Softcover	978-0-0000447-1	\N	CAT-0447	English edition	30	6	2026-05-18 21:16:44.570625	\N	0
+448	General Encyclopedia vol 448	2009	Softcover	978-0-0000448-1	\N	CAT-0448	special edition	30	6	2026-05-18 21:16:44.570625	\N	0
+449	Language Dictionary vol 449	2010	Softcover	978-0-0000449-1	\N	CAT-0449	library copy	30	6	2026-05-18 21:16:44.570625	\N	0
+450	IT Basics vol 450	2010	Softcover	978-0-0000450-1	\N	CAT-0450	good condition	30	6	2026-05-18 21:16:44.570625	\N	0
+451	Art History vol 451	2011	Softcover	978-0-0000451-1	\N	CAT-0451	slightly damaged	30	6	2026-05-18 21:16:44.570625	\N	0
+452	Exercise Book vol 452	2011	Softcover	978-0-0000452-1	\N	CAT-0452	signed copy	30	6	2026-05-18 21:16:44.570625	\N	0
+453	Intro to Physics vol 453	2011	Softcover	978-0-0000453-1	\N	CAT-0453	no packaging	30	6	2026-05-18 21:16:44.570625	\N	0
+454	Cookbook vol 454	2011	Softcover	978-0-0000454-1	\N	CAT-0454	brand new	30	6	2026-05-18 21:16:44.570625	\N	0
+455	Travel Guide vol 455	2011	Softcover	978-0-0000455-1	\N	CAT-0455	used	30	6	2026-05-18 21:16:44.570625	\N	0
+456	Selected Novels vol 456	2006	Softcover	978-0-0000456-1	\N	\N	color black	30	6	2026-05-18 21:16:44.570625	\N	0
+457	Collected Poems vol 457	2006	Softcover	978-0-0000457-1	\N	\N	English edition	30	6	2026-05-18 21:16:44.570625	\N	0
+458	General Encyclopedia vol 458	2002	Softcover	978-0-0000458-1	1	\N	special edition	30	6	2026-05-18 21:16:44.570625	\N	0
+459	Language Dictionary vol 459	\N	Softcover	978-0-0000459-1	\N	\N	library copy	30	6	2026-05-18 21:16:44.570625	\N	0
+460	IT Basics vol 460	2020	Hardcover	978-0-0000460-1	11	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+461	Art History vol 461	2020	Hardcover	978-0-0000461-1	11	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+462	Exercise Book vol 462	2006	Hardcover	978-0-0000462-1	4	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+463	Intro to Physics vol 463	2012	Hardcover	978-0-0000463-1	7	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+464	Cookbook vol 464	2023	Hardcover	978-0-0000464-1	1	\N	\N	47	6	2026-05-18 21:16:44.570625	\N	0
+465	Travel Guide vol 465	2019	Hardcover	978-0-0000465-1	1	\N	used	47	6	2026-05-18 21:16:44.570625	\N	0
+466	Selected Novels vol 466	2007	Hardcover	978-0-0000466-1	11	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+467	Collected Poems vol 467	2015	Softcover	978-0-0000467-1	\N	\N	\N	48	6	2026-05-18 21:16:44.570625	\N	0
+468	General Encyclopedia vol 468	\N	Pamphlet	978-0-0000468-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+469	Language Dictionary vol 469	\N	Pamphlet	978-0-0000469-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+470	IT Basics vol 470	2020	Softcover	978-0-0000470-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+471	Art History vol 471	2020	Softcover	978-0-0000471-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+472	Exercise Book vol 472	2020	Softcover	978-0-0000472-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+473	Intro to Physics vol 473	2020	Softcover	978-0-0000473-1	1	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+474	Cookbook vol 474	2014	Hardcover	978-0-0000474-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+475	Travel Guide vol 475	2014	Hardcover	978-0-0000475-1	4	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+476	Selected Novels vol 476	2013	Hardcover	978-0-0000476-1	6	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+477	Collected Poems vol 477	2016	Hardcover	978-0-0000477-1	6	\N	\N	45	14	2026-05-18 21:16:44.570625	\N	0
+478	General Encyclopedia vol 478	2018	Hardcover	978-0-0000478-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+479	Language Dictionary vol 479	1964	Softcover	978-0-0000479-1	1	CAT-0479	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+480	IT Basics vol 480	1970	Softcover	\N	11	CAT-0480	\N	50	6	2026-05-18 21:16:44.570625	\N	0
+481	Art History vol 481	1969	Hardcover	978-0-0000481-1	\N	CAT-0481	slightly damaged	46	6	2026-05-18 21:16:44.570625	\N	0
+482	Exercise Book vol 482	2017	Softcover	978-0-0000482-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+483	Intro to Physics vol 483	2008	Softcover	978-0-0000483-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+484	Cookbook vol 484	1987	Softcover	978-0-0000484-1	1	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+485	Travel Guide vol 485	1981	Softcover	978-0-0000485-1	2	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+486	Selected Novels vol 486	1974	\N	\N	\N	\N	\N	52	6	2026-05-18 21:16:44.570625	\N	0
+487	Collected Poems vol 487	2020	Softcover	978-0-0000487-1	1	CAT-0487	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+488	General Encyclopedia vol 488	2015	Softcover	978-0-0000488-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+489	Language Dictionary vol 489	1991	Hardcover	978-0-0000489-1	\N	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+490	IT Basics vol 490	1993	Softcover	978-0-0000490-1	\N	\N	\N	53	6	2026-05-18 21:16:44.570625	\N	0
+491	Art History vol 491	2019	Softcover	978-0-0000491-1	\N	\N	\N	54	6	2026-05-18 21:16:44.570625	\N	0
+492	Exercise Book vol 492	2018	Hardcover	978-0-0000492-1	\N	\N	\N	55	6	2026-05-18 21:16:44.570625	\N	0
+493	Intro to Physics vol 493	2013	Softcover	978-0-0000493-1	\N	\N	\N	56	6	2026-05-18 21:16:44.570625	\N	0
+494	Cookbook vol 494	2014	Softcover	978-0-0000494-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+495	Travel Guide vol 495	\N	Spiral Bound	978-0-0000495-1	2	\N	\N	57	6	2026-05-18 21:16:44.570625	\N	0
+496	Selected Novels vol 496	\N	Spiral Bound	978-0-0000496-1	1	\N	\N	57	6	2026-05-18 21:16:44.570625	\N	0
+497	Collected Poems vol 497	2007	Softcover	978-0-0000497-1	1	\N	\N	58	6	2026-05-18 21:16:44.570625	\N	0
+498	General Encyclopedia vol 498	2004	Softcover	978-0-0000498-1	\N	\N	special edition	59	6	2026-05-18 21:16:44.570625	\N	0
+499	Language Dictionary vol 499	1998	Softcover	978-0-0000499-1	\N	\N	\N	60	6	2026-05-18 21:16:44.570625	\N	0
+500	IT Basics vol 500	2020	Softcover	978-0-0000500-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+501	Art History vol 501	1996	Softcover	978-0-0000501-1	\N	\N	\N	61	6	2026-05-18 21:16:44.570625	\N	0
+502	Exercise Book vol 502	2010	Softcover	978-0-0000502-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+503	Intro to Physics vol 503	2010	Softcover	978-0-0000503-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+504	Cookbook vol 504	2022	Hardcover	978-0-0000504-1	4	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+505	Travel Guide vol 505	2001	Hardcover	978-0-0000505-1	\N	\N	used	51	6	2026-05-18 21:16:44.570625	\N	0
+506	Selected Novels vol 506	1968	Softcover	978-0-0000506-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+507	Collected Poems vol 507	1976	Softcover	978-0-0000507-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+508	General Encyclopedia vol 508	1988	Softcover	978-0-0000508-1	\N	\N	special edition	62	6	2026-05-18 21:16:44.570625	\N	0
+509	Language Dictionary vol 509	2001	Softcover	978-0-0000509-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+510	IT Basics vol 510	2021	Softcover	978-0-0000510-1	\N	\N	\N	63	6	2026-05-18 21:16:44.570625	\N	0
+511	Art History vol 511	2022	Softcover	978-0-0000511-1	13	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+512	Exercise Book vol 512	2021	Softcover	978-0-0000512-1	10	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+727	Collected Poems vol 727	2003	Softcover	978-0-0000727-1	\N	\N	\N	114	17	2026-05-18 21:16:44.570625	\N	0
+513	Intro to Physics vol 513	2021	Softcover	978-0-0000513-1	10	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+514	Cookbook vol 514	2022	Softcover	978-0-0000514-1	11	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+515	Travel Guide vol 515	2022	Softcover	978-0-0000515-1	11	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+516	Selected Novels vol 516	2023	Softcover	978-0-0000516-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+517	Collected Poems vol 517	2014	Softcover	978-0-0000517-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+518	General Encyclopedia vol 518	2021	Softcover	978-0-0000518-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+519	Language Dictionary vol 519	2019	Softcover	978-0-0000519-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+520	IT Basics vol 520	2019	Softcover	978-0-0000520-1	1	\N	good condition	64	6	2026-05-18 21:16:44.570625	\N	0
+521	Art History vol 521	2018	Softcover	978-0-0000521-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+522	Exercise Book vol 522	2000	Hardcover	978-0-0000522-1	\N	\N	\N	65	6	2026-05-18 21:16:44.570625	\N	0
+523	Intro to Physics vol 523	2010	Softcover	978-0-0000523-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+524	Cookbook vol 524	2014	Softcover	978-0-0000524-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+525	Travel Guide vol 525	2015	Softcover	978-0-0000525-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+526	Selected Novels vol 526	2023	Softcover	978-0-0000526-1	4	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+527	Collected Poems vol 527	2023	Softcover	978-0-0000527-1	4	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+528	General Encyclopedia vol 528	1992	Softcover	978-0-0000528-1	\N	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+529	Language Dictionary vol 529	2012	Hardcover	978-0-0000529-1	5	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+530	IT Basics vol 530	2019	Hardcover	978-0-0000530-1	7	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+531	Art History vol 531	1995	Hardcover	978-0-0000531-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+532	Exercise Book vol 532	2013	Hardcover	978-0-0000532-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+533	Intro to Physics vol 533	2018	Hardcover	978-0-0000533-1	9	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+534	Cookbook vol 534	2000	Hardcover	978-0-0000534-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+535	Travel Guide vol 535	2004	Softcover	978-0-0000535-1	\N	CAT-0535	used	30	6	2026-05-18 21:16:44.570625	\N	0
+536	Selected Novels vol 536	2004	Softcover	978-0-0000536-1	\N	CAT-0536	color black	30	6	2026-05-18 21:16:44.570625	\N	0
+537	Collected Poems vol 537	2005	Hardcover	978-0-0000537-1	\N	CAT-0537	English edition	30	6	2026-05-18 21:16:44.570625	\N	0
+538	General Encyclopedia vol 538	2007	Softcover	978-0-0000538-1	\N	CAT-0538	special edition	30	6	2026-05-18 21:16:44.570625	\N	0
+539	Language Dictionary vol 539	2010	Softcover	978-0-0000539-1	\N	CAT-0539	library copy	30	6	2026-05-18 21:16:44.570625	\N	0
+540	IT Basics vol 540	2009	Softcover	978-0-0000540-1	\N	CAT-0540	good condition	30	6	2026-05-18 21:16:44.570625	\N	0
+541	Art History vol 541	2005	Softcover	978-0-0000541-1	\N	CAT-0541	slightly damaged	30	6	2026-05-18 21:16:44.570625	\N	0
+542	Exercise Book vol 542	1989	Softcover	978-0-0000542-1	1	\N	\N	66	6	2026-05-18 21:16:44.570625	\N	0
+543	Intro to Physics vol 543	1967	Hardcover	978-0-0000543-1	\N	\N	\N	67	6	2026-05-18 21:16:44.570625	\N	0
+544	Cookbook vol 544	2004	Softcover	978-0-0000544-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+545	Travel Guide vol 545	2020	Softcover	978-0-0000545-1	7	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+546	Selected Novels vol 546	2020	Softcover	978-0-0000546-1	3	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+547	Collected Poems vol 547	2012	Softcover	978-0-0000547-1	12	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+548	General Encyclopedia vol 548	2003	Softcover	978-0-0000548-1	1	\N	\N	68	6	2026-05-18 21:16:44.570625	\N	0
+549	Language Dictionary vol 549	1992	Softcover	978-0-0000549-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+550	IT Basics vol 550	1972	Softcover	978-0-0000550-1	\N	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+551	Art History vol 551	1972	Softcover	978-0-0000551-1	\N	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+552	Exercise Book vol 552	2013	Softcover	978-0-0000552-1	\N	\N	signed copy	69	6	2026-05-18 21:16:44.570625	\N	0
+553	Intro to Physics vol 553	2018	Softcover	978-0-0000553-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+554	Cookbook vol 554	2004	Softcover	978-0-0000554-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+555	Travel Guide vol 555	1997	Softcover	978-0-0000555-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+556	Selected Novels vol 556	2012	Softcover	978-0-0000556-1	4	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+557	Collected Poems vol 557	2012	Softcover	978-0-0000557-1	5	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+558	General Encyclopedia vol 558	2012	Softcover	978-0-0000558-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+559	Language Dictionary vol 559	2012	Softcover	978-0-0000559-1	14	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+560	IT Basics vol 560	2015	Softcover	978-0-0000560-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+561	Art History vol 561	2012	Softcover	978-0-0000561-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+562	Exercise Book vol 562	2021	Softcover	978-0-0000562-1	29	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+563	Intro to Physics vol 563	2018	Softcover	978-0-0000563-1	27	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+564	Cookbook vol 564	2017	Softcover	978-0-0000564-1	9	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+565	Travel Guide vol 565	2017	Softcover	978-0-0000565-1	15	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+566	Selected Novels vol 566	2017	Softcover	978-0-0000566-1	11	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+567	Collected Poems vol 567	2017	Softcover	978-0-0000567-1	11	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+568	General Encyclopedia vol 568	2021	Softcover	978-0-0000568-1	28	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+569	Language Dictionary vol 569	2021	Softcover	978-0-0000569-1	28	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+570	IT Basics vol 570	2019	Softcover	978-0-0000570-1	19	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+571	Art History vol 571	2019	Softcover	978-0-0000571-1	20	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+572	Exercise Book vol 572	2021	Softcover	978-0-0000572-1	9	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+573	Intro to Physics vol 573	2022	Softcover	978-0-0000573-1	8	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+574	Cookbook vol 574	2021	Softcover	978-0-0000574-1	23	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+575	Travel Guide vol 575	2021	Softcover	978-0-0000575-1	23	\N	\N	70	6	2026-05-18 21:16:44.570625	\N	0
+576	Selected Novels vol 576	2004	Hardcover	978-0-0000576-1	3	\N	color black	51	6	2026-05-18 21:16:44.570625	\N	0
+577	Collected Poems vol 577	2005	Hardcover	978-0-0000577-1	2	\N	English edition	51	6	2026-05-18 21:16:44.570625	\N	0
+578	General Encyclopedia vol 578	2015	Softcover	978-0-0000578-1	2	\N	\N	71	6	2026-05-18 21:16:44.570625	\N	0
+579	Language Dictionary vol 579	2001	Hardcover	978-0-0000579-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+580	IT Basics vol 580	1966	Hardcover	978-0-0000580-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+581	Art History vol 581	2021	Softcover	978-0-0000581-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+582	Exercise Book vol 582	2017	Softcover	978-0-0000582-1	\N	\N	\N	72	6	2026-05-18 21:16:44.570625	\N	0
+583	Intro to Physics vol 583	2017	Softcover	978-0-0000583-1	\N	\N	\N	72	6	2026-05-18 21:16:44.570625	\N	0
+584	Cookbook vol 584	1972	Hardcover	978-0-0000584-1	\N	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+585	Travel Guide vol 585	2010	Softcover	978-0-0000585-1	1	\N	\N	73	6	2026-05-18 21:16:44.570625	\N	0
+586	Selected Novels vol 586	2011	Softcover	978-0-0000586-1	1	\N	\N	73	6	2026-05-18 21:16:44.570625	\N	0
+587	Collected Poems vol 587	1996	Softcover	978-0-0000587-1	\N	\N	\N	74	17	2026-05-18 21:16:44.570625	\N	0
+588	General Encyclopedia vol 588	2012	Softcover	978-0-0000588-1	1	\N	\N	75	6	2026-05-18 21:16:44.570625	\N	0
+589	Language Dictionary vol 589	2000	Softcover	978-0-0000589-1	1	\N	\N	76	6	2026-05-18 21:16:44.570625	\N	0
+590	IT Basics vol 590	2020	Softcover	978-0-0000590-1	\N	\N	good condition	41	6	2026-05-18 21:16:44.570625	\N	0
+591	Art History vol 591	2010	Softcover	978-0-0000591-1	1	\N	\N	77	6	2026-05-18 21:16:44.570625	\N	0
+592	Exercise Book vol 592	2002	Hardcover	978-0-0000592-1	\N	\N	\N	78	6	2026-05-18 21:16:44.570625	\N	0
+593	Intro to Physics vol 593	2016	Softcover	978-0-0000593-1	\N	\N	\N	41	6	2026-05-18 21:16:44.570625	\N	0
+594	Cookbook vol 594	2020	Softcover	978-0-0000594-1	\N	\N	\N	79	6	2026-05-18 21:16:44.570625	\N	0
+595	Travel Guide vol 595	2011	Softcover	978-0-0000595-1	\N	\N	used	79	6	2026-05-18 21:16:44.570625	\N	0
+596	Selected Novels vol 596	2019	Softcover	978-0-0000596-1	\N	\N	\N	79	6	2026-05-18 21:16:44.570625	\N	0
+597	Collected Poems vol 597	2023	Spiral Bound	978-0-0000597-1	\N	\N	\N	15	6	2026-05-18 21:16:44.570625	\N	0
+598	General Encyclopedia vol 598	2020	Hardcover	978-0-0000598-1	\N	\N	\N	82	16	2026-05-18 21:16:44.570625	\N	0
+599	Language Dictionary vol 599	2021	Hardcover	978-0-0000599-1	1	\N	\N	84	6	2026-05-18 21:16:44.570625	\N	0
+600	IT Basics vol 600	2007	Hardcover	978-0-0000600-1	1	\N	\N	85	6	2026-05-18 21:16:44.570625	\N	0
+601	Art History vol 601	2010	Softcover	978-0-0000601-1	\N	\N	\N	86	17	2026-05-18 21:16:44.570625	\N	0
+602	Exercise Book vol 602	2022	Hardcover	978-0-0000602-1	\N	\N	\N	87	6	2026-05-18 21:16:44.570625	\N	0
+603	Intro to Physics vol 603	2013	Softcover	978-0-0000603-1	\N	\N	no packaging	88	6	2026-05-18 21:16:44.570625	\N	0
+604	Cookbook vol 604	2003	Softcover	978-0-0000604-1	\N	\N	\N	89	6	2026-05-18 21:16:44.570625	\N	0
+605	Travel Guide vol 605	2021	Hardcover	978-0-0000605-1	\N	\N	\N	88	6	2026-05-18 21:16:44.570625	\N	0
+606	Selected Novels vol 606	2012	Hardcover	978-0-0000606-1	\N	\N	\N	90	6	2026-05-18 21:16:44.570625	\N	0
+607	Collected Poems vol 607	2019	Softcover	978-0-0000607-1	\N	\N	\N	91	6	2026-05-18 21:16:44.570625	\N	0
+608	General Encyclopedia vol 608	2020	Softcover	978-0-0000608-1	\N	\N	\N	92	6	2026-05-18 21:16:44.570625	\N	0
+609	Language Dictionary vol 609	2021	Spiral Bound	978-0-0000609-1	\N	\N	\N	92	6	2026-05-18 21:16:44.570625	\N	0
+610	IT Basics vol 610	2020	Softcover	978-0-0000610-1	\N	\N	\N	92	6	2026-05-18 21:16:44.570625	\N	0
+611	Art History vol 611	\N	Softcover	978-0-0000611-1	\N	\N	\N	93	6	2026-05-18 21:16:44.570625	\N	0
+612	Exercise Book vol 612	\N	Softcover	978-0-0000612-1	\N	\N	\N	93	6	2026-05-18 21:16:44.570625	\N	0
+613	Intro to Physics vol 613	1994	Hardcover	978-0-0000613-1	18	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+614	Cookbook vol 614	1994	Hardcover	978-0-0000614-1	18	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+615	Travel Guide vol 615	2019	Softcover	978-0-0000615-1	2	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+616	Selected Novels vol 616	2005	Softcover	978-0-0000616-1	\N	\N	\N	94	6	2026-05-18 21:16:44.570625	\N	0
+617	Collected Poems vol 617	2013	Softcover	978-0-0000617-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+618	General Encyclopedia vol 618	2020	Softcover	978-0-0000618-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+619	Language Dictionary vol 619	2018	Softcover	978-0-0000619-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+620	IT Basics vol 620	2015	Softcover	978-0-0000620-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+621	Art History vol 621	2016	Softcover	978-0-0000621-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+622	Exercise Book vol 622	2018	Softcover	978-0-0000622-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+623	Intro to Physics vol 623	2018	Softcover	978-0-0000623-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+624	Cookbook vol 624	2015	Softcover	978-0-0000624-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+625	Travel Guide vol 625	2017	Softcover	978-0-0000625-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+626	Selected Novels vol 626	2015	Softcover	978-0-0000626-1	\N	\N	\N	45	6	2026-05-18 21:16:44.570625	\N	0
+627	Collected Poems vol 627	2020	Softcover	978-0-0000627-1	1	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+628	General Encyclopedia vol 628	2000	Softcover	978-0-0000628-1	5	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+629	Language Dictionary vol 629	2014	Softcover	978-0-0000629-1	2	\N	\N	95	6	2026-05-18 21:16:44.570625	\N	0
+630	IT Basics vol 630	2020	Hardcover	978-0-0000630-1	2	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+631	Art History vol 631	2001	Hardcover	978-0-0000631-1	2	\N	\N	95	6	2026-05-18 21:16:44.570625	\N	0
+632	Exercise Book vol 632	2018	Softcover	978-0-0000632-1	3	\N	\N	46	6	2026-05-18 21:16:44.570625	\N	0
+633	Intro to Physics vol 633	2004	Softcover	978-0-0000633-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+634	Cookbook vol 634	2004	Softcover	978-0-0000634-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+635	Travel Guide vol 635	2007	Softcover	978-0-0000635-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+636	Selected Novels vol 636	2003	Softcover	978-0-0000636-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+637	Collected Poems vol 637	2003	Softcover	978-0-0000637-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+638	General Encyclopedia vol 638	2005	Softcover	978-0-0000638-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+639	Language Dictionary vol 639	2003	Softcover	978-0-0000639-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+640	IT Basics vol 640	2004	Softcover	978-0-0000640-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+641	Art History vol 641	2004	Softcover	978-0-0000641-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+642	Exercise Book vol 642	2002	Softcover	978-0-0000642-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+643	Intro to Physics vol 643	2004	Hardcover	978-0-0000643-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+644	Cookbook vol 644	2006	Hardcover	978-0-0000644-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+645	Travel Guide vol 645	2006	Hardcover	978-0-0000645-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+646	Selected Novels vol 646	2006	Hardcover	978-0-0000646-1	\N	\N	\N	11	16	2026-05-18 21:16:44.570625	\N	0
+647	Collected Poems vol 647	2017	Softcover	978-0-0000647-1	1	\N	\N	96	16	2026-05-18 21:16:44.570625	\N	0
+648	General Encyclopedia vol 648	2017	Hardcover	978-0-0000648-1	\N	\N	\N	97	16	2026-05-18 21:16:44.570625	\N	0
+649	Language Dictionary vol 649	2018	Hardcover	978-0-0000649-1	\N	\N	\N	98	16	2026-05-18 21:16:44.570625	\N	0
+650	IT Basics vol 650	2008	Softcover	978-0-0000650-1	\N	CAT-0650	\N	102	15	2026-05-18 21:16:44.570625	\N	0
+651	Art History vol 651	2019	Softcover	978-0-0000651-1	\N	CAT-0651	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+652	Exercise Book vol 652	2019	Softcover	978-0-0000652-1	\N	CAT-0652	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+653	Intro to Physics vol 653	2019	Softcover	978-0-0000653-1	\N	CAT-0653	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+654	Cookbook vol 654	2019	Softcover	978-0-0000654-1	\N	CAT-0654	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+655	Travel Guide vol 655	2019	Softcover	978-0-0000655-1	\N	CAT-0655	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+656	Selected Novels vol 656	2019	Softcover	978-0-0000656-1	\N	CAT-0656	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+657	Collected Poems vol 657	2019	Softcover	978-0-0000657-1	\N	CAT-0657	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+658	General Encyclopedia vol 658	2019	Softcover	978-0-0000658-1	\N	CAT-0658	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+659	Language Dictionary vol 659	1996	Hardcover	978-0-0000659-1	\N	\N	\N	104	15	2026-05-18 21:16:44.570625	\N	0
+660	IT Basics vol 660	1986	Softcover	978-0-0000660-1	7	\N	\N	105	15	2026-05-18 21:16:44.570625	\N	0
+661	Art History vol 661	1977	Softcover	978-0-0000661-1	3	\N	\N	105	15	2026-05-18 21:16:44.570625	\N	0
+662	Exercise Book vol 662	2009	Softcover	978-0-0000662-1	\N	CAT-0662	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+663	Intro to Physics vol 663	2009	Softcover	978-0-0000663-1	\N	CAT-0663	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+664	Cookbook vol 664	2009	Softcover	978-0-0000664-1	\N	CAT-0664	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+665	Travel Guide vol 665	2009	Softcover	978-0-0000665-1	\N	CAT-0665	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+666	Selected Novels vol 666	2009	Softcover	978-0-0000666-1	\N	CAT-0666	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+667	Collected Poems vol 667	2009	Softcover	978-0-0000667-1	\N	CAT-0667	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+668	General Encyclopedia vol 668	2009	Softcover	978-0-0000668-1	\N	CAT-0668	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+669	Language Dictionary vol 669	2009	Softcover	978-0-0000669-1	\N	CAT-0669	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+670	IT Basics vol 670	2009	Softcover	978-0-0000670-1	\N	CAT-0670	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+671	Art History vol 671	2003	Softcover	978-0-0000671-1	\N	CAT-0671	\N	76	15	2026-05-18 21:16:44.570625	\N	0
+672	Exercise Book vol 672	2002	Softcover	978-0-0000672-1	1	CAT-0672	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+673	Intro to Physics vol 673	2003	Softcover	978-0-0000673-1	1	CAT-0673	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+674	Cookbook vol 674	2007	Softcover	978-0-0000674-1	1	CAT-0674	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+675	Travel Guide vol 675	2009	Softcover	978-0-0000675-1	\N	CAT-0675	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+676	Selected Novels vol 676	2009	Softcover	978-0-0000676-1	\N	CAT-0676	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+677	Collected Poems vol 677	2009	Softcover	978-0-0000677-1	\N	CAT-0677	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+678	General Encyclopedia vol 678	2009	Softcover	978-0-0000678-1	\N	CAT-0678	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+679	Language Dictionary vol 679	2009	Softcover	978-0-0000679-1	\N	CAT-0679	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+680	IT Basics vol 680	2009	Softcover	978-0-0000680-1	\N	CAT-0680	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+681	Art History vol 681	2009	Softcover	978-0-0000681-1	\N	CAT-0681	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+682	Exercise Book vol 682	2009	Softcover	978-0-0000682-1	\N	CAT-0682	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+683	Intro to Physics vol 683	2009	Softcover	978-0-0000683-1	\N	CAT-0683	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+684	Cookbook vol 684	2009	Softcover	978-0-0000684-1	\N	CAT-0684	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+685	Travel Guide vol 685	2009	Softcover	978-0-0000685-1	\N	CAT-0685	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+686	Selected Novels vol 686	2009	Softcover	978-0-0000686-1	\N	CAT-0686	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+687	Collected Poems vol 687	2009	Softcover	978-0-0000687-1	\N	CAT-0687	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+688	General Encyclopedia vol 688	2009	Softcover	978-0-0000688-1	\N	CAT-0688	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+689	Language Dictionary vol 689	2009	Softcover	978-0-0000689-1	\N	CAT-0689	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+690	IT Basics vol 690	2009	Softcover	978-0-0000690-1	\N	CAT-0690	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+691	Art History vol 691	2009	Softcover	978-0-0000691-1	\N	CAT-0691	\N	106	15	2026-05-18 21:16:44.570625	\N	0
+692	Exercise Book vol 692	1990	Softcover	978-0-0000692-1	4	CAT-0692	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+693	Intro to Physics vol 693	2002	Softcover	978-0-0000693-1	5	CAT-0693	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+694	Cookbook vol 694	2001	Softcover	978-0-0000694-1	4	CAT-0694	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+695	Travel Guide vol 695	1996	Softcover	978-0-0000695-1	4	CAT-0695	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+696	Selected Novels vol 696	2000	Softcover	978-0-0000696-1	4	CAT-0696	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+697	Collected Poems vol 697	1988	Softcover	978-0-0000697-1	3	CAT-0697	\N	107	15	2026-05-18 21:16:44.570625	\N	0
+698	General Encyclopedia vol 698	1989	Softcover	978-0-0000698-1	2	CAT-0698	\N	107	15	2026-05-18 21:16:44.570625	\N	0
+699	Language Dictionary vol 699	1990	Softcover	978-0-0000699-1	3	CAT-0699	\N	108	15	2026-05-18 21:16:44.570625	\N	0
+700	IT Basics vol 700	1981	Softcover	978-0-0000700-1	1	CAT-0700	\N	107	15	2026-05-18 21:16:44.570625	\N	0
+701	Art History vol 701	2003	Softcover	978-0-0000701-1	4	CAT-0701	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+702	Exercise Book vol 702	1990	Softcover	978-0-0000702-1	2	CAT-0702	\N	109	15	2026-05-18 21:16:44.570625	\N	0
+703	Intro to Physics vol 703	1987	Softcover	978-0-0000703-1	1	CAT-0703	\N	107	15	2026-05-18 21:16:44.570625	\N	0
+704	Cookbook vol 704	1992	Softcover	978-0-0000704-1	1	CAT-0704	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+705	Travel Guide vol 705	1994	Softcover	978-0-0000705-1	1	CAT-0705	used	103	15	2026-05-18 21:16:44.570625	\N	0
+706	Selected Novels vol 706	1996	Softcover	978-0-0000706-1	1	CAT-0706	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+707	Collected Poems vol 707	1997	Softcover	978-0-0000707-1	1	CAT-0707	\N	103	15	2026-05-18 21:16:44.570625	\N	0
+708	General Encyclopedia vol 708	1998	Softcover	978-0-0000708-1	1	CAT-0708	special edition	103	15	2026-05-18 21:16:44.570625	\N	0
+709	Language Dictionary vol 709	2000	Softcover	978-0-0000709-1	1	CAT-0709	library copy	103	15	2026-05-18 21:16:44.570625	\N	0
+710	IT Basics vol 710	1988	Softcover	978-0-0000710-1	1	CAT-0710	\N	107	15	2026-05-18 21:16:44.570625	\N	0
+711	Art History vol 711	1989	Softcover	978-0-0000711-1	1	\N	\N	110	15	2026-05-18 21:16:44.570625	\N	0
+712	Exercise Book vol 712	2002	Softcover	978-0-0000712-1	\N	\N	\N	76	15	2026-05-18 21:16:44.570625	\N	0
+713	Intro to Physics vol 713	2008	Softcover	978-0-0000713-1	\N	CAT-0713	\N	111	15	2026-05-18 21:16:44.570625	\N	0
+714	Cookbook vol 714	2008	Softcover	978-0-0000714-1	\N	CAT-0714	\N	111	15	2026-05-18 21:16:44.570625	\N	0
+715	Travel Guide vol 715	2008	Softcover	978-0-0000715-1	\N	CAT-0715	\N	111	15	2026-05-18 21:16:44.570625	\N	0
+716	Selected Novels vol 716	2008	Softcover	978-0-0000716-1	\N	CAT-0716	\N	111	15	2026-05-18 21:16:44.570625	\N	0
+717	Collected Poems vol 717	2017	Softcover	978-0-0000717-1	5	CAT-0717	\N	112	15	2026-05-18 21:16:44.570625	\N	0
+718	General Encyclopedia vol 718	2017	Softcover	978-0-0000718-1	5	CAT-0718	\N	112	15	2026-05-18 21:16:44.570625	\N	0
+719	Language Dictionary vol 719	2006	Softcover	978-0-0000719-1	\N	CAT-0719	\N	113	15	2026-05-18 21:16:44.570625	\N	0
+720	IT Basics vol 720	2013	Hardcover	978-0-0000720-1	\N	CAT-0720	good condition	106	15	2026-05-18 21:16:44.570625	\N	0
+721	Art History vol 721	2005	Softcover	978-0-0000721-1	\N	\N	slightly damaged	102	17	2026-05-18 21:16:44.570625	\N	0
+722	Exercise Book vol 722	2003	Softcover	978-0-0000722-1	\N	\N	signed copy	102	17	2026-05-18 21:16:44.570625	\N	0
+723	Intro to Physics vol 723	2004	Softcover	978-0-0000723-1	\N	\N	no packaging	102	17	2026-05-18 21:16:44.570625	\N	0
+724	Cookbook vol 724	2005	Softcover	978-0-0000724-1	\N	\N	brand new	102	17	2026-05-18 21:16:44.570625	\N	0
+725	Travel Guide vol 725	2002	Softcover	978-0-0000725-1	\N	\N	used	102	17	2026-05-18 21:16:44.570625	\N	0
+726	Selected Novels vol 726	2003	Softcover	978-0-0000726-1	\N	\N	color black	102	17	2026-05-18 21:16:44.570625	\N	0
+728	General Encyclopedia vol 728	2000	Softcover	978-0-0000728-1	\N	\N	\N	115	6	2026-05-18 21:16:44.570625	\N	0
+729	Language Dictionary vol 729	2014	Softcover	978-0-0000729-1	\N	CAT-0729	\N	30	6	2026-05-18 21:16:44.570625	\N	0
+730	IT Basics vol 730	2009	Softcover	978-0-0000730-1	1	\N	\N	73	6	2026-05-18 21:16:44.570625	\N	0
+731	Art History vol 731	2021	Softcover	978-0-0000731-1	\N	\N	\N	76	15	2026-05-18 21:16:44.570625	\N	0
+732	Exercise Book vol 732	2019	Softcover	978-0-0000732-1	\N	\N	\N	76	15	2026-05-18 21:16:44.570625	\N	0
+733	Intro to Physics vol 733	2002	Softcover	978-0-0000733-1	\N	\N	\N	76	15	2026-05-18 21:16:44.570625	\N	0
+734	Cookbook vol 734	2008	Softcover	978-0-0000734-1	\N	CAT-0734	brand new	30	6	2026-05-18 21:16:44.570625	\N	0
+735	Travel Guide vol 735	2017	Hardcover	978-0-0000735-1	\N	\N	\N	116	6	2026-05-18 21:16:44.570625	\N	0
+736	Selected Novels vol 736	2017	Hardcover	978-0-0000736-1	\N	\N	\N	116	6	2026-05-18 21:16:44.570625	\N	0
+737	Collected Poems vol 737	1982	Hardcover	978-0-0000737-1	\N	\N	\N	51	6	2026-05-18 21:16:44.570625	\N	0
+738	General Encyclopedia vol 738	1994	Hardcover	978-0-0000738-1	2	\N	\N	117	6	2026-05-18 21:16:44.570625	\N	0
+739	Language Dictionary vol 739	1939	Softcover	978-0-0000739-1	\N	\N	\N	118	6	2026-05-18 21:16:44.570625	\N	0
+740	IT Basics vol 740	2022	Softcover	978-0-0000740-1	\N	\N	\N	45	14	2026-05-18 21:16:44.570625	\N	0
+741	Art History vol 741	2022	Softcover	978-0-0000741-1	\N	\N	\N	45	14	2026-05-18 21:16:44.570625	\N	0
+742	Exercise Book vol 742	2010	Softcover	978-0-0000742-1	\N	CAT-0742	signed copy	30	6	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: book_authors; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.book_authors (authors_id, books_id) FROM stdin;
+1	1
+2	22
+3	23
+4	24
+5	25
+6	26
+7	26
+8	26
+9	26
+10	27
+11	30
+12	55
+12	31
+12	32
+13	34
+14	34
+14	35
+15	37
+15	38
+16	50
+16	40
+16	39
+17	42
+18	450
+19	43
+20	44
+21	45
+22	45
+23	46
+24	442
+25	433
+25	428
+26	445
+27	49
+28	144
+28	51
+28	52
+29	51
+30	51
+31	53
+32	54
+33	55
+34	56
+35	57
+36	139
+36	140
+37	141
+38	143
+39	146
+40	162
+41	193
+42	193
+43	432
+44	432
+45	459
+46	442
+47	438
+48	447
+49	437
+49	436
+49	440
+50	448
+51	428
+51	435
+52	429
+52	432
+53	426
+53	442
+53	425
+53	549
+53	447
+54	429
+55	458
+56	457
+56	629
+57	450
+58	537
+58	423
+59	524
+59	436
+59	437
+59	424
+59	525
+59	431
+60	456
+61	428
+61	433
+62	428
+62	435
+62	443
+62	540
+62	434
+62	538
+63	422
+63	521
+63	433
+63	435
+63	443
+63	428
+63	499
+64	447
+65	742
+65	456
+66	442
+67	448
+68	452
+69	451
+69	446
+70	439
+70	449
+71	438
+72	454
+73	427
+74	448
+75	442
+75	447
+76	540
+76	421
+77	453
+78	441
+79	538
+79	455
+80	430
+81	442
+82	436
+82	437
+83	450
+84	444
+85	439
+85	449
+86	461
+86	460
+87	462
+88	463
+89	465
+89	464
+90	466
+90	483
+91	467
+92	468
+93	469
+94	471
+94	473
+94	470
+94	472
+95	474
+96	475
+97	477
+97	476
+98	478
+99	463
+100	478
+101	463
+102	463
+103	479
+104	481
+105	482
+106	485
+107	630
+107	487
+107	618
+107	619
+107	625
+107	627
+108	617
+108	488
+109	489
+110	490
+111	491
+112	492
+113	518
+113	519
+113	493
+114	494
+115	496
+115	495
+116	497
+117	498
+118	500
+119	501
+120	502
+120	503
+121	504
+122	505
+123	506
+124	507
+125	508
+126	509
+127	510
+128	511
+129	512
+129	513
+130	526
+130	514
+130	515
+130	533
+130	527
+131	741
+131	516
+132	517
+133	520
+134	522
+135	523
+136	528
+137	529
+138	530
+139	531
+139	532
+140	534
+141	485
+142	488
+143	489
+144	494
+145	496
+145	495
+146	500
+147	510
+148	511
+149	513
+149	512
+150	517
+151	520
+152	521
+153	522
+154	523
+155	527
+155	526
+156	528
+157	530
+158	532
+159	495
+159	496
+160	512
+160	513
+161	517
+162	520
+163	521
+164	523
+165	528
+166	523
+167	535
+168	536
+169	537
+169	729
+170	538
+171	539
+172	541
+173	542
+174	543
+175	544
+176	546
+176	545
+177	547
+178	548
+179	551
+179	550
+180	552
+181	553
+182	554
+183	555
+184	556
+185	557
+186	558
+187	559
+188	560
+188	561
+189	562
+189	563
+190	564
+190	543
+190	567
+190	565
+191	566
+192	571
+192	569
+192	568
+192	570
+193	574
+193	572
+193	575
+193	573
+194	576
+195	577
+196	578
+196	579
+197	580
+198	581
+199	583
+199	582
+200	584
+201	586
+201	600
+201	730
+201	585
+201	604
+202	587
+203	588
+204	589
+205	590
+205	591
+206	592
+207	593
+208	594
+209	595
+210	596
+211	597
+212	599
+213	602
+214	603
+215	605
+216	606
+217	607
+218	608
+219	609
+220	610
+221	613
+221	614
+222	615
+223	616
+223	617
+224	625
+224	619
+224	620
+224	621
+224	623
+224	624
+224	626
+224	627
+225	622
+226	624
+227	628
+228	631
+229	632
+230	635
+231	636
+231	641
+232	639
+233	640
+234	641
+235	642
+236	643
+237	643
+237	644
+237	639
+238	645
+239	646
+240	647
+241	649
+242	657
+242	733
+242	732
+242	731
+242	720
+242	710
+242	709
+242	708
+242	707
+242	706
+242	705
+242	704
+242	703
+242	702
+242	701
+242	700
+242	699
+242	698
+242	697
+242	696
+242	695
+242	694
+242	693
+242	692
+242	691
+242	690
+242	689
+242	688
+242	687
+242	686
+242	685
+242	684
+242	683
+242	682
+242	681
+242	680
+242	679
+242	678
+242	677
+242	676
+242	675
+242	674
+242	673
+242	672
+242	671
+242	670
+242	669
+242	668
+242	667
+242	666
+242	665
+242	664
+242	663
+242	662
+242	653
+242	654
+242	655
+242	656
+242	658
+242	650
+242	651
+242	652
+243	659
+243	660
+243	661
+244	711
+245	712
+246	718
+246	713
+246	714
+246	715
+246	716
+246	717
+246	719
+247	721
+248	722
+249	725
+249	726
+249	723
+249	724
+250	727
+251	535
+252	536
+253	539
+254	541
+255	542
+256	543
+257	544
+258	545
+258	548
+258	546
+259	547
+260	549
+261	553
+262	554
+263	556
+264	557
+265	561
+265	560
+266	562
+266	563
+267	564
+268	565
+269	567
+270	574
+270	575
+270	573
+270	572
+270	571
+270	570
+270	569
+270	568
+271	578
+272	579
+273	580
+274	581
+275	583
+276	605
+277	608
+278	618
+279	623
+280	628
+281	631
+282	639
+283	639
+283	640
+284	642
+285	643
+285	642
+286	660
+286	659
+286	661
+287	715
+287	713
+287	714
+287	716
+287	717
+287	718
+288	719
+289	536
+290	538
+291	539
+292	541
+293	542
+294	543
+295	546
+295	545
+296	556
+297	608
+298	631
+299	608
+300	642
+301	643
+302	608
+303	728
+304	734
+305	740
+306	739
+307	738
+308	737
+309	735
+309	736
+310	736
+311	735
+\.
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.category (id, name, created_at, updated_at, version) FROM stdin;
+1	Programming	2026-05-18 21:16:44.570625	\N	0
+2	Fiction	2026-05-18 21:16:44.570625	\N	0
+3	Mathematics	2026-05-18 21:16:44.570625	\N	0
+4	History	2026-05-18 21:16:44.570625	\N	0
+5	Science	2026-05-18 21:16:44.570625	\N	0
+6	Arts & Crafts	2026-05-18 21:16:44.570625	\N	0
+7	Electronics	2026-05-18 21:16:44.570625	\N	0
+8	Travel	2026-05-18 21:16:44.570625	\N	0
+9	Business	2026-05-18 21:16:44.570625	\N	0
+10	Religion	2026-05-18 21:16:44.570625	\N	0
+11	Psychology	2026-05-18 21:16:44.570625	\N	0
+12	Education	2026-05-18 21:16:44.570625	\N	0
+13	Comics	2026-05-18 21:16:44.570625	\N	0
+14	Games	2026-05-18 21:16:44.570625	\N	0
+15	Poetry	2026-05-18 21:16:44.570625	\N	0
+16	Tools	2026-05-18 21:16:44.570625	\N	0
+17	Clothing	2026-05-18 21:16:44.570625	\N	0
+18	Multimedia	2026-05-18 21:16:44.570625	\N	0
+19	Stationery	2026-05-18 21:16:44.570625	\N	0
+20	Memorabilia	2026-05-18 21:16:44.570625	\N	0
+21	Engineering	2026-05-18 21:16:44.570625	\N	0
+22	Notebooks	2026-05-18 21:16:44.570625	\N	0
+23	Self-Help	2026-05-18 21:16:44.570625	\N	0
+24	Biographies	2026-05-18 21:16:44.570625	\N	0
+25	Dictionaries	2026-05-18 21:16:44.570625	\N	0
+26	Hobbies	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: book_categories; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.book_categories (categories_id, books_id) FROM stdin;
+1	1
+2	2
+2	3
+2	4
+2	5
+2	6
+2	7
+2	8
+2	9
+2	10
+2	11
+2	12
+2	13
+2	14
+2	15
+2	16
+2	17
+2	18
+2	19
+2	20
+3	21
+4	22
+4	23
+4	24
+5	25
+5	26
+5	27
+5	28
+5	29
+5	30
+5	31
+5	32
+5	33
+6	34
+6	35
+7	36
+5	37
+5	38
+5	39
+5	40
+9	41
+9	42
+8	43
+1	44
+1	45
+1	46
+9	47
+9	48
+1	49
+5	50
+9	51
+9	52
+5	53
+5	54
+5	55
+1	56
+1	57
+9	58
+9	59
+9	60
+9	61
+9	62
+9	63
+9	64
+9	65
+9	66
+9	67
+9	68
+9	69
+9	70
+9	71
+9	72
+9	73
+9	74
+9	75
+9	76
+9	77
+9	78
+9	79
+9	80
+9	81
+9	82
+9	83
+9	84
+9	85
+9	86
+9	87
+9	88
+9	89
+9	90
+9	91
+9	92
+9	93
+9	94
+9	95
+9	96
+9	97
+9	158
+9	98
+9	99
+9	100
+9	101
+9	102
+9	103
+9	104
+9	105
+9	106
+9	107
+9	108
+9	109
+9	110
+9	111
+2	112
+9	113
+9	114
+9	115
+9	116
+9	117
+9	118
+9	119
+9	120
+9	121
+9	122
+9	123
+9	124
+9	125
+9	126
+9	127
+9	128
+9	129
+9	130
+9	131
+9	132
+9	133
+9	134
+9	135
+9	136
+9	137
+9	138
+9	139
+9	140
+9	141
+9	142
+9	143
+9	144
+9	145
+9	146
+9	147
+9	148
+9	149
+9	150
+9	151
+9	152
+9	153
+9	154
+9	155
+9	156
+9	157
+9	159
+9	160
+9	161
+9	162
+9	163
+9	164
+9	165
+9	166
+9	167
+9	168
+9	169
+9	170
+9	171
+9	172
+9	173
+9	174
+9	175
+9	176
+9	177
+9	178
+9	179
+9	180
+9	181
+9	182
+9	183
+9	184
+9	185
+9	186
+9	187
+9	188
+9	189
+9	190
+9	191
+9	192
+1	193
+9	194
+9	195
+9	196
+9	197
+9	198
+9	199
+9	200
+9	201
+9	202
+9	203
+9	204
+9	205
+9	206
+9	207
+9	208
+9	209
+9	210
+9	211
+9	212
+9	213
+9	214
+9	397
+9	215
+9	216
+9	217
+9	218
+9	219
+9	220
+9	221
+9	222
+9	223
+9	224
+9	225
+9	226
+9	227
+9	228
+9	229
+9	230
+9	231
+9	232
+9	233
+9	234
+9	235
+9	236
+9	237
+9	238
+9	239
+9	240
+9	241
+9	242
+9	243
+9	244
+9	245
+9	246
+9	247
+9	248
+9	249
+9	250
+9	251
+9	252
+9	253
+9	254
+9	255
+9	256
+9	257
+9	258
+9	259
+9	260
+9	261
+9	262
+9	263
+9	264
+9	265
+9	266
+9	267
+9	268
+9	269
+9	270
+9	271
+9	272
+9	273
+9	274
+9	275
+9	276
+9	277
+9	278
+9	279
+9	280
+9	281
+9	282
+9	283
+9	284
+9	285
+9	286
+9	287
+9	288
+9	289
+9	290
+9	291
+9	292
+9	293
+9	294
+9	295
+9	296
+9	297
+9	298
+9	299
+9	300
+9	301
+9	302
+9	303
+9	304
+9	305
+9	306
+9	307
+9	308
+9	309
+9	310
+9	311
+9	312
+9	313
+9	314
+9	315
+9	316
+9	317
+9	318
+9	319
+9	320
+9	321
+9	322
+9	323
+9	324
+9	325
+9	326
+9	327
+9	328
+9	329
+9	330
+9	331
+9	332
+9	333
+9	334
+9	335
+9	336
+9	337
+9	338
+9	339
+9	340
+9	341
+9	342
+9	343
+9	344
+9	345
+9	346
+9	347
+9	348
+9	349
+9	350
+9	351
+9	352
+9	353
+9	354
+9	355
+9	356
+9	357
+9	358
+9	359
+9	360
+9	361
+9	362
+9	363
+9	364
+9	365
+9	366
+9	367
+9	368
+9	369
+9	370
+9	371
+9	372
+9	373
+9	374
+9	375
+9	376
+9	377
+9	378
+9	379
+9	380
+9	381
+9	382
+9	383
+9	384
+9	385
+9	386
+9	387
+9	388
+9	389
+9	390
+9	391
+9	392
+9	393
+9	394
+9	395
+9	396
+9	398
+9	399
+9	400
+9	401
+9	402
+9	403
+9	404
+9	405
+9	406
+9	407
+9	408
+9	409
+9	410
+9	411
+9	412
+9	413
+9	414
+9	415
+9	416
+9	417
+9	418
+9	419
+9	420
+10	421
+14	422
+17	423
+10	424
+11	425
+11	426
+10	427
+10	428
+17	429
+10	430
+10	431
+17	432
+10	433
+10	434
+10	435
+10	436
+10	437
+10	438
+12	439
+10	440
+10	441
+10	442
+10	443
+10	444
+10	445
+10	446
+11	447
+10	448
+14	449
+10	450
+12	451
+12	452
+12	453
+12	454
+12	455
+10	456
+10	457
+13	458
+13	459
+10	460
+10	461
+10	462
+10	463
+10	464
+10	465
+10	466
+10	467
+10	468
+18	469
+10	470
+10	471
+10	472
+10	473
+10	474
+10	475
+10	476
+10	477
+10	478
+18	479
+18	480
+18	481
+10	482
+10	483
+18	484
+18	485
+18	486
+10	487
+17	488
+18	489
+18	490
+10	491
+18	492
+10	493
+10	494
+13	495
+13	496
+18	497
+10	498
+10	499
+10	500
+10	501
+10	502
+10	503
+10	504
+10	505
+18	506
+18	507
+18	508
+18	509
+10	510
+10	511
+10	512
+10	513
+10	514
+10	515
+10	516
+10	517
+10	518
+10	519
+13	520
+10	521
+10	522
+10	523
+10	524
+10	525
+10	526
+10	527
+10	528
+10	529
+10	530
+10	531
+10	532
+10	533
+10	534
+12	535
+10	536
+17	537
+10	538
+10	539
+10	540
+10	541
+11	542
+18	543
+11	544
+11	545
+11	546
+11	547
+11	548
+11	549
+11	550
+11	551
+11	552
+11	553
+11	554
+11	555
+11	556
+11	557
+11	558
+11	559
+11	560
+11	561
+11	562
+11	563
+11	564
+11	565
+11	566
+11	567
+11	568
+11	569
+11	570
+11	571
+11	572
+11	573
+11	574
+11	575
+11	576
+11	577
+11	578
+11	579
+11	580
+11	581
+11	582
+11	583
+11	584
+4	585
+4	586
+6	587
+4	588
+4	589
+4	590
+4	591
+4	592
+4	593
+19	594
+19	595
+19	596
+1	597
+15	598
+1	599
+4	600
+5	601
+2	602
+6	603
+4	604
+8	605
+4	606
+6	607
+3	608
+3	609
+3	610
+10	611
+10	612
+13	613
+13	614
+13	615
+12	616
+17	617
+20	618
+17	619
+17	620
+20	621
+20	622
+20	623
+17	624
+20	625
+20	626
+20	627
+12	628
+12	629
+20	630
+12	631
+12	632
+16	633
+16	634
+15	635
+15	636
+15	637
+15	638
+15	639
+15	640
+15	641
+15	642
+15	643
+15	644
+15	645
+15	646
+15	647
+15	648
+15	649
+16	650
+16	651
+16	652
+16	653
+16	654
+16	655
+16	656
+16	657
+16	658
+16	659
+16	660
+16	661
+16	662
+16	663
+16	664
+16	665
+16	666
+16	667
+16	668
+16	669
+16	670
+16	671
+16	672
+16	673
+16	674
+16	675
+16	676
+16	677
+16	678
+16	679
+16	680
+16	681
+16	682
+16	683
+16	684
+16	685
+16	686
+16	687
+16	688
+16	689
+16	690
+16	691
+16	692
+16	693
+16	694
+16	695
+16	696
+16	697
+16	698
+16	699
+16	700
+16	701
+16	702
+16	703
+16	704
+16	705
+16	706
+16	707
+16	708
+16	709
+16	710
+16	711
+16	712
+16	713
+16	714
+16	715
+16	716
+16	717
+16	718
+16	719
+16	720
+15	721
+15	722
+15	723
+15	724
+15	725
+15	726
+15	727
+18	728
+17	729
+4	730
+16	731
+16	732
+16	733
+10	734
+10	735
+10	736
+10	737
+10	738
+13	739
+10	740
+10	741
+10	742
+\.
+
+
+--
+-- Data for Name: flyway_schema_history; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.flyway_schema_history (installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success) FROM stdin;
+1	1	initial schema	SQL	V1__initial_schema.sql	-2110650776	postgres	2026-07-30 20:29:22.11315	39	t
+2	2	cascade relations	SQL	V2__cascade_relations.sql	-60143393	postgres	2026-07-30 20:29:22.216151	60	t
+3	3	hibernate ddl align	SQL	V3__hibernate_ddl_align.sql	-1839824055	postgres	2026-07-30 20:29:22.310419	10	t
+\.
+
+
+--
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.item (id, description, note, storage_id, created_at, updated_at, version) FROM stdin;
+1	USB cable	\N	18	2026-05-18 21:16:44.570625	\N	0
+2	A4 Notepad	signed copy	18	2026-05-18 21:16:44.570625	\N	0
+3	Blue pen	no packaging	18	2026-05-18 21:16:44.570625	\N	0
+4	Universal keys	brand new	18	2026-05-18 21:16:44.570625	\N	0
+5	Power adapter	used	18	2026-05-18 21:16:44.570625	\N	0
+6	Sports backpack	color black	18	2026-05-18 21:16:44.570625	\N	0
+7	Canvas bag	English edition	18	2026-05-18 21:16:44.570625	\N	0
+8	Ruled notebook	special edition	18	2026-05-18 21:16:44.570625	\N	0
+9	Tourist compass	library copy	18	2026-05-18 21:16:44.570625	\N	0
+10	AA batteries	\N	18	2026-05-18 21:16:44.570625	\N	0
+11	Pocket knife	\N	18	2026-05-18 21:16:44.570625	\N	0
+12	Ceramic mug	\N	18	2026-05-18 21:16:44.570625	\N	0
+13	USB cable	\N	18	2026-05-18 21:16:44.570625	\N	0
+14	A4 Notepad	\N	18	2026-05-18 21:16:44.570625	\N	0
+15	Blue pen	\N	18	2026-05-18 21:16:44.570625	\N	0
+16	Universal keys	\N	18	2026-05-18 21:16:44.570625	\N	0
+17	Power adapter	English edition	18	2026-05-18 21:16:44.570625	\N	0
+18	Sports backpack	special edition	18	2026-05-18 21:16:44.570625	\N	0
+19	Canvas bag	\N	18	2026-05-18 21:16:44.570625	\N	0
+20	Ruled notebook	\N	18	2026-05-18 21:16:44.570625	\N	0
+21	Tourist compass	\N	\N	2026-05-18 21:16:44.570625	\N	0
+22	AA batteries	signed copy	4	2026-05-18 21:16:44.570625	\N	0
+23	Pocket knife	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+24	Ceramic mug	brand new	14	2026-05-18 21:16:44.570625	\N	0
+25	USB cable	used	14	2026-05-18 21:16:44.570625	\N	0
+26	A4 Notepad	color black	14	2026-05-18 21:16:44.570625	\N	0
+27	Blue pen	English edition	14	2026-05-18 21:16:44.570625	\N	0
+28	Universal keys	special edition	14	2026-05-18 21:16:44.570625	\N	0
+29	Power adapter	library copy	14	2026-05-18 21:16:44.570625	\N	0
+30	Sports backpack	good condition	14	2026-05-18 21:16:44.570625	\N	0
+31	Canvas bag	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+32	Ruled notebook	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+33	Tourist compass	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+34	AA batteries	brand new	14	2026-05-18 21:16:44.570625	\N	0
+35	Pocket knife	used	14	2026-05-18 21:16:44.570625	\N	0
+36	Ceramic mug	color black	14	2026-05-18 21:16:44.570625	\N	0
+37	USB cable	English edition	14	2026-05-18 21:16:44.570625	\N	0
+38	A4 Notepad	special edition	14	2026-05-18 21:16:44.570625	\N	0
+39	Blue pen	library copy	14	2026-05-18 21:16:44.570625	\N	0
+40	Universal keys	good condition	14	2026-05-18 21:16:44.570625	\N	0
+41	Power adapter	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+42	Sports backpack	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+43	Canvas bag	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+44	Ruled notebook	brand new	14	2026-05-18 21:16:44.570625	\N	0
+45	Tourist compass	used	14	2026-05-18 21:16:44.570625	\N	0
+46	AA batteries	color black	14	2026-05-18 21:16:44.570625	\N	0
+47	Pocket knife	English edition	14	2026-05-18 21:16:44.570625	\N	0
+48	Ceramic mug	special edition	14	2026-05-18 21:16:44.570625	\N	0
+49	USB cable	library copy	14	2026-05-18 21:16:44.570625	\N	0
+50	A4 Notepad	good condition	14	2026-05-18 21:16:44.570625	\N	0
+51	Blue pen	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+52	Universal keys	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+53	Power adapter	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+54	Sports backpack	brand new	14	2026-05-18 21:16:44.570625	\N	0
+55	Canvas bag	used	14	2026-05-18 21:16:44.570625	\N	0
+56	Ruled notebook	color black	14	2026-05-18 21:16:44.570625	\N	0
+57	Tourist compass	English edition	14	2026-05-18 21:16:44.570625	\N	0
+58	AA batteries	special edition	14	2026-05-18 21:16:44.570625	\N	0
+59	Pocket knife	library copy	14	2026-05-18 21:16:44.570625	\N	0
+60	Ceramic mug	good condition	14	2026-05-18 21:16:44.570625	\N	0
+61	USB cable	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+62	A4 Notepad	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+63	Blue pen	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+64	Universal keys	brand new	14	2026-05-18 21:16:44.570625	\N	0
+65	Power adapter	used	14	2026-05-18 21:16:44.570625	\N	0
+66	Sports backpack	color black	14	2026-05-18 21:16:44.570625	\N	0
+67	Canvas bag	English edition	14	2026-05-18 21:16:44.570625	\N	0
+68	Ruled notebook	special edition	14	2026-05-18 21:16:44.570625	\N	0
+69	Tourist compass	library copy	14	2026-05-18 21:16:44.570625	\N	0
+70	AA batteries	good condition	14	2026-05-18 21:16:44.570625	\N	0
+71	Pocket knife	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+72	Ceramic mug	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+73	USB cable	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+74	A4 Notepad	brand new	14	2026-05-18 21:16:44.570625	\N	0
+75	Blue pen	used	14	2026-05-18 21:16:44.570625	\N	0
+76	Universal keys	color black	14	2026-05-18 21:16:44.570625	\N	0
+77	Power adapter	English edition	14	2026-05-18 21:16:44.570625	\N	0
+78	Sports backpack	special edition	14	2026-05-18 21:16:44.570625	\N	0
+79	Canvas bag	library copy	14	2026-05-18 21:16:44.570625	\N	0
+80	Ruled notebook	good condition	14	2026-05-18 21:16:44.570625	\N	0
+81	Tourist compass	slightly damaged	14	2026-05-18 21:16:44.570625	\N	0
+82	AA batteries	signed copy	14	2026-05-18 21:16:44.570625	\N	0
+83	Pocket knife	no packaging	14	2026-05-18 21:16:44.570625	\N	0
+84	Ceramic mug	brand new	14	2026-05-18 21:16:44.570625	\N	0
+85	USB cable	used	14	2026-05-18 21:16:44.570625	\N	0
+86	A4 Notepad	color black	14	2026-05-18 21:16:44.570625	\N	0
+87	Blue pen	English edition	14	2026-05-18 21:16:44.570625	\N	0
+88	Universal keys	special edition	14	2026-05-18 21:16:44.570625	\N	0
+89	Power adapter	library copy	14	2026-05-18 21:16:44.570625	\N	0
+90	Sports backpack	good condition	19	2026-05-18 21:16:44.570625	\N	0
+91	Canvas bag	slightly damaged	19	2026-05-18 21:16:44.570625	\N	0
+92	Ruled notebook	signed copy	19	2026-05-18 21:16:44.570625	\N	0
+93	Tourist compass	no packaging	19	2026-05-18 21:16:44.570625	\N	0
+94	AA batteries	brand new	19	2026-05-18 21:16:44.570625	\N	0
+95	Pocket knife	used	19	2026-05-18 21:16:44.570625	\N	0
+96	Ceramic mug	color black	19	2026-05-18 21:16:44.570625	\N	0
+97	USB cable	English edition	19	2026-05-18 21:16:44.570625	\N	0
+98	A4 Notepad	special edition	19	2026-05-18 21:16:44.570625	\N	0
+99	Blue pen	library copy	19	2026-05-18 21:16:44.570625	\N	0
+100	Universal keys	good condition	19	2026-05-18 21:16:44.570625	\N	0
+101	Power adapter	slightly damaged	19	2026-05-18 21:16:44.570625	\N	0
+102	Sports backpack	signed copy	19	2026-05-18 21:16:44.570625	\N	0
+103	Canvas bag	no packaging	19	2026-05-18 21:16:44.570625	\N	0
+104	Ruled notebook	brand new	19	2026-05-18 21:16:44.570625	\N	0
+105	Tourist compass	used	19	2026-05-18 21:16:44.570625	\N	0
+106	AA batteries	color black	1	2026-05-18 21:16:44.570625	\N	0
+107	Pocket knife	\N	1	2026-05-18 21:16:44.570625	\N	0
+108	Ceramic mug	special edition	20	2026-05-18 21:16:44.570625	\N	0
+109	USB cable	library copy	20	2026-05-18 21:16:44.570625	\N	0
+110	A4 Notepad	good condition	20	2026-05-18 21:16:44.570625	\N	0
+111	Blue pen	\N	20	2026-05-18 21:16:44.570625	\N	0
+112	Universal keys	\N	20	2026-05-18 21:16:44.570625	\N	0
+113	Power adapter	\N	20	2026-05-18 21:16:44.570625	\N	0
+114	Sports backpack	brand new	20	2026-05-18 21:16:44.570625	\N	0
+115	Canvas bag	used	20	2026-05-18 21:16:44.570625	\N	0
+116	Ruled notebook	color black	20	2026-05-18 21:16:44.570625	\N	0
+117	Tourist compass	English edition	20	2026-05-18 21:16:44.570625	\N	0
+118	AA batteries	special edition	20	2026-05-18 21:16:44.570625	\N	0
+119	Pocket knife	library copy	20	2026-05-18 21:16:44.570625	\N	0
+120	Ceramic mug	good condition	20	2026-05-18 21:16:44.570625	\N	0
+121	USB cable	slightly damaged	20	2026-05-18 21:16:44.570625	\N	0
+122	A4 Notepad	signed copy	20	2026-05-18 21:16:44.570625	\N	0
+123	Blue pen	no packaging	20	2026-05-18 21:16:44.570625	\N	0
+124	Universal keys	brand new	20	2026-05-18 21:16:44.570625	\N	0
+125	Power adapter	used	20	2026-05-18 21:16:44.570625	\N	0
+126	Sports backpack	color black	20	2026-05-18 21:16:44.570625	\N	0
+127	Canvas bag	English edition	20	2026-05-18 21:16:44.570625	\N	0
+128	Ruled notebook	special edition	20	2026-05-18 21:16:44.570625	\N	0
+129	Tourist compass	library copy	1	2026-05-18 21:16:44.570625	\N	0
+130	AA batteries	good condition	1	2026-05-18 21:16:44.570625	\N	0
+131	Pocket knife	slightly damaged	1	2026-05-18 21:16:44.570625	\N	0
+132	Ceramic mug	signed copy	1	2026-05-18 21:16:44.570625	\N	0
+133	USB cable	no packaging	1	2026-05-18 21:16:44.570625	\N	0
+134	A4 Notepad	brand new	1	2026-05-18 21:16:44.570625	\N	0
+135	Blue pen	used	1	2026-05-18 21:16:44.570625	\N	0
+136	Universal keys	color black	1	2026-05-18 21:16:44.570625	\N	0
+137	Power adapter	English edition	1	2026-05-18 21:16:44.570625	\N	0
+138	Sports backpack	special edition	1	2026-05-18 21:16:44.570625	\N	0
+139	Canvas bag	library copy	1	2026-05-18 21:16:44.570625	\N	0
+140	Ruled notebook	good condition	1	2026-05-18 21:16:44.570625	\N	0
+141	Tourist compass	slightly damaged	1	2026-05-18 21:16:44.570625	\N	0
+142	AA batteries	signed copy	1	2026-05-18 21:16:44.570625	\N	0
+143	Pocket knife	no packaging	1	2026-05-18 21:16:44.570625	\N	0
+144	Ceramic mug	brand new	1	2026-05-18 21:16:44.570625	\N	0
+145	USB cable	used	1	2026-05-18 21:16:44.570625	\N	0
+146	A4 Notepad	color black	1	2026-05-18 21:16:44.570625	\N	0
+147	Blue pen	English edition	1	2026-05-18 21:16:44.570625	\N	0
+148	Universal keys	\N	16	2026-05-18 21:16:44.570625	\N	0
+149	Power adapter	\N	16	2026-05-18 21:16:44.570625	\N	0
+150	Sports backpack	\N	16	2026-05-18 21:16:44.570625	\N	0
+151	Canvas bag	\N	16	2026-05-18 21:16:44.570625	\N	0
+152	Ruled notebook	\N	19	2026-05-18 21:16:44.570625	\N	0
+153	Tourist compass	\N	20	2026-05-18 21:16:44.570625	\N	0
+154	AA batteries	\N	20	2026-05-18 21:16:44.570625	\N	0
+155	Pocket knife	used	20	2026-05-18 21:16:44.570625	\N	0
+156	Ceramic mug	\N	21	2026-05-18 21:16:44.570625	\N	0
+157	USB cable	\N	21	2026-05-18 21:16:44.570625	\N	0
+158	A4 Notepad	\N	21	2026-05-18 21:16:44.570625	\N	0
+159	Blue pen	library copy	21	2026-05-18 21:16:44.570625	\N	0
+160	Universal keys	good condition	21	2026-05-18 21:16:44.570625	\N	0
+161	Power adapter	slightly damaged	21	2026-05-18 21:16:44.570625	\N	0
+162	Sports backpack	signed copy	21	2026-05-18 21:16:44.570625	\N	0
+163	Canvas bag	\N	21	2026-05-18 21:16:44.570625	\N	0
+164	Ruled notebook	\N	21	2026-05-18 21:16:44.570625	\N	0
+165	Tourist compass	\N	21	2026-05-18 21:16:44.570625	\N	0
+166	AA batteries	color black	21	2026-05-18 21:16:44.570625	\N	0
+167	Pocket knife	English edition	21	2026-05-18 21:16:44.570625	\N	0
+168	Ceramic mug	special edition	21	2026-05-18 21:16:44.570625	\N	0
+169	USB cable	\N	21	2026-05-18 21:16:44.570625	\N	0
+170	A4 Notepad	\N	21	2026-05-18 21:16:44.570625	\N	0
+171	Blue pen	\N	21	2026-05-18 21:16:44.570625	\N	0
+172	Universal keys	signed copy	21	2026-05-18 21:16:44.570625	\N	0
+173	Power adapter	no packaging	21	2026-05-18 21:16:44.570625	\N	0
+174	Sports backpack	brand new	21	2026-05-18 21:16:44.570625	\N	0
+175	Canvas bag	\N	21	2026-05-18 21:16:44.570625	\N	0
+176	Ruled notebook	\N	21	2026-05-18 21:16:44.570625	\N	0
+177	Tourist compass	\N	21	2026-05-18 21:16:44.570625	\N	0
+178	AA batteries	\N	21	2026-05-18 21:16:44.570625	\N	0
+179	Pocket knife	\N	21	2026-05-18 21:16:44.570625	\N	0
+180	Ceramic mug	good condition	21	2026-05-18 21:16:44.570625	\N	0
+181	USB cable	\N	21	2026-05-18 21:16:44.570625	\N	0
+182	A4 Notepad	\N	21	2026-05-18 21:16:44.570625	\N	0
+183	Blue pen	no packaging	21	2026-05-18 21:16:44.570625	\N	0
+184	Universal keys	brand new	21	2026-05-18 21:16:44.570625	\N	0
+185	Power adapter	\N	21	2026-05-18 21:16:44.570625	\N	0
+186	Sports backpack	\N	21	2026-05-18 21:16:44.570625	\N	0
+187	Canvas bag	\N	21	2026-05-18 21:16:44.570625	\N	0
+188	Ruled notebook	special edition	22	2026-05-18 21:16:44.570625	\N	0
+189	Tourist compass	library copy	22	2026-05-18 21:16:44.570625	\N	0
+190	AA batteries	\N	22	2026-05-18 21:16:44.570625	\N	0
+191	Pocket knife	slightly damaged	22	2026-05-18 21:16:44.570625	\N	0
+192	Ceramic mug	signed copy	22	2026-05-18 21:16:44.570625	\N	0
+193	USB cable	no packaging	22	2026-05-18 21:16:44.570625	\N	0
+194	A4 Notepad	brand new	22	2026-05-18 21:16:44.570625	\N	0
+195	Blue pen	used	22	2026-05-18 21:16:44.570625	\N	0
+196	Universal keys	color black	22	2026-05-18 21:16:44.570625	\N	0
+197	Power adapter	English edition	23	2026-05-18 21:16:44.570625	\N	0
+198	Sports backpack	special edition	23	2026-05-18 21:16:44.570625	\N	0
+199	Canvas bag	library copy	23	2026-05-18 21:16:44.570625	\N	0
+200	Ruled notebook	\N	23	2026-05-18 21:16:44.570625	\N	0
+201	Tourist compass	slightly damaged	23	2026-05-18 21:16:44.570625	\N	0
+202	AA batteries	\N	23	2026-05-18 21:16:44.570625	\N	0
+203	Pocket knife	\N	23	2026-05-18 21:16:44.570625	\N	0
+204	Ceramic mug	\N	23	2026-05-18 21:16:44.570625	\N	0
+205	USB cable	\N	23	2026-05-18 21:16:44.570625	\N	0
+206	A4 Notepad	\N	23	2026-05-18 21:16:44.570625	\N	0
+207	Blue pen	\N	23	2026-05-18 21:16:44.570625	\N	0
+208	Universal keys	\N	23	2026-05-18 21:16:44.570625	\N	0
+209	Power adapter	\N	23	2026-05-18 21:16:44.570625	\N	0
+210	Sports backpack	\N	24	2026-05-18 21:16:44.570625	\N	0
+211	Canvas bag	\N	24	2026-05-18 21:16:44.570625	\N	0
+212	Ruled notebook	\N	24	2026-05-18 21:16:44.570625	\N	0
+213	Tourist compass	\N	24	2026-05-18 21:16:44.570625	\N	0
+214	AA batteries	\N	24	2026-05-18 21:16:44.570625	\N	0
+215	Pocket knife	used	24	2026-05-18 21:16:44.570625	\N	0
+216	Ceramic mug	\N	24	2026-05-18 21:16:44.570625	\N	0
+217	USB cable	\N	24	2026-05-18 21:16:44.570625	\N	0
+218	A4 Notepad	\N	24	2026-05-18 21:16:44.570625	\N	0
+219	Blue pen	library copy	24	2026-05-18 21:16:44.570625	\N	0
+220	Universal keys	good condition	24	2026-05-18 21:16:44.570625	\N	0
+221	Power adapter	slightly damaged	24	2026-05-18 21:16:44.570625	\N	0
+222	Sports backpack	\N	24	2026-05-18 21:16:44.570625	\N	0
+223	Canvas bag	\N	24	2026-05-18 21:16:44.570625	\N	0
+224	Ruled notebook	\N	24	2026-05-18 21:16:44.570625	\N	0
+225	Tourist compass	\N	24	2026-05-18 21:16:44.570625	\N	0
+226	AA batteries	\N	24	2026-05-18 21:16:44.570625	\N	0
+227	Pocket knife	\N	24	2026-05-18 21:16:44.570625	\N	0
+228	Ceramic mug	\N	24	2026-05-18 21:16:44.570625	\N	0
+229	USB cable	\N	24	2026-05-18 21:16:44.570625	\N	0
+230	A4 Notepad	\N	24	2026-05-18 21:16:44.570625	\N	0
+231	Blue pen	\N	24	2026-05-18 21:16:44.570625	\N	0
+232	Universal keys	\N	24	2026-05-18 21:16:44.570625	\N	0
+233	Power adapter	\N	24	2026-05-18 21:16:44.570625	\N	0
+234	Sports backpack	brand new	26	2026-05-18 21:16:44.570625	\N	0
+235	Canvas bag	\N	26	2026-05-18 21:16:44.570625	\N	0
+236	Ruled notebook	\N	26	2026-05-18 21:16:44.570625	\N	0
+237	Tourist compass	\N	25	2026-05-18 21:16:44.570625	\N	0
+238	AA batteries	\N	26	2026-05-18 21:16:44.570625	\N	0
+239	Pocket knife	\N	25	2026-05-18 21:16:44.570625	\N	0
+240	Ceramic mug	\N	26	2026-05-18 21:16:44.570625	\N	0
+241	USB cable	\N	26	2026-05-18 21:16:44.570625	\N	0
+242	A4 Notepad	\N	25	2026-05-18 21:16:44.570625	\N	0
+243	Blue pen	\N	26	2026-05-18 21:16:44.570625	\N	0
+244	Universal keys	\N	25	2026-05-18 21:16:44.570625	\N	0
+245	Power adapter	\N	25	2026-05-18 21:16:44.570625	\N	0
+246	Sports backpack	\N	25	2026-05-18 21:16:44.570625	\N	0
+247	Canvas bag	\N	26	2026-05-18 21:16:44.570625	\N	0
+248	Ruled notebook	special edition	26	2026-05-18 21:16:44.570625	\N	0
+249	Tourist compass	\N	25	2026-05-18 21:16:44.570625	\N	0
+250	AA batteries	\N	25	2026-05-18 21:16:44.570625	\N	0
+251	Pocket knife	slightly damaged	25	2026-05-18 21:16:44.570625	\N	0
+252	Ceramic mug	signed copy	25	2026-05-18 21:16:44.570625	\N	0
+253	USB cable	no packaging	25	2026-05-18 21:16:44.570625	\N	0
+254	A4 Notepad	brand new	25	2026-05-18 21:16:44.570625	\N	0
+255	Blue pen	used	25	2026-05-18 21:16:44.570625	\N	0
+256	Universal keys	color black	25	2026-05-18 21:16:44.570625	\N	0
+257	Power adapter	English edition	25	2026-05-18 21:16:44.570625	\N	0
+258	Sports backpack	special edition	25	2026-05-18 21:16:44.570625	\N	0
+259	Canvas bag	\N	25	2026-05-18 21:16:44.570625	\N	0
+260	Ruled notebook	\N	25	2026-05-18 21:16:44.570625	\N	0
+261	Tourist compass	\N	25	2026-05-18 21:16:44.570625	\N	0
+262	AA batteries	\N	25	2026-05-18 21:16:44.570625	\N	0
+263	Pocket knife	\N	25	2026-05-18 21:16:44.570625	\N	0
+264	Ceramic mug	\N	25	2026-05-18 21:16:44.570625	\N	0
+265	USB cable	\N	25	2026-05-18 21:16:44.570625	\N	0
+266	A4 Notepad	\N	25	2026-05-18 21:16:44.570625	\N	0
+267	Blue pen	English edition	25	2026-05-18 21:16:44.570625	\N	0
+268	Universal keys	special edition	26	2026-05-18 21:16:44.570625	\N	0
+269	Power adapter	library copy	26	2026-05-18 21:16:44.570625	\N	0
+270	Sports backpack	good condition	26	2026-05-18 21:16:44.570625	\N	0
+271	Canvas bag	\N	26	2026-05-18 21:16:44.570625	\N	0
+272	Ruled notebook	\N	26	2026-05-18 21:16:44.570625	\N	0
+273	Tourist compass	\N	26	2026-05-18 21:16:44.570625	\N	0
+274	AA batteries	brand new	26	2026-05-18 21:16:44.570625	\N	0
+275	Pocket knife	used	26	2026-05-18 21:16:44.570625	\N	0
+276	Ceramic mug	color black	8	2026-05-18 21:16:44.570625	\N	0
+277	USB cable	English edition	8	2026-05-18 21:16:44.570625	\N	0
+278	A4 Notepad	special edition	8	2026-05-18 21:16:44.570625	\N	0
+279	Blue pen	library copy	1	2026-05-18 21:16:44.570625	\N	0
+280	Universal keys	\N	8	2026-05-18 21:16:44.570625	\N	0
+281	Power adapter	slightly damaged	29	2026-05-18 21:16:44.570625	\N	0
+282	Sports backpack	\N	29	2026-05-18 21:16:44.570625	\N	0
+283	Canvas bag	no packaging	27	2026-05-18 21:16:44.570625	\N	0
+284	Ruled notebook	brand new	27	2026-05-18 21:16:44.570625	\N	0
+285	Tourist compass	used	27	2026-05-18 21:16:44.570625	\N	0
+286	AA batteries	\N	27	2026-05-18 21:16:44.570625	\N	0
+287	Pocket knife	English edition	27	2026-05-18 21:16:44.570625	\N	0
+288	Ceramic mug	special edition	27	2026-05-18 21:16:44.570625	\N	0
+289	USB cable	library copy	27	2026-05-18 21:16:44.570625	\N	0
+290	A4 Notepad	good condition	27	2026-05-18 21:16:44.570625	\N	0
+291	Blue pen	\N	27	2026-05-18 21:16:44.570625	\N	0
+292	Universal keys	signed copy	27	2026-05-18 21:16:44.570625	\N	0
+293	Power adapter	\N	27	2026-05-18 21:16:44.570625	\N	0
+294	Sports backpack	\N	27	2026-05-18 21:16:44.570625	\N	0
+295	Canvas bag	used	27	2026-05-18 21:16:44.570625	\N	0
+296	Ruled notebook	color black	27	2026-05-18 21:16:44.570625	\N	0
+297	Tourist compass	English edition	27	2026-05-18 21:16:44.570625	\N	0
+298	AA batteries	special edition	27	2026-05-18 21:16:44.570625	\N	0
+299	Pocket knife	library copy	27	2026-05-18 21:16:44.570625	\N	0
+300	Ceramic mug	\N	27	2026-05-18 21:16:44.570625	\N	0
+301	USB cable	\N	27	2026-05-18 21:16:44.570625	\N	0
+302	A4 Notepad	\N	27	2026-05-18 21:16:44.570625	\N	0
+303	Blue pen	no packaging	27	2026-05-18 21:16:44.570625	\N	0
+304	Universal keys	\N	27	2026-05-18 21:16:44.570625	\N	0
+305	Power adapter	used	27	2026-05-18 21:16:44.570625	\N	0
+306	Sports backpack	\N	27	2026-05-18 21:16:44.570625	\N	0
+307	Canvas bag	English edition	30	2026-05-18 21:16:44.570625	\N	0
+308	Ruled notebook	special edition	30	2026-05-18 21:16:44.570625	\N	0
+309	Tourist compass	library copy	30	2026-05-18 21:16:44.570625	\N	0
+310	AA batteries	good condition	30	2026-05-18 21:16:44.570625	\N	0
+311	Pocket knife	slightly damaged	30	2026-05-18 21:16:44.570625	\N	0
+312	Ceramic mug	\N	30	2026-05-18 21:16:44.570625	\N	0
+313	USB cable	\N	30	2026-05-18 21:16:44.570625	\N	0
+314	A4 Notepad	brand new	30	2026-05-18 21:16:44.570625	\N	0
+315	Blue pen	used	30	2026-05-18 21:16:44.570625	\N	0
+316	Universal keys	color black	30	2026-05-18 21:16:44.570625	\N	0
+317	Power adapter	English edition	30	2026-05-18 21:16:44.570625	\N	0
+318	Sports backpack	special edition	31	2026-05-18 21:16:44.570625	\N	0
+319	Canvas bag	library copy	31	2026-05-18 21:16:44.570625	\N	0
+320	Ruled notebook	good condition	31	2026-05-18 21:16:44.570625	\N	0
+321	Tourist compass	slightly damaged	31	2026-05-18 21:16:44.570625	\N	0
+322	AA batteries	signed copy	31	2026-05-18 21:16:44.570625	\N	0
+323	Pocket knife	no packaging	31	2026-05-18 21:16:44.570625	\N	0
+324	Ceramic mug	brand new	31	2026-05-18 21:16:44.570625	\N	0
+325	USB cable	used	31	2026-05-18 21:16:44.570625	\N	0
+326	A4 Notepad	color black	31	2026-05-18 21:16:44.570625	\N	0
+327	Blue pen	English edition	31	2026-05-18 21:16:44.570625	\N	0
+328	Universal keys	special edition	31	2026-05-18 21:16:44.570625	\N	0
+329	Power adapter	library copy	31	2026-05-18 21:16:44.570625	\N	0
+330	Sports backpack	good condition	31	2026-05-18 21:16:44.570625	\N	0
+331	Canvas bag	slightly damaged	31	2026-05-18 21:16:44.570625	\N	0
+332	Ruled notebook	signed copy	31	2026-05-18 21:16:44.570625	\N	0
+333	Tourist compass	no packaging	31	2026-05-18 21:16:44.570625	\N	0
+334	AA batteries	brand new	31	2026-05-18 21:16:44.570625	\N	0
+335	Pocket knife	used	31	2026-05-18 21:16:44.570625	\N	0
+336	Ceramic mug	color black	31	2026-05-18 21:16:44.570625	\N	0
+337	USB cable	English edition	31	2026-05-18 21:16:44.570625	\N	0
+338	A4 Notepad	special edition	28	2026-05-18 21:16:44.570625	\N	0
+339	Blue pen	library copy	28	2026-05-18 21:16:44.570625	\N	0
+340	Universal keys	good condition	28	2026-05-18 21:16:44.570625	\N	0
+341	Power adapter	slightly damaged	28	2026-05-18 21:16:44.570625	\N	0
+342	Sports backpack	signed copy	28	2026-05-18 21:16:44.570625	\N	0
+343	Canvas bag	no packaging	28	2026-05-18 21:16:44.570625	\N	0
+344	Ruled notebook	brand new	28	2026-05-18 21:16:44.570625	\N	0
+345	Tourist compass	used	28	2026-05-18 21:16:44.570625	\N	0
+346	AA batteries	color black	28	2026-05-18 21:16:44.570625	\N	0
+347	Pocket knife	English edition	28	2026-05-18 21:16:44.570625	\N	0
+348	Ceramic mug	special edition	28	2026-05-18 21:16:44.570625	\N	0
+349	USB cable	library copy	28	2026-05-18 21:16:44.570625	\N	0
+350	A4 Notepad	good condition	28	2026-05-18 21:16:44.570625	\N	0
+351	Blue pen	slightly damaged	28	2026-05-18 21:16:44.570625	\N	0
+352	Universal keys	\N	32	2026-05-18 21:16:44.570625	\N	0
+353	Power adapter	no packaging	32	2026-05-18 21:16:44.570625	\N	0
+354	Sports backpack	brand new	32	2026-05-18 21:16:44.570625	\N	0
+355	Canvas bag	used	32	2026-05-18 21:16:44.570625	\N	0
+356	Ruled notebook	color black	32	2026-05-18 21:16:44.570625	\N	0
+357	Tourist compass	English edition	32	2026-05-18 21:16:44.570625	\N	0
+358	AA batteries	special edition	32	2026-05-18 21:16:44.570625	\N	0
+359	Pocket knife	\N	32	2026-05-18 21:16:44.570625	\N	0
+360	Ceramic mug	\N	32	2026-05-18 21:16:44.570625	\N	0
+361	USB cable	\N	32	2026-05-18 21:16:44.570625	\N	0
+362	A4 Notepad	\N	32	2026-05-18 21:16:44.570625	\N	0
+363	Blue pen	no packaging	32	2026-05-18 21:16:44.570625	\N	0
+364	Universal keys	\N	32	2026-05-18 21:16:44.570625	\N	0
+365	Power adapter	\N	32	2026-05-18 21:16:44.570625	\N	0
+366	Sports backpack	\N	32	2026-05-18 21:16:44.570625	\N	0
+367	Canvas bag	English edition	32	2026-05-18 21:16:44.570625	\N	0
+368	Ruled notebook	\N	32	2026-05-18 21:16:44.570625	\N	0
+369	Tourist compass	\N	32	2026-05-18 21:16:44.570625	\N	0
+370	AA batteries	\N	32	2026-05-18 21:16:44.570625	\N	0
+371	Pocket knife	\N	32	2026-05-18 21:16:44.570625	\N	0
+372	Ceramic mug	\N	32	2026-05-18 21:16:44.570625	\N	0
+373	USB cable	\N	32	2026-05-18 21:16:44.570625	\N	0
+374	A4 Notepad	\N	32	2026-05-18 21:16:44.570625	\N	0
+375	Blue pen	\N	32	2026-05-18 21:16:44.570625	\N	0
+376	Universal keys	\N	32	2026-05-18 21:16:44.570625	\N	0
+377	Power adapter	English edition	32	2026-05-18 21:16:44.570625	\N	0
+378	Sports backpack	\N	32	2026-05-18 21:16:44.570625	\N	0
+379	Canvas bag	\N	32	2026-05-18 21:16:44.570625	\N	0
+380	Ruled notebook	\N	32	2026-05-18 21:16:44.570625	\N	0
+381	Tourist compass	slightly damaged	32	2026-05-18 21:16:44.570625	\N	0
+382	AA batteries	\N	32	2026-05-18 21:16:44.570625	\N	0
+383	Pocket knife	\N	32	2026-05-18 21:16:44.570625	\N	0
+384	Ceramic mug	\N	32	2026-05-18 21:16:44.570625	\N	0
+385	USB cable	\N	32	2026-05-18 21:16:44.570625	\N	0
+386	A4 Notepad	\N	32	2026-05-18 21:16:44.570625	\N	0
+387	Blue pen	\N	32	2026-05-18 21:16:44.570625	\N	0
+388	Universal keys	\N	32	2026-05-18 21:16:44.570625	\N	0
+389	Power adapter	library copy	32	2026-05-18 21:16:44.570625	\N	0
+390	Sports backpack	\N	32	2026-05-18 21:16:44.570625	\N	0
+391	Canvas bag	\N	32	2026-05-18 21:16:44.570625	\N	0
+392	Ruled notebook	\N	32	2026-05-18 21:16:44.570625	\N	0
+393	Tourist compass	\N	32	2026-05-18 21:16:44.570625	\N	0
+394	AA batteries	\N	32	2026-05-18 21:16:44.570625	\N	0
+395	Pocket knife	\N	32	2026-05-18 21:16:44.570625	\N	0
+396	Ceramic mug	\N	32	2026-05-18 21:16:44.570625	\N	0
+397	USB cable	\N	32	2026-05-18 21:16:44.570625	\N	0
+398	A4 Notepad	\N	32	2026-05-18 21:16:44.570625	\N	0
+399	Blue pen	\N	32	2026-05-18 21:16:44.570625	\N	0
+400	Universal keys	\N	32	2026-05-18 21:16:44.570625	\N	0
+401	Power adapter	\N	32	2026-05-18 21:16:44.570625	\N	0
+402	Sports backpack	\N	32	2026-05-18 21:16:44.570625	\N	0
+403	Canvas bag	\N	32	2026-05-18 21:16:44.570625	\N	0
+404	Ruled notebook	\N	32	2026-05-18 21:16:44.570625	\N	0
+405	Tourist compass	\N	32	2026-05-18 21:16:44.570625	\N	0
+406	AA batteries	\N	32	2026-05-18 21:16:44.570625	\N	0
+407	Pocket knife	English edition	32	2026-05-18 21:16:44.570625	\N	0
+408	Ceramic mug	\N	8	2026-05-18 21:16:44.570625	\N	0
+409	USB cable	\N	8	2026-05-18 21:16:44.570625	\N	0
+410	A4 Notepad	\N	8	2026-05-18 21:16:44.570625	\N	0
+411	Blue pen	\N	8	2026-05-18 21:16:44.570625	\N	0
+412	Universal keys	\N	8	2026-05-18 21:16:44.570625	\N	0
+413	Power adapter	no packaging	8	2026-05-18 21:16:44.570625	\N	0
+414	Sports backpack	\N	8	2026-05-18 21:16:44.570625	\N	0
+415	Canvas bag	\N	8	2026-05-18 21:16:44.570625	\N	0
+416	Ruled notebook	\N	8	2026-05-18 21:16:44.570625	\N	0
+417	Tourist compass	\N	8	2026-05-18 21:16:44.570625	\N	0
+418	AA batteries	\N	8	2026-05-18 21:16:44.570625	\N	0
+419	Pocket knife	library copy	8	2026-05-18 21:16:44.570625	\N	0
+420	Ceramic mug	\N	8	2026-05-18 21:16:44.570625	\N	0
+421	USB cable	\N	8	2026-05-18 21:16:44.570625	\N	0
+422	A4 Notepad	\N	8	2026-05-18 21:16:44.570625	\N	0
+423	Blue pen	\N	8	2026-05-18 21:16:44.570625	\N	0
+424	Universal keys	\N	8	2026-05-18 21:16:44.570625	\N	0
+425	Power adapter	\N	33	2026-05-18 21:16:44.570625	\N	0
+426	Sports backpack	\N	33	2026-05-18 21:16:44.570625	\N	0
+427	Canvas bag	\N	33	2026-05-18 21:16:44.570625	\N	0
+428	Ruled notebook	\N	33	2026-05-18 21:16:44.570625	\N	0
+429	Tourist compass	\N	33	2026-05-18 21:16:44.570625	\N	0
+430	AA batteries	good condition	33	2026-05-18 21:16:44.570625	\N	0
+431	Pocket knife	slightly damaged	33	2026-05-18 21:16:44.570625	\N	0
+432	Ceramic mug	signed copy	33	2026-05-18 21:16:44.570625	\N	0
+433	USB cable	no packaging	33	2026-05-18 21:16:44.570625	\N	0
+434	A4 Notepad	brand new	33	2026-05-18 21:16:44.570625	\N	0
+435	Blue pen	used	33	2026-05-18 21:16:44.570625	\N	0
+436	Universal keys	color black	33	2026-05-18 21:16:44.570625	\N	0
+437	Power adapter	English edition	33	2026-05-18 21:16:44.570625	\N	0
+438	Sports backpack	special edition	33	2026-05-18 21:16:44.570625	\N	0
+439	Canvas bag	library copy	33	2026-05-18 21:16:44.570625	\N	0
+440	Ruled notebook	good condition	33	2026-05-18 21:16:44.570625	\N	0
+441	Tourist compass	slightly damaged	33	2026-05-18 21:16:44.570625	\N	0
+442	AA batteries	\N	33	2026-05-18 21:16:44.570625	\N	0
+443	Pocket knife	\N	33	2026-05-18 21:16:44.570625	\N	0
+444	Ceramic mug	\N	34	2026-05-18 21:16:44.570625	\N	0
+445	USB cable	used	34	2026-05-18 21:16:44.570625	\N	0
+446	A4 Notepad	\N	34	2026-05-18 21:16:44.570625	\N	0
+447	Blue pen	English edition	34	2026-05-18 21:16:44.570625	\N	0
+448	Universal keys	special edition	34	2026-05-18 21:16:44.570625	\N	0
+449	Power adapter	\N	34	2026-05-18 21:16:44.570625	\N	0
+450	Sports backpack	good condition	34	2026-05-18 21:16:44.570625	\N	0
+451	Canvas bag	\N	34	2026-05-18 21:16:44.570625	\N	0
+452	Ruled notebook	\N	34	2026-05-18 21:16:44.570625	\N	0
+453	Tourist compass	\N	34	2026-05-18 21:16:44.570625	\N	0
+454	AA batteries	\N	34	2026-05-18 21:16:44.570625	\N	0
+455	Pocket knife	\N	34	2026-05-18 21:16:44.570625	\N	0
+456	Ceramic mug	\N	34	2026-05-18 21:16:44.570625	\N	0
+457	USB cable	English edition	34	2026-05-18 21:16:44.570625	\N	0
+458	A4 Notepad	\N	34	2026-05-18 21:16:44.570625	\N	0
+459	Blue pen	\N	36	2026-05-18 21:16:44.570625	\N	0
+460	Universal keys	good condition	36	2026-05-18 21:16:44.570625	\N	0
+461	Power adapter	\N	36	2026-05-18 21:16:44.570625	\N	0
+462	Sports backpack	\N	35	2026-05-18 21:16:44.570625	\N	0
+463	Canvas bag	no packaging	35	2026-05-18 21:16:44.570625	\N	0
+464	Ruled notebook	brand new	35	2026-05-18 21:16:44.570625	\N	0
+465	Tourist compass	used	35	2026-05-18 21:16:44.570625	\N	0
+466	AA batteries	\N	35	2026-05-18 21:16:44.570625	\N	0
+467	Pocket knife	\N	35	2026-05-18 21:16:44.570625	\N	0
+468	Ceramic mug	special edition	35	2026-05-18 21:16:44.570625	\N	0
+469	USB cable	\N	35	2026-05-18 21:16:44.570625	\N	0
+470	A4 Notepad	\N	35	2026-05-18 21:16:44.570625	\N	0
+471	Blue pen	\N	35	2026-05-18 21:16:44.570625	\N	0
+472	Universal keys	signed copy	35	2026-05-18 21:16:44.570625	\N	0
+473	Power adapter	\N	35	2026-05-18 21:16:44.570625	\N	0
+474	Sports backpack	brand new	35	2026-05-18 21:16:44.570625	\N	0
+475	Canvas bag	used	35	2026-05-18 21:16:44.570625	\N	0
+476	Ruled notebook	\N	35	2026-05-18 21:16:44.570625	\N	0
+477	Tourist compass	English edition	35	2026-05-18 21:16:44.570625	\N	0
+478	AA batteries	special edition	35	2026-05-18 21:16:44.570625	\N	0
+479	Pocket knife	library copy	35	2026-05-18 21:16:44.570625	\N	0
+480	Ceramic mug	good condition	35	2026-05-18 21:16:44.570625	\N	0
+481	USB cable	slightly damaged	35	2026-05-18 21:16:44.570625	\N	0
+482	A4 Notepad	\N	35	2026-05-18 21:16:44.570625	\N	0
+483	Blue pen	\N	35	2026-05-18 21:16:44.570625	\N	0
+484	Universal keys	brand new	35	2026-05-18 21:16:44.570625	\N	0
+485	Power adapter	used	35	2026-05-18 21:16:44.570625	\N	0
+486	Sports backpack	\N	35	2026-05-18 21:16:44.570625	\N	0
+487	Canvas bag	\N	35	2026-05-18 21:16:44.570625	\N	0
+488	Ruled notebook	\N	35	2026-05-18 21:16:44.570625	\N	0
+489	Tourist compass	\N	35	2026-05-18 21:16:44.570625	\N	0
+490	AA batteries	\N	35	2026-05-18 21:16:44.570625	\N	0
+491	Pocket knife	slightly damaged	35	2026-05-18 21:16:44.570625	\N	0
+492	Ceramic mug	signed copy	35	2026-05-18 21:16:44.570625	\N	0
+493	USB cable	\N	35	2026-05-18 21:16:44.570625	\N	0
+494	A4 Notepad	\N	35	2026-05-18 21:16:44.570625	\N	0
+495	Blue pen	\N	35	2026-05-18 21:16:44.570625	\N	0
+496	Universal keys	\N	35	2026-05-18 21:16:44.570625	\N	0
+497	Power adapter	\N	35	2026-05-18 21:16:44.570625	\N	0
+498	Sports backpack	\N	35	2026-05-18 21:16:44.570625	\N	0
+499	Canvas bag	library copy	35	2026-05-18 21:16:44.570625	\N	0
+500	Ruled notebook	good condition	35	2026-05-18 21:16:44.570625	\N	0
+501	Tourist compass	slightly damaged	35	2026-05-18 21:16:44.570625	\N	0
+502	AA batteries	signed copy	35	2026-05-18 21:16:44.570625	\N	0
+503	Pocket knife	no packaging	35	2026-05-18 21:16:44.570625	\N	0
+504	Ceramic mug	brand new	35	2026-05-18 21:16:44.570625	\N	0
+505	USB cable	used	35	2026-05-18 21:16:44.570625	\N	0
+506	A4 Notepad	color black	35	2026-05-18 21:16:44.570625	\N	0
+507	Blue pen	\N	35	2026-05-18 21:16:44.570625	\N	0
+508	Universal keys	\N	35	2026-05-18 21:16:44.570625	\N	0
+509	Power adapter	\N	35	2026-05-18 21:16:44.570625	\N	0
+510	Sports backpack	\N	35	2026-05-18 21:16:44.570625	\N	0
+511	Canvas bag	slightly damaged	35	2026-05-18 21:16:44.570625	\N	0
+512	Ruled notebook	\N	7	2026-05-18 21:16:44.570625	\N	0
+513	Tourist compass	\N	7	2026-05-18 21:16:44.570625	\N	0
+514	AA batteries	\N	7	2026-05-18 21:16:44.570625	\N	0
+515	Pocket knife	\N	7	2026-05-18 21:16:44.570625	\N	0
+516	Ceramic mug	\N	7	2026-05-18 21:16:44.570625	\N	0
+517	USB cable	\N	7	2026-05-18 21:16:44.570625	\N	0
+518	A4 Notepad	\N	33	2026-05-18 21:16:44.570625	\N	0
+519	Blue pen	library copy	8	2026-05-18 21:16:44.570625	\N	0
+520	Universal keys	good condition	8	2026-05-18 21:16:44.570625	\N	0
+521	Power adapter	slightly damaged	8	2026-05-18 21:16:44.570625	\N	0
+522	Sports backpack	\N	8	2026-05-18 21:16:44.570625	\N	0
+523	Canvas bag	\N	35	2026-05-18 21:16:44.570625	\N	0
+524	Ruled notebook	\N	35	2026-05-18 21:16:44.570625	\N	0
+525	Tourist compass	\N	37	2026-05-18 21:16:44.570625	\N	0
+526	AA batteries	\N	37	2026-05-18 21:16:44.570625	\N	0
+527	Pocket knife	\N	37	2026-05-18 21:16:44.570625	\N	0
+528	Ceramic mug	special edition	37	2026-05-18 21:16:44.570625	\N	0
+529	USB cable	library copy	37	2026-05-18 21:16:44.570625	\N	0
+530	A4 Notepad	\N	37	2026-05-18 21:16:44.570625	\N	0
+531	Blue pen	\N	37	2026-05-18 21:16:44.570625	\N	0
+532	Universal keys	signed copy	37	2026-05-18 21:16:44.570625	\N	0
+533	Power adapter	\N	37	2026-05-18 21:16:44.570625	\N	0
+534	Sports backpack	\N	37	2026-05-18 21:16:44.570625	\N	0
+535	Canvas bag	\N	37	2026-05-18 21:16:44.570625	\N	0
+536	Ruled notebook	\N	37	2026-05-18 21:16:44.570625	\N	0
+537	Tourist compass	English edition	37	2026-05-18 21:16:44.570625	\N	0
+538	AA batteries	special edition	37	2026-05-18 21:16:44.570625	\N	0
+539	Pocket knife	\N	8	2026-05-18 21:16:44.570625	\N	0
+540	Ceramic mug	good condition	8	2026-05-18 21:16:44.570625	\N	0
+\.
+
+
+--
+-- Data for Name: item_categories; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.item_categories (categories_id, items_id) FROM stdin;
+25	2
+25	3
+25	4
+25	5
+25	6
+25	7
+25	8
+25	9
+25	10
+25	12
+2	11
+2	12
+2	13
+2	14
+25	13
+25	14
+25	15
+25	16
+25	17
+2	20
+25	18
+25	19
+9	23
+9	24
+9	25
+9	26
+9	27
+9	28
+9	29
+9	30
+9	31
+9	32
+9	33
+9	34
+9	35
+9	36
+9	37
+9	38
+9	39
+9	40
+9	41
+9	42
+9	43
+9	44
+9	45
+9	46
+9	47
+9	48
+9	49
+9	50
+9	51
+9	52
+9	53
+9	54
+9	55
+9	56
+9	57
+9	58
+9	59
+9	60
+9	61
+9	62
+9	63
+9	64
+9	65
+9	66
+9	67
+9	68
+9	69
+9	70
+9	71
+9	72
+9	73
+9	74
+9	75
+9	76
+9	77
+9	78
+9	79
+9	80
+9	81
+9	82
+9	83
+9	84
+9	85
+21	22
+9	86
+9	87
+9	88
+9	89
+9	90
+9	91
+9	92
+9	93
+9	94
+9	95
+9	96
+9	97
+9	98
+9	99
+9	100
+9	101
+9	102
+9	103
+9	104
+9	105
+22	23
+22	24
+22	25
+22	26
+22	27
+22	28
+22	29
+22	30
+22	31
+22	32
+22	33
+22	34
+22	35
+22	36
+22	37
+22	38
+22	39
+22	40
+22	41
+22	42
+22	43
+22	44
+22	45
+22	46
+22	47
+22	48
+22	49
+22	50
+22	51
+22	52
+22	53
+22	54
+22	55
+22	56
+22	57
+22	58
+22	59
+22	60
+22	61
+22	62
+22	63
+22	64
+22	65
+22	66
+22	67
+22	68
+22	69
+22	70
+22	71
+22	72
+22	73
+22	74
+22	75
+22	76
+22	77
+22	78
+22	79
+22	80
+22	81
+22	82
+22	83
+22	84
+22	85
+24	452
+22	86
+22	87
+22	88
+22	89
+22	90
+22	91
+22	92
+22	93
+22	94
+22	95
+22	96
+22	97
+22	98
+22	99
+22	100
+22	101
+22	102
+22	103
+22	104
+22	105
+15	106
+15	107
+26	108
+26	109
+26	110
+26	111
+26	112
+26	113
+26	114
+26	115
+26	116
+26	117
+26	118
+26	119
+26	120
+26	121
+26	122
+26	123
+26	124
+26	125
+26	126
+26	127
+26	128
+23	129
+23	130
+23	131
+23	132
+23	133
+23	134
+23	135
+23	136
+23	137
+23	138
+23	139
+23	140
+23	141
+23	142
+23	143
+23	144
+23	145
+23	146
+23	147
+15	148
+15	149
+15	150
+15	151
+22	152
+22	153
+22	154
+22	155
+21	156
+21	157
+21	158
+21	159
+21	160
+21	161
+21	162
+21	163
+21	164
+21	165
+21	166
+21	167
+21	168
+21	169
+21	170
+21	171
+21	172
+21	173
+21	174
+21	175
+21	176
+21	177
+21	178
+21	179
+21	180
+21	181
+21	182
+21	183
+21	184
+21	185
+21	186
+21	187
+21	188
+21	189
+21	190
+21	191
+21	192
+21	193
+21	194
+21	195
+21	196
+21	197
+21	198
+21	199
+21	200
+21	201
+21	202
+21	203
+21	204
+21	205
+21	206
+21	207
+21	208
+21	209
+24	210
+24	211
+24	212
+24	213
+24	214
+24	215
+24	216
+24	217
+24	218
+24	219
+21	220
+21	221
+24	222
+21	223
+24	224
+24	225
+24	226
+24	227
+24	228
+24	229
+24	230
+24	231
+24	232
+24	233
+21	234
+21	235
+21	236
+21	237
+21	238
+21	239
+21	240
+21	241
+21	242
+21	243
+21	244
+21	245
+21	246
+21	247
+21	248
+21	249
+21	250
+21	251
+21	252
+21	253
+21	254
+21	255
+21	256
+21	257
+21	258
+21	259
+21	260
+21	261
+21	262
+21	263
+21	264
+21	265
+21	266
+21	267
+21	268
+21	269
+21	270
+21	271
+21	272
+21	273
+2	423
+2	424
+2	425
+2	426
+2	427
+2	429
+2	430
+2	431
+2	432
+2	433
+2	434
+2	435
+2	436
+2	437
+2	438
+2	439
+2	440
+2	441
+2	442
+21	274
+21	275
+15	276
+15	277
+22	278
+21	281
+21	282
+21	283
+21	284
+21	285
+21	286
+21	287
+21	288
+21	289
+21	290
+21	291
+21	292
+21	293
+21	294
+21	295
+21	296
+21	297
+21	298
+21	299
+21	300
+21	301
+21	302
+21	303
+21	304
+21	305
+21	306
+21	307
+21	308
+21	309
+21	310
+21	311
+21	312
+21	313
+21	314
+21	315
+21	316
+21	317
+21	318
+21	319
+21	320
+21	321
+21	322
+21	323
+21	324
+21	325
+21	326
+21	327
+21	328
+21	329
+21	330
+21	331
+21	332
+21	333
+21	334
+21	335
+21	336
+21	337
+21	338
+21	339
+21	340
+21	341
+21	342
+21	343
+21	344
+21	345
+21	346
+21	347
+21	348
+21	349
+2	518
+2	519
+2	520
+2	521
+2	522
+21	350
+21	351
+22	352
+22	353
+22	354
+22	355
+22	356
+22	357
+22	358
+22	359
+22	360
+22	361
+22	362
+22	363
+22	364
+22	365
+22	366
+22	367
+22	368
+22	369
+22	370
+22	371
+22	372
+22	373
+22	374
+22	375
+22	376
+22	377
+22	378
+22	379
+22	380
+22	381
+22	382
+22	383
+22	384
+22	385
+22	386
+22	387
+22	388
+22	389
+22	390
+22	391
+22	392
+22	393
+22	394
+22	395
+22	396
+22	397
+22	398
+22	399
+22	400
+22	401
+22	402
+22	403
+22	404
+22	405
+22	406
+22	407
+26	408
+26	409
+26	410
+26	411
+26	412
+26	413
+26	414
+26	415
+26	416
+26	417
+26	418
+26	419
+22	420
+22	421
+21	422
+22	423
+22	424
+15	428
+24	444
+24	445
+24	446
+24	447
+24	448
+24	449
+24	450
+24	451
+24	453
+24	454
+24	455
+24	456
+24	457
+24	458
+24	459
+24	460
+24	461
+24	462
+24	463
+24	464
+24	465
+24	466
+24	467
+24	468
+24	469
+24	470
+24	471
+24	472
+24	473
+24	474
+24	475
+24	476
+24	477
+24	478
+24	479
+24	480
+24	481
+24	482
+24	483
+24	484
+24	485
+24	486
+24	487
+24	488
+24	489
+24	490
+24	491
+24	492
+24	493
+24	494
+24	495
+24	496
+24	497
+24	498
+24	499
+24	500
+24	501
+24	502
+24	503
+24	504
+24	505
+24	506
+24	507
+24	508
+24	509
+24	510
+24	511
+21	512
+21	513
+21	514
+24	523
+24	524
+\.
+
+
+--
+-- Name: author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.author_id_seq', 311, true);
+
+
+--
+-- Name: book_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.book_id_seq', 742, true);
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.category_id_seq', 26, true);
+
+
+--
+-- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.item_id_seq', 540, true);
+
+
+--
+-- Name: publisher_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.publisher_id_seq', 118, true);
+
+
+--
+-- Name: storage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.storage_id_seq', 41, true);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict RRPeEcX01LfeEdsSNVNFan3H7g5Pm7heYTsvhfZRayqUEscu1GoMhenbB3z6lxv
+
