@@ -101,7 +101,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Ephemeral data in db for test  
 ❌ ETag and Last-Modified (for client-side caching)  
 ❌ Indices for db  
-❌ OpenAPI documentation
+✅ Code-driven OpenAPI documentation
 
 ### Could have
 

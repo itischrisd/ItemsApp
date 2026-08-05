@@ -23,12 +23,20 @@ public class RsqlSpecificationArgumentResolver implements HandlerMethodArgumentR
             NativeWebRequest webRequest,
             @Nullable WebDataBinderFactory binderFactory
     ) {
-        String search = webRequest.getParameter("search");
+        String search = webRequest.getParameter(RsqlConstants.QUERY_PARAM_NAME);
 
         if (search == null || search.trim().isEmpty()) {
             return Specification.unrestricted();
         }
 
         return RSQLJPASupport.toSpecification(search);
+    }
+
+    public static final class RsqlConstants {
+
+        public static final String QUERY_PARAM_NAME = "search";
+
+        private RsqlConstants() {
+        }
     }
 }
