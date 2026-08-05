@@ -35,15 +35,8 @@ public class AuthorController implements AuthorApi {
     }
 
     @Override
-    public AuthorResponseDTO create(AuthorCreateDTO authorCreateDTO, HttpServletResponse response) {
-        AuthorResponseDTO created = authorService.create(authorCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public AuthorResponseDTO create(AuthorCreateDTO authorCreateDTO) {
+        return authorService.create(authorCreateDTO);
     }
 
     @Override

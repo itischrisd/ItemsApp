@@ -36,15 +36,8 @@ public class CategoryController implements CategoryApi {
     }
 
     @Override
-    public CategoryResponseDTO create(CategoryCreateDTO categoryCreateDTO, HttpServletResponse response) {
-        CategoryResponseDTO created = categoryService.create(categoryCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public CategoryResponseDTO create(CategoryCreateDTO categoryCreateDTO) {
+        return categoryService.create(categoryCreateDTO);
     }
 
     @Override

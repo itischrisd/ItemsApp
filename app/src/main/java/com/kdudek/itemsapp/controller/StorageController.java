@@ -37,15 +37,8 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public StorageDetailsDTO create(StorageCreateDTO storageCreateDTO, HttpServletResponse response) {
-        StorageDetailsDTO created = storageService.create(storageCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public StorageDetailsDTO create(StorageCreateDTO storageCreateDTO) {
+        return storageService.create(storageCreateDTO);
     }
 
     @Override

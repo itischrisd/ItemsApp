@@ -47,10 +47,7 @@ public interface ItemApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ItemDetailsDTO create(
-            @RequestBody ItemCreateDTO itemCreateDTO,
-            HttpServletResponse response
-    );
+    ItemDetailsDTO create(@RequestBody ItemCreateDTO itemCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

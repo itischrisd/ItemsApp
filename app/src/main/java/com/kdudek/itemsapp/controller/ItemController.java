@@ -35,15 +35,8 @@ public class ItemController implements ItemApi {
     }
 
     @Override
-    public ItemDetailsDTO create(ItemCreateDTO itemCreateDTO, HttpServletResponse response) {
-        ItemDetailsDTO created = itemService.create(itemCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public ItemDetailsDTO create(ItemCreateDTO itemCreateDTO) {
+        return itemService.create(itemCreateDTO);
     }
 
     @Override

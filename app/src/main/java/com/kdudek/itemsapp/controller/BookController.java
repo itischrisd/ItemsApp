@@ -35,15 +35,8 @@ public class BookController implements BookApi {
     }
 
     @Override
-    public BookDetailsDTO create(BookCreateDTO bookCreateDTO, HttpServletResponse response) {
-        BookDetailsDTO created = bookService.create(bookCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public BookDetailsDTO create(BookCreateDTO bookCreateDTO) {
+        return bookService.create(bookCreateDTO);
     }
 
     @Override

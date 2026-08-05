@@ -48,10 +48,7 @@ public interface CategoryApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    CategoryResponseDTO create(
-            @RequestBody CategoryCreateDTO categoryCreateDTO,
-            HttpServletResponse response
-    );
+    CategoryResponseDTO create(@RequestBody CategoryCreateDTO categoryCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

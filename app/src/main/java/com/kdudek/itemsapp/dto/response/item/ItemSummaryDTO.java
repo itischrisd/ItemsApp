@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.dto.response.item;
 
+import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -7,7 +8,7 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class ItemSummaryDTO {
+public class ItemSummaryDTO implements IdentifiableResource {
 
     Long id;
     String description;

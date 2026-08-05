@@ -47,10 +47,7 @@ public interface AuthorApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    AuthorResponseDTO create(
-            @RequestBody AuthorCreateDTO authorCreateDTO,
-            HttpServletResponse response
-    );
+    AuthorResponseDTO create(@RequestBody AuthorCreateDTO authorCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

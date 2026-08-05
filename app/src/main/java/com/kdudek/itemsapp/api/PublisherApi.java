@@ -47,10 +47,7 @@ public interface PublisherApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    PublisherResponseDTO create(
-            @RequestBody PublisherCreateDTO publisherCreateDTO,
-            HttpServletResponse response
-    );
+    PublisherResponseDTO create(@RequestBody PublisherCreateDTO publisherCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

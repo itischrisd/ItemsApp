@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.dto.response.item;
 
+import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
 import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
 import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import java.util.Set;
 @Value
 @Builder
 @Jacksonized
-public class ItemDetailsDTO {
+public class ItemDetailsDTO implements IdentifiableResource {
 
     Long id;
     String description;

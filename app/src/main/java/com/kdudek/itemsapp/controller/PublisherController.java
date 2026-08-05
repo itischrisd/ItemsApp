@@ -35,15 +35,8 @@ public class PublisherController implements PublisherApi {
     }
 
     @Override
-    public PublisherResponseDTO create(PublisherCreateDTO publisherCreateDTO, HttpServletResponse response) {
-        PublisherResponseDTO created = publisherService.create(publisherCreateDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        response.setHeader(HttpHeaders.LOCATION, location.toString());
-        return created;
+    public PublisherResponseDTO create(PublisherCreateDTO publisherCreateDTO) {
+        return publisherService.create(publisherCreateDTO);
     }
 
     @Override

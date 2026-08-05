@@ -49,10 +49,7 @@ public interface StorageApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    StorageDetailsDTO create(
-            @RequestBody StorageCreateDTO storageCreateDTO,
-            HttpServletResponse response
-    );
+    StorageDetailsDTO create(@RequestBody StorageCreateDTO storageCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

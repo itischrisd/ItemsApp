@@ -1,5 +1,6 @@
 package com.kdudek.itemsapp.dto.response.book;
 
+import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
 import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
 import com.kdudek.itemsapp.dto.response.category.CategoryResponseDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherResponseDTO;
@@ -13,7 +14,7 @@ import java.util.Set;
 @Value
 @Builder
 @Jacksonized
-public class BookDetailsDTO {
+public class BookDetailsDTO implements IdentifiableResource {
 
     Long id;
     String title;

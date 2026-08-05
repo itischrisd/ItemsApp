@@ -47,10 +47,7 @@ public interface BookApi {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    BookDetailsDTO create(
-            @RequestBody BookCreateDTO bookCreateDTO,
-            HttpServletResponse response
-    );
+    BookDetailsDTO create(@RequestBody BookCreateDTO bookCreateDTO);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
