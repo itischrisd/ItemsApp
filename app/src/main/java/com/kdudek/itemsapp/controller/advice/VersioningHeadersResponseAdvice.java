@@ -10,8 +10,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.Instant;
 
 @ControllerAdvice
 public class VersioningHeadersResponseAdvice implements ResponseBodyAdvice<VersionedResource> {
@@ -34,8 +33,8 @@ public class VersioningHeadersResponseAdvice implements ResponseBodyAdvice<Versi
             return null;
         }
         response.getHeaders().setETag("\"" + body.getVersion() + "\"");
-        LocalDateTime lastDateTime = body.getUpdatedAt() != null ? body.getUpdatedAt() : body.getCreatedAt();
-        response.getHeaders().setLastModified(lastDateTime.atZone(ZoneId.of("UTC")));
+        Instant lastModification = body.getUpdatedAt() != null ? body.getUpdatedAt() : body.getCreatedAt();
+        response.getHeaders().setLastModified(lastModification);
         return body;
     }
 }

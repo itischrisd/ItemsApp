@@ -12,7 +12,7 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Set;
 
 @Value
@@ -38,8 +38,8 @@ public class BookDetailsDTO implements IdentifiableResource, VersionedResource {
     Integer version;
     @JsonIgnore
     @Schema(hidden = true)
-    LocalDateTime createdAt;
+    Instant createdAt;
     @JsonIgnore
     @Schema(hidden = true)
-    LocalDateTime updatedAt;
+    Instant updatedAt;
 }

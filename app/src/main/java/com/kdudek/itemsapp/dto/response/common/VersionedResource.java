@@ -1,12 +1,12 @@
 package com.kdudek.itemsapp.dto.response.common;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public interface VersionedResource {
 
     Integer getVersion();
 
-    LocalDateTime getCreatedAt();
+    Instant getCreatedAt();
 
-    LocalDateTime getUpdatedAt();
+    Instant getUpdatedAt();
 }

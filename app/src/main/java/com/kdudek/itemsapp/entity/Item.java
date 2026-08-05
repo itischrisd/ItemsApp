@@ -22,7 +22,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Set;
 
 @Entity
@@ -54,11 +54,15 @@ public class Item {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private Storage storage;
 
-    @CreationTimestamp
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
-    @UpdateTimestamp(source = SourceType.DB)
-    private LocalDateTime updatedAt;
     @Version
+    @Column(nullable = false)
     private Integer version;
+    @CreationTimestamp
+    @Column(
+            updatable = false,
+            nullable = false
+    )
+    private Instant createdAt;
+    @UpdateTimestamp(source = SourceType.DB)
+    private Instant updatedAt;
 }

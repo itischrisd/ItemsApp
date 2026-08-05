@@ -2,17 +2,18 @@ package com.kdudek.itemsapp.dto.response.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
+import com.kdudek.itemsapp.dto.response.common.VersionedResource;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Value
 @Builder
 @Jacksonized
-public class CategoryResponseDTO implements IdentifiableResource {
+public class CategoryResponseDTO implements IdentifiableResource, VersionedResource {
 
     Long id;
     String name;
@@ -22,8 +23,8 @@ public class CategoryResponseDTO implements IdentifiableResource {
     Integer version;
     @JsonIgnore
     @Schema(hidden = true)
-    LocalDateTime createdAt;
+    Instant createdAt;
     @JsonIgnore
     @Schema(hidden = true)
-    LocalDateTime updatedAt;
+    Instant updatedAt;
 }
