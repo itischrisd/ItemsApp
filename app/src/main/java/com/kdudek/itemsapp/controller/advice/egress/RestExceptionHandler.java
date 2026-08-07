@@ -46,7 +46,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 e.getLocalizedMessage()
         );
         problemDetail.setTitle("Resource Not Found");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -62,7 +62,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @Override
-    protected @Nullable ResponseEntity<Object> handleMethodArgumentNotValid(
+    protected @Nullable ResponseEntity<@NonNull Object> handleMethodArgumentNotValid(
             @NonNull MethodArgumentNotValidException ex,
             @NonNull HttpHeaders headers,
             @NonNull HttpStatusCode status,
@@ -73,7 +73,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Validation failed for one or more fields."
         );
         problemDetail.setTitle("Invalid Request Parameters");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         problemDetail.setProperty("errors", ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
@@ -92,7 +92,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Validation failed for one or more fields."
         );
         problemDetail.setTitle("Invalid Request Parameters");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         problemDetail.setProperty("errors", e.getConstraintViolations()
                 .stream()
                 .collect(Collectors.groupingBy(
@@ -119,7 +119,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Operation couldn't be completed due to data conflict."
         );
         problemDetail.setTitle("Database Conflict");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -131,7 +131,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Operation couldn't be completed due to data conflict."
         );
         problemDetail.setTitle("Database Conflict");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -142,7 +142,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Operation requested for stale data."
         );
         problemDetail.setTitle("Conflict");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -153,7 +153,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Operation requested for stale data."
         );
         problemDetail.setTitle("Precondition Failed");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -164,7 +164,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "This request is required to be conditional; try using \"If-Match\"."
         );
         problemDetail.setTitle("Precondition Required");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -175,7 +175,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Invalid property name used: " + e.getPropertyName()
         );
         problemDetail.setTitle("Unknown property name");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -186,7 +186,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Invalid sort expression or unknown property name used"
         );
         problemDetail.setTitle("Invalid sort expression");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -196,7 +196,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Insufficient rights to perform action or access resource"
         );
         problemDetail.setTitle("Access Denied");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
     }
 
@@ -206,7 +206,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 "Not authenticated or session expired"
         );
         problemDetail.setTitle("Not Authenticated");
-        problemDetail.setProperty("timestamp", Instant.now());
+        problemDetail.setProperty(Constants.TIMESTAMP_FIELD_NAME, Instant.now());
         return problemDetail;
+    }
+
+    private static final class Constants {
+
+        public static final String TIMESTAMP_FIELD_NAME = "timestamp";
+
+        private Constants() {
+        }
     }
 }

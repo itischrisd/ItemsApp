@@ -4,6 +4,7 @@ import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
 import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.dto.response.common.VersionedResource;
 import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -25,7 +26,7 @@ public class PagedAndVersionedResponseAdvice implements ResponseBodyAdvice<PageR
     }
 
     @Override
-    public @Nullable PageResponse<IdentifiableResource> beforeBodyWrite(
+    public @Nullable PageResponse<@NonNull IdentifiableResource> beforeBodyWrite(
             @Nullable PageResponse<IdentifiableResource> body,
             MethodParameter returnType,
             MediaType selectedContentType,
