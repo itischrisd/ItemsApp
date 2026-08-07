@@ -8,8 +8,10 @@ import com.kdudek.itemsapp.dto.response.author.AuthorResponseDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.entity.book.Author;
 import com.kdudek.itemsapp.entity.book.Book;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.AuthorRepository;
 import com.kdudek.itemsapp.repository.BookRepository;
 import jakarta.validation.Valid;
@@ -35,7 +37,10 @@ public class AuthorService {
                 .map(authorMapper::maptoDTO);
     }
 
-    public AuthorResponseDTO getById(Long id) {
+    public AuthorResponseDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && authorRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return authorRepository.findById(id)
                 .map(authorMapper::maptoDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
@@ -47,19 +52,24 @@ public class AuthorService {
         return authorMapper.maptoDTO(author);
     }
 
-    public AuthorResponseDTO update(Long id, @Valid AuthorUpdateDTO authorUpdateDTO) {
+    public AuthorResponseDTO update(Long id, @Valid AuthorUpdateDTO authorUpdateDTO, Integer clientVersion) {
         Author author = authorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
+        if (!author.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         authorMapper.updateAuthorFromDTO(authorUpdateDTO, author);
         authorRepository.save(author);
         return authorMapper.maptoDTO(author);
     }
 
-    public void delete(Long id) {
-        if (!authorRepository.existsById(id)) {
-            throw new ResourceNotFoundException(Author.class, id);
+    public void delete(Long id, Integer clientVersion) {
+        Author author = authorRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Author.class, id));
+        if (!author.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
         }
-        authorRepository.deleteById(id);
+        authorRepository.delete(author);
     }
 
     public Page<BookSummaryDTO> getBooksByAuthorId(Long id, Pageable pageable) {
@@ -70,16 +80,19 @@ public class AuthorService {
                 .map(bookMapper::mapToSummaryDTO);
     }
 
-    public void addBookToAuthor(Long authorId, Long bookId) {
+    public void addBookToAuthor(Long authorId, Long bookId, Integer clientBookVersion) {
         Author author = authorRepository.findById(authorId)
                 .orElseThrow(() -> new ResourceNotFoundException(Author.class, authorId));
         Book book = bookRepository.findByIdWithAuthors(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         book.getAuthors().add(author);
         bookRepository.save(book);
     }
 
-    public void removeBookFromAuthor(Long authorId, Long bookId) {
+    public void removeBookFromAuthor(Long authorId, Long bookId, Integer clientBookVersion) {
         if (!authorRepository.existsById(authorId)) {
             throw new ResourceNotFoundException(Author.class, authorId);
         }
@@ -89,6 +102,9 @@ public class AuthorService {
                 .filter(a -> a.getId().equals(authorId))
                 .findFirst()
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Author.class, authorId, Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         book.getAuthors().remove(author);
         bookRepository.save(book);
     }

@@ -11,8 +11,10 @@ import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.entity.Category;
 import com.kdudek.itemsapp.entity.Item;
 import com.kdudek.itemsapp.entity.book.Book;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.CategoryRepository;
 import com.kdudek.itemsapp.repository.ItemRepository;
@@ -41,7 +43,10 @@ public class CategoryService {
                 .map(categoryMapper::mapToDTO);
     }
 
-    public CategoryResponseDTO getById(Long id) {
+    public CategoryResponseDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && categoryRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return categoryRepository.findById(id)
                 .map(categoryMapper::mapToDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, id));
@@ -53,19 +58,24 @@ public class CategoryService {
         return categoryMapper.mapToDTO(category);
     }
 
-    public CategoryResponseDTO update(Long id, @Valid CategoryUpdateDTO categoryUpdateDTO) {
+    public CategoryResponseDTO update(Long id, @Valid CategoryUpdateDTO categoryUpdateDTO, Integer clientVersion) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, id));
+        if (!category.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         categoryMapper.updateCategoryFromDTO(categoryUpdateDTO, category);
         categoryRepository.save(category);
         return categoryMapper.mapToDTO(category);
     }
 
-    public void delete(Long id) {
-        if (!categoryRepository.existsById(id)) {
-            throw new ResourceNotFoundException(Category.class, id);
+    public void delete(Long id, Integer clientVersion) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Category.class, id));
+        if (!category.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
         }
-        categoryRepository.deleteById(id);
+        categoryRepository.delete(category);
     }
 
     public Page<BookSummaryDTO> getBooksByCategoryId(Long id, Pageable pageable) {
@@ -76,16 +86,19 @@ public class CategoryService {
                 .map(bookMapper::mapToSummaryDTO);
     }
 
-    public void addBookToCategory(Long categoryId, Long bookId) {
+    public void addBookToCategory(Long categoryId, Long bookId, Integer clientBookVersion) {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId));
         Book book = bookRepository.findByIdWithCategories(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         book.getCategories().add(category);
         bookRepository.save(book);
     }
 
-    public void removeBookFromCategory(Long categoryId, Long bookId) {
+    public void removeBookFromCategory(Long categoryId, Long bookId, Integer clientBookVersion) {
         if (!categoryRepository.existsById(categoryId)) {
             throw new ResourceNotFoundException(Category.class, categoryId);
         }
@@ -95,6 +108,9 @@ public class CategoryService {
                 .filter(c -> c.getId().equals(categoryId))
                 .findFirst()
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         book.getCategories().remove(category);
         bookRepository.save(book);
     }
@@ -107,16 +123,19 @@ public class CategoryService {
                 .map(itemMapper::mapToSummaryDTO);
     }
 
-    public void addItemToCategory(Long categoryId, Long itemId) {
+    public void addItemToCategory(Long categoryId, Long itemId, Integer clientItemVersion) {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException(Category.class, categoryId) );
         Item item = itemRepository.findByIdWithCategories(itemId)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, itemId));
+        if (!item.getVersion().equals(clientItemVersion)) {
+            throw new PreconditionFailedException();
+        }
         item.getCategories().add(category);
         itemRepository.save(item);
     }
 
-    public void removeItemFromCategory(Long categoryId, Long itemId) {
+    public void removeItemFromCategory(Long categoryId, Long itemId, Integer clientItemVersion) {
         if (!categoryRepository.existsById(categoryId)) {
             throw new ResourceNotFoundException(Category.class, categoryId);
         }
@@ -126,6 +145,9 @@ public class CategoryService {
                 .filter(c -> c.getId().equals(categoryId))
                 .findFirst()
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Category.class, categoryId, Item.class, itemId));
+        if (!item.getVersion().equals(clientItemVersion)) {
+            throw new PreconditionFailedException();
+        }
         item.getCategories().remove(category);
         itemRepository.save(item);
     }

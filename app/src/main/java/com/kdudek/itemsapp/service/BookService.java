@@ -6,7 +6,9 @@ import com.kdudek.itemsapp.dto.request.book.BookUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookDetailsDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.entity.book.Book;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +31,10 @@ public class BookService {
                 .map(bookMapper::mapToSummaryDTO);
     }
 
-    public BookDetailsDTO getById(Long id) {
+    public BookDetailsDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && bookRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return bookRepository.findByIdWithRelatedObjects(id)
                 .map(bookMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
@@ -43,18 +48,23 @@ public class BookService {
                 .orElseThrow(IllegalStateException::new);
     }
 
-    public BookDetailsDTO update(Long id, @Valid BookUpdateDTO bookUpdateDTO) {
+    public BookDetailsDTO update(Long id, @Valid BookUpdateDTO bookUpdateDTO, Integer clientVersion) {
         Book book = bookRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
+        if (!book.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         bookMapper.updateBookFromDTO(bookUpdateDTO, book);
         bookRepository.save(book);
         return bookMapper.mapToDetailsDTO(book);
     }
 
-    public void delete(Long id) {
-        if (!bookRepository.existsById(id)) {
-            throw new ResourceNotFoundException(Book.class, id);
+    public void delete(Long id, Integer clientVersion) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Book.class, id));
+        if (!book.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
         }
-        bookRepository.deleteById(id);
+        bookRepository.delete(book);
     }
 }

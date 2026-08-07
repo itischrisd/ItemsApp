@@ -27,8 +27,8 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public StorageDetailsDTO getById(Long id) {
-        return storageService.getById(id);
+    public StorageDetailsDTO getById(Long id, Integer ifNoneMatch) {
+        return storageService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -37,13 +37,13 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public StorageDetailsDTO update(Long id, StorageUpdateDTO storageUpdateDTO) {
-        return storageService.update(id, storageUpdateDTO);
+    public StorageDetailsDTO update(Long id, StorageUpdateDTO storageUpdateDTO, Integer ifMatch) {
+        return storageService.update(id, storageUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        storageService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        storageService.delete(id, ifMatch);
     }
 
     @Override
@@ -52,13 +52,13 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public void addToParent(Long parentId, Long childId) {
-        storageService.addToParent(parentId, childId);
+    public void addToParent(Long parentId, Long childId, Integer ifMatch) {
+        storageService.addToParent(parentId, childId, ifMatch);
     }
 
     @Override
-    public void removeFromParent(Long parentId, Long childId) {
-        storageService.removeFromParent(parentId, childId);
+    public void removeFromParent(Long parentId, Long childId, Integer ifMatch) {
+        storageService.removeFromParent(parentId, childId, ifMatch);
     }
 
     @Override
@@ -67,13 +67,13 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public void addBookToStorage(Long storageId, Long bookId) {
-        storageService.addBookToStorage(storageId, bookId);
+    public void addBookToStorage(Long storageId, Long bookId, Integer ifMatch) {
+        storageService.addBookToStorage(storageId, bookId, ifMatch);
     }
 
     @Override
-    public void removeBookFromStorage(Long storageId, Long bookId) {
-        storageService.removeBookFromStorage(storageId, bookId);
+    public void removeBookFromStorage(Long storageId, Long bookId, Integer ifMatch) {
+        storageService.removeBookFromStorage(storageId, bookId, ifMatch);
     }
 
     @Override
@@ -82,12 +82,12 @@ public class StorageController implements StorageApi {
     }
 
     @Override
-    public void addItemToStorage(Long storageId, Long itemId) {
-        storageService.addItemToStorage(storageId, itemId);
+    public void addItemToStorage(Long storageId, Long itemId, Integer ifMatch) {
+        storageService.addItemToStorage(storageId, itemId, ifMatch);
     }
 
     @Override
-    public void removeItemFromStorage(Long storageId, Long itemId) {
-        storageService.removeItemFromStorage(storageId, itemId);
+    public void removeItemFromStorage(Long storageId, Long itemId, Integer ifMatch) {
+        storageService.removeItemFromStorage(storageId, itemId, ifMatch);
     }
 }

@@ -8,8 +8,10 @@ import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
 import com.kdudek.itemsapp.dto.response.publisher.PublisherResponseDTO;
 import com.kdudek.itemsapp.entity.book.Book;
 import com.kdudek.itemsapp.entity.book.Publisher;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.PublisherRepository;
 import jakarta.validation.Valid;
@@ -35,7 +37,10 @@ public class PublisherService {
                 .map(publisherMapper::mapToDTO);
     }
 
-    public PublisherResponseDTO getById(Long id) {
+    public PublisherResponseDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && publisherRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return publisherRepository.findById(id)
                 .map(publisherMapper::mapToDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
@@ -47,19 +52,24 @@ public class PublisherService {
         return publisherMapper.mapToDTO(publisher);
     }
 
-    public PublisherResponseDTO update(Long id, @Valid PublisherUpdateDTO publisherUpdateDTO) {
+    public PublisherResponseDTO update(Long id, @Valid PublisherUpdateDTO publisherUpdateDTO, Integer clientVersion) {
         Publisher publisher = publisherRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
+        if (!publisher.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         publisherMapper.updatePublisherFromDTO(publisherUpdateDTO, publisher);
         publisherRepository.save(publisher);
         return publisherMapper.mapToDTO(publisher);
     }
 
-    public void delete(Long id) {
-        if (!publisherRepository.existsById(id)) {
-            throw new ResourceNotFoundException(Publisher.class, id);
+    public void delete(Long id, Integer clientVersion) {
+        Publisher publisher = publisherRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Publisher.class, id));
+        if (!publisher.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
         }
-        publisherRepository.deleteById(id);
+        publisherRepository.delete(publisher);
     }
 
     public Page<BookSummaryDTO> getBooksByPublisherId(Long id, Pageable pageable) {
@@ -70,18 +80,21 @@ public class PublisherService {
                 .map(bookMapper::mapToSummaryDTO);
     }
 
-    public void addBookToPublisher(Long publisherId, Long bookId) {
+    public void addBookToPublisher(Long publisherId, Long bookId, Integer clientBookVersion) {
         if (!publisherRepository.existsById(publisherId)) {
             throw new ResourceNotFoundException(Publisher.class, publisherId);
         }
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         Publisher publisherProxy = publisherRepository.getReferenceById(publisherId);
         book.setPublisher(publisherProxy);
         bookRepository.save(book);
     }
 
-    public void removeBookFromPublisher(Long publisherId, Long bookId) {
+    public void removeBookFromPublisher(Long publisherId, Long bookId, Integer clientBookVersion) {
         if (!publisherRepository.existsById(publisherId)) {
             throw new ResourceNotFoundException(Publisher.class, publisherId);
         }
@@ -89,6 +102,9 @@ public class PublisherService {
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Publisher.class, publisherId, Book.class, bookId));
         if (!publisherId.equals(book.getPublisher().getId())) {
             throw new RelatedResourceNotFoundException(Publisher.class, publisherId, Book.class, bookId);
+        }
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
         }
         book.setPublisher(null);
         bookRepository.save(book);

@@ -1,6 +1,8 @@
 package com.kdudek.itemsapp.api;
 
-import com.kdudek.itemsapp.controller.advice.RsqlSpecificationArgumentResolver.RsqlConstants;
+import com.kdudek.itemsapp.controller.advice.ingress.RsqlSpecificationArgumentResolver.RsqlConstants;
+import com.kdudek.itemsapp.controller.annotation.IfMatch;
+import com.kdudek.itemsapp.controller.annotation.IfNoneMatch;
 import com.kdudek.itemsapp.dto.request.book.BookCreateDTO;
 import com.kdudek.itemsapp.dto.request.book.BookUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookDetailsDTO;
@@ -14,6 +16,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +45,15 @@ public interface BookApi {
 
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    BookDetailsDTO getById(@PathVariable Long id);
+    @Parameter(
+            name = HttpHeaders.IF_NONE_MATCH,
+            in = ParameterIn.HEADER,
+            schema = @Schema(type = "string")
+    )
+    BookDetailsDTO getById(
+            @PathVariable Long id,
+            @Parameter(hidden = true) @IfNoneMatch Integer ifNoneMatch
+    );
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -50,12 +61,28 @@ public interface BookApi {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     BookDetailsDTO update(
             @PathVariable Long id,
-            @RequestBody BookUpdateDTO bookUpdateDTO
+            @RequestBody BookUpdateDTO bookUpdateDTO,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 
     @DeleteMapping("/{id}")
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void delete(@PathVariable Long id);
+    void delete(
+            @PathVariable Long id,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
+    );
 }

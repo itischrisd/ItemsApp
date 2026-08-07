@@ -25,8 +25,8 @@ public class AuthorController implements AuthorApi {
     }
 
     @Override
-    public AuthorResponseDTO getById(Long id) {
-        return authorService.getById(id);
+    public AuthorResponseDTO getById(Long id, Integer ifNoneMatch) {
+        return authorService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -35,13 +35,13 @@ public class AuthorController implements AuthorApi {
     }
 
     @Override
-    public AuthorResponseDTO update(Long id, AuthorUpdateDTO authorUpdateDTO) {
-        return authorService.update(id, authorUpdateDTO);
+    public AuthorResponseDTO update(Long id, AuthorUpdateDTO authorUpdateDTO, Integer ifMatch) {
+        return authorService.update(id, authorUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        authorService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        authorService.delete(id, ifMatch);
     }
 
     @Override
@@ -50,12 +50,12 @@ public class AuthorController implements AuthorApi {
     }
 
     @Override
-    public void addBookToAuthor(Long authorId, Long bookId) {
-        authorService.addBookToAuthor(authorId, bookId);
+    public void addBookToAuthor(Long authorId, Long bookId, Integer ifMatch) {
+        authorService.addBookToAuthor(authorId, bookId, ifMatch);
     }
 
     @Override
-    public void removeBookFromAuthor(Long authorId, Long bookId) {
-        authorService.removeBookFromAuthor(authorId, bookId);
+    public void removeBookFromAuthor(Long authorId, Long bookId, Integer ifMatch) {
+        authorService.removeBookFromAuthor(authorId, bookId, ifMatch);
     }
 }

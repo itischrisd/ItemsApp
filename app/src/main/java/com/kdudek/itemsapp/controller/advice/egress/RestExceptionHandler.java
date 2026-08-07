@@ -1,7 +1,10 @@
-package com.kdudek.itemsapp.controller.advice;
+package com.kdudek.itemsapp.controller.advice.egress;
 
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
+import com.kdudek.itemsapp.exception.PreconditionRequiredException;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -45,6 +48,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         problemDetail.setTitle("Resource Not Found");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
+    }
+
+    @ExceptionHandler(ResourceNotModifiedException.class)
+    public ResponseEntity<Void> handleResourceNotModified() {
+        return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
@@ -128,12 +136,34 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(OptimisticLockingFailureException.class)
-    public ProblemDetail handleOptimisticLockingFailure(OptimisticLockingFailureException e) {
+    public ProblemDetail handleOptimisticLockingFailure() {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
                 HttpStatus.CONFLICT,
                 "Operation requested for stale data."
         );
         problemDetail.setTitle("Conflict");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(PreconditionFailedException.class)
+    public ProblemDetail handlePreconditionFailed() {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.PRECONDITION_FAILED,
+                "Operation requested for stale data."
+        );
+        problemDetail.setTitle("Precondition Failed");
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(PreconditionRequiredException.class)
+    public ProblemDetail handlePreconditionRequired() {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.PRECONDITION_REQUIRED,
+                "This request is required to be conditional; try using \"If-Match\"."
+        );
+        problemDetail.setTitle("Precondition Required");
         problemDetail.setProperty("timestamp", Instant.now());
         return problemDetail;
     }
@@ -150,7 +180,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(InvalidDataAccessApiUsageException.class)
-    public ProblemDetail handleInvalidDataAccessApiUsage(InvalidDataAccessApiUsageException e) {
+    public ProblemDetail handleInvalidDataAccessApiUsage() {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
                 HttpStatus.BAD_REQUEST,
                 "Invalid sort expression or unknown property name used"

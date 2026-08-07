@@ -25,8 +25,8 @@ public class PublisherController implements PublisherApi {
     }
 
     @Override
-    public PublisherResponseDTO getById(Long id) {
-        return publisherService.getById(id);
+    public PublisherResponseDTO getById(Long id, Integer ifNoneMatch) {
+        return publisherService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -35,13 +35,13 @@ public class PublisherController implements PublisherApi {
     }
 
     @Override
-    public PublisherResponseDTO update(Long id, PublisherUpdateDTO publisherUpdateDTO) {
-        return publisherService.update(id, publisherUpdateDTO);
+    public PublisherResponseDTO update(Long id, PublisherUpdateDTO publisherUpdateDTO, Integer ifMatch) {
+        return publisherService.update(id, publisherUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        publisherService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        publisherService.delete(id, ifMatch);
     }
 
     @Override
@@ -50,12 +50,12 @@ public class PublisherController implements PublisherApi {
     }
 
     @Override
-    public void addBookToPublisher(Long publisherId, Long bookId) {
-        publisherService.addBookToPublisher(publisherId, bookId);
+    public void addBookToPublisher(Long publisherId, Long bookId, Integer ifMatch) {
+        publisherService.addBookToPublisher(publisherId, bookId, ifMatch);
     }
 
     @Override
-    public void removeBookFromPublisher(Long publisherId, Long bookId) {
-        publisherService.removeBookFromPublisher(publisherId, bookId);
+    public void removeBookFromPublisher(Long publisherId, Long bookId, Integer ifMatch) {
+        publisherService.removeBookFromPublisher(publisherId, bookId, ifMatch);
     }
 }

@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.controller.advice;
+package com.kdudek.itemsapp.controller.advice.ingress;
 
 import io.github.perplexhub.rsql.RSQLJPASupport;
 import org.jspecify.annotations.Nullable;

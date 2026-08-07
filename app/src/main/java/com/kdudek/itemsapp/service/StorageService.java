@@ -12,8 +12,10 @@ import com.kdudek.itemsapp.dto.response.storage.StorageSummaryDTO;
 import com.kdudek.itemsapp.entity.Item;
 import com.kdudek.itemsapp.entity.Storage;
 import com.kdudek.itemsapp.entity.book.Book;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.RelatedResourceNotFoundException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.BookRepository;
 import com.kdudek.itemsapp.repository.ItemRepository;
 import com.kdudek.itemsapp.repository.StorageRepository;
@@ -42,7 +44,10 @@ public class StorageService {
                 .map(storageMapper::mapToSummaryDTO);
     }
 
-    public StorageDetailsDTO getById(Long id) {
+    public StorageDetailsDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && storageRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return storageRepository.findByIdWithParent(id)
                 .map(storageMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
@@ -54,17 +59,23 @@ public class StorageService {
         return storageMapper.mapToDetailsDTO(storage);
     }
 
-    public StorageDetailsDTO update(Long id, @Valid StorageUpdateDTO storageUpdateDTO) {
+    public StorageDetailsDTO update(Long id, @Valid StorageUpdateDTO storageUpdateDTO, Integer clientVersion) {
         Storage storage = storageRepository.findByIdWithParent(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
+        if (!storage.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         storageMapper.updateStorageFromDTO(storageUpdateDTO, storage);
         storageRepository.save(storage);
         return storageMapper.mapToDetailsDTO(storage);
     }
 
-    public void delete(Long id) {
-        Storage storage = storageRepository.findById(id)
+    public void delete(Long id, Integer clientVersion) {
+        Storage storage = storageRepository.findByIdWithParent(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, id));
+        if (!storage.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         storageRepository.delete(storage);
     }
 
@@ -76,18 +87,21 @@ public class StorageService {
                 .map(storageMapper::mapToSummaryDTO);
     }
 
-    public void addToParent(Long parentId, Long childId) {
+    public void addToParent(Long parentId, Long childId, Integer clientChildVersion) {
         if (!storageRepository.existsById(parentId)) {
             throw new ResourceNotFoundException(Storage.class, parentId);
         }
         Storage child = storageRepository.findById(childId)
                 .orElseThrow(() -> new ResourceNotFoundException(Storage.class, childId));
+        if (!child.getVersion().equals(clientChildVersion)) {
+            throw new PreconditionFailedException();
+        }
         Storage parentProxy = storageRepository.getReferenceById(parentId);
         child.setParent(parentProxy);
         storageRepository.save(child);
     }
 
-    public void removeFromParent(Long parentId, Long childId) {
+    public void removeFromParent(Long parentId, Long childId, Integer clientChildVersion) {
         if (!storageRepository.existsById(parentId)) {
             throw new ResourceNotFoundException(Storage.class, parentId);
         }
@@ -95,6 +109,9 @@ public class StorageService {
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, parentId, Storage.class, childId));
         if (!parentId.equals(child.getParent().getId())) {
             throw new RelatedResourceNotFoundException(Storage.class, parentId, Storage.class, childId);
+        }
+        if (!child.getVersion().equals(clientChildVersion)) {
+            throw new PreconditionFailedException();
         }
         child.setParent(null);
         storageRepository.save(child);
@@ -108,18 +125,21 @@ public class StorageService {
                 .map(bookMapper::mapToSummaryDTO);
     }
 
-    public void addBookToStorage(Long storageId, Long bookId) {
+    public void addBookToStorage(Long storageId, Long bookId, Integer clientBookVersion) {
         if (!storageRepository.existsById(storageId)) {
             throw new ResourceNotFoundException(Storage.class, storageId);
         }
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException(Book.class, bookId));
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
+        }
         Storage storageProxy = storageRepository.getReferenceById(storageId);
         book.setStorage(storageProxy);
         bookRepository.save(book);
     }
 
-    public void removeBookFromStorage(Long storageId, Long bookId) {
+    public void removeBookFromStorage(Long storageId, Long bookId, Integer clientBookVersion) {
         if (!storageRepository.existsById(storageId)) {
             throw new ResourceNotFoundException(Storage.class, storageId);
         }
@@ -127,6 +147,9 @@ public class StorageService {
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, storageId, Book.class, bookId));
         if (!storageId.equals(book.getStorage().getId())) {
             throw new RelatedResourceNotFoundException(Storage.class, storageId, Book.class, bookId);
+        }
+        if (!book.getVersion().equals(clientBookVersion)) {
+            throw new PreconditionFailedException();
         }
         book.setStorage(null);
         bookRepository.save(book);
@@ -140,18 +163,21 @@ public class StorageService {
                 .map(itemMapper::mapToSummaryDTO);
     }
 
-    public void addItemToStorage(Long storageId, Long itemId) {
+    public void addItemToStorage(Long storageId, Long itemId, Integer clientItemVersion) {
         if (!storageRepository.existsById(storageId)) {
             throw new ResourceNotFoundException(Storage.class, storageId);
         }
         Item item = itemRepository.findById(itemId)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, itemId));
+        if (!item.getVersion().equals(clientItemVersion)) {
+            throw new PreconditionFailedException();
+        }
         Storage storageProxy = storageRepository.getReferenceById(storageId);
         item.setStorage(storageProxy);
         itemRepository.save(item);
     }
 
-    public void removeItemFromStorage(Long storageId, Long itemId) {
+    public void removeItemFromStorage(Long storageId, Long itemId, Integer clientItemVersion) {
         if (!storageRepository.existsById(storageId)) {
             throw new ResourceNotFoundException(Storage.class, storageId);
         }
@@ -159,6 +185,9 @@ public class StorageService {
                 .orElseThrow(() -> new RelatedResourceNotFoundException(Storage.class, storageId, Item.class, itemId));
         if (!storageId.equals(item.getStorage().getId())) {
             throw new RelatedResourceNotFoundException(Storage.class, storageId, Item.class, itemId);
+        }
+        if (!item.getVersion().equals(clientItemVersion)) {
+            throw new PreconditionFailedException();
         }
         item.setStorage(null);
         itemRepository.save(item);

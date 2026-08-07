@@ -1,6 +1,8 @@
 package com.kdudek.itemsapp.api;
 
-import com.kdudek.itemsapp.controller.advice.RsqlSpecificationArgumentResolver.RsqlConstants;
+import com.kdudek.itemsapp.controller.advice.ingress.RsqlSpecificationArgumentResolver.RsqlConstants;
+import com.kdudek.itemsapp.controller.annotation.IfMatch;
+import com.kdudek.itemsapp.controller.annotation.IfNoneMatch;
 import com.kdudek.itemsapp.dto.request.category.CategoryCreateDTO;
 import com.kdudek.itemsapp.dto.request.category.CategoryUpdateDTO;
 import com.kdudek.itemsapp.dto.response.book.BookSummaryDTO;
@@ -15,6 +17,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +46,15 @@ public interface CategoryApi {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    CategoryResponseDTO getById(@PathVariable Long id);
+    @Parameter(
+            name = HttpHeaders.IF_NONE_MATCH,
+            in = ParameterIn.HEADER,
+            schema = @Schema(type = "string")
+    )
+    CategoryResponseDTO getById(
+            @PathVariable Long id,
+            @Parameter(hidden = true) @IfNoneMatch Integer ifNoneMatch
+    );
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -51,14 +62,30 @@ public interface CategoryApi {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     CategoryResponseDTO update(
             @PathVariable Long id,
-            @RequestBody CategoryUpdateDTO categoryUpdateDTO
+            @RequestBody CategoryUpdateDTO categoryUpdateDTO,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void delete(@PathVariable Long id);
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
+    void delete(
+            @PathVariable Long id,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
+    );
 
     @GetMapping("/{id}/books")
     @ResponseStatus(HttpStatus.OK)
@@ -69,16 +96,30 @@ public interface CategoryApi {
 
     @PostMapping("/{categoryId}/books/{bookId}")
     @ResponseStatus(HttpStatus.CREATED)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     void addBookToCategory(
             @PathVariable Long categoryId,
-            @PathVariable Long bookId
+            @PathVariable Long bookId,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 
     @DeleteMapping("/{categoryId}/books/{bookId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     void removeBookFromCategory(
             @PathVariable Long categoryId,
-            @PathVariable Long bookId
+            @PathVariable Long bookId,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 
     @GetMapping("/{id}/items")
@@ -90,15 +131,29 @@ public interface CategoryApi {
 
     @PostMapping("/{categoryId}/items/{itemId}")
     @ResponseStatus(HttpStatus.CREATED)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     void addItemToCategory(
             @PathVariable Long categoryId,
-            @PathVariable Long itemId
+            @PathVariable Long itemId,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 
     @DeleteMapping("/{categoryId}/items/{itemId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Parameter(
+            name = HttpHeaders.IF_MATCH,
+            in = ParameterIn.HEADER,
+            required = true,
+            schema = @Schema(type = "string")
+    )
     void removeItemFromCategory(
             @PathVariable Long categoryId,
-            @PathVariable Long itemId
+            @PathVariable Long itemId,
+            @Parameter(hidden = true) @IfMatch Integer ifMatch
     );
 }

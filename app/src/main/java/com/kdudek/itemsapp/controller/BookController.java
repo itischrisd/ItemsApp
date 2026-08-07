@@ -9,10 +9,12 @@ import com.kdudek.itemsapp.dto.response.common.PageResponse;
 import com.kdudek.itemsapp.entity.book.Book;
 import com.kdudek.itemsapp.service.BookService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class BookController implements BookApi {
@@ -25,8 +27,8 @@ public class BookController implements BookApi {
     }
 
     @Override
-    public BookDetailsDTO getById(Long id) {
-        return bookService.getById(id);
+    public BookDetailsDTO getById(Long id, Integer ifNoneMatch) {
+        return bookService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -35,12 +37,12 @@ public class BookController implements BookApi {
     }
 
     @Override
-    public BookDetailsDTO update(Long id, BookUpdateDTO bookUpdateDTO) {
-        return bookService.update(id, bookUpdateDTO);
+    public BookDetailsDTO update(Long id, BookUpdateDTO bookUpdateDTO, Integer ifMatch) {
+        return bookService.update(id, bookUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        bookService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        bookService.delete(id, ifMatch);
     }
 }

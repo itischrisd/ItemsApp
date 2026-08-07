@@ -99,7 +99,7 @@ Planned user functionality and technical elements has been split into categories
 ✅ Flat Spring profiles with env vars, flat pom.xml
 ✅ Dockerization for backend   
 ✅ Ephemeral data in db for test  
-❌ ETag and Last-Modified (for client-side caching)  
+✅ ETag and Last-Modified (for client-side caching and optimistic locking)  
 ❌ Indices for db  
 ✅ Code-driven OpenAPI documentation
 

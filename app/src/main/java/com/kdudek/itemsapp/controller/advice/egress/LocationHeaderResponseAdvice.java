@@ -1,4 +1,4 @@
-package com.kdudek.itemsapp.controller.advice;
+package com.kdudek.itemsapp.controller.advice.egress;
 
 import com.kdudek.itemsapp.dto.response.common.IdentifiableResource;
 import org.jspecify.annotations.Nullable;

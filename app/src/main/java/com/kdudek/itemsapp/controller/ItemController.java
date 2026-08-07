@@ -25,8 +25,8 @@ public class ItemController implements ItemApi {
     }
 
     @Override
-    public ItemDetailsDTO getById(Long id) {
-        return itemService.getById(id);
+    public ItemDetailsDTO getById(Long id, Integer ifNoneMatch) {
+        return itemService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -35,12 +35,12 @@ public class ItemController implements ItemApi {
     }
 
     @Override
-    public ItemDetailsDTO update(Long id, ItemUpdateDTO itemUpdateDTO) {
-        return itemService.update(id, itemUpdateDTO);
+    public ItemDetailsDTO update(Long id, ItemUpdateDTO itemUpdateDTO, Integer ifMatch) {
+        return itemService.update(id, itemUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        itemService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        itemService.delete(id, ifMatch);
     }
 }

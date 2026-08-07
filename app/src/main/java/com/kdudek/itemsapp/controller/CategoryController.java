@@ -26,8 +26,8 @@ public class CategoryController implements CategoryApi {
     }
 
     @Override
-    public CategoryResponseDTO getById(Long id) {
-        return categoryService.getById(id);
+    public CategoryResponseDTO getById(Long id, Integer ifNoneMatch) {
+        return categoryService.getById(id, ifNoneMatch);
     }
 
     @Override
@@ -36,13 +36,13 @@ public class CategoryController implements CategoryApi {
     }
 
     @Override
-    public CategoryResponseDTO update(Long id, CategoryUpdateDTO categoryUpdateDTO) {
-        return categoryService.update(id, categoryUpdateDTO);
+    public CategoryResponseDTO update(Long id, CategoryUpdateDTO categoryUpdateDTO, Integer ifMatch) {
+        return categoryService.update(id, categoryUpdateDTO, ifMatch);
     }
 
     @Override
-    public void delete(Long id) {
-        categoryService.delete(id);
+    public void delete(Long id, Integer ifMatch) {
+        categoryService.delete(id, ifMatch);
     }
 
     @Override
@@ -51,13 +51,13 @@ public class CategoryController implements CategoryApi {
     }
 
     @Override
-    public void addBookToCategory(Long categoryId, Long bookId) {
-        categoryService.addBookToCategory(categoryId, bookId);
+    public void addBookToCategory(Long categoryId, Long bookId, Integer ifMatch) {
+        categoryService.addBookToCategory(categoryId, bookId, ifMatch);
     }
 
     @Override
-    public void removeBookFromCategory(Long categoryId, Long bookId) {
-        categoryService.removeBookFromCategory(categoryId, bookId);
+    public void removeBookFromCategory(Long categoryId, Long bookId, Integer ifMatch) {
+        categoryService.removeBookFromCategory(categoryId, bookId, ifMatch);
     }
 
     @Override
@@ -66,12 +66,12 @@ public class CategoryController implements CategoryApi {
     }
 
     @Override
-    public void addItemToCategory(Long categoryId, Long itemId) {
-        categoryService.addItemToCategory(categoryId, itemId);
+    public void addItemToCategory(Long categoryId, Long itemId, Integer ifMatch) {
+        categoryService.addItemToCategory(categoryId, itemId, ifMatch);
     }
 
     @Override
-    public void removeItemFromCategory(Long categoryId, Long itemId) {
-        categoryService.removeItemFromCategory(categoryId, itemId);
+    public void removeItemFromCategory(Long categoryId, Long itemId, Integer ifMatch) {
+        categoryService.removeItemFromCategory(categoryId, itemId, ifMatch);
     }
 }

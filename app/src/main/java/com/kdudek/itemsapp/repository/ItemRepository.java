@@ -34,4 +34,6 @@ public interface ItemRepository extends JpaRepository<Item, Long>, JpaSpecificat
     Page<Item> findAllByCategories_Id(Long categoryId, Pageable pageable);
 
     Page<Item> findAllByStorage_Id(Long storageId, Pageable pageable);
+
+    boolean existsByIdAndVersion(Long id, Integer version);
 }

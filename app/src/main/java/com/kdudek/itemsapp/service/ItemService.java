@@ -6,7 +6,9 @@ import com.kdudek.itemsapp.dto.request.item.ItemUpdateDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemDetailsDTO;
 import com.kdudek.itemsapp.dto.response.item.ItemSummaryDTO;
 import com.kdudek.itemsapp.entity.Item;
+import com.kdudek.itemsapp.exception.PreconditionFailedException;
 import com.kdudek.itemsapp.exception.ResourceNotFoundException;
+import com.kdudek.itemsapp.exception.ResourceNotModifiedException;
 import com.kdudek.itemsapp.repository.ItemRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +31,10 @@ public class ItemService {
                 .map(itemMapper::mapToSummaryDTO);
     }
 
-    public ItemDetailsDTO getById(Long id) {
+    public ItemDetailsDTO getById(Long id, Integer clientVersion) {
+        if (clientVersion != null && itemRepository.existsByIdAndVersion(id, clientVersion)) {
+            throw new ResourceNotModifiedException();
+        }
         return itemRepository.findByIdWithRelatedObjects(id)
                 .map(itemMapper::mapToDetailsDTO)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, id));
@@ -43,18 +48,23 @@ public class ItemService {
                 .orElseThrow(IllegalStateException::new);
     }
 
-    public ItemDetailsDTO update(Long id, @Valid ItemUpdateDTO itemUpdateDTO) {
+    public ItemDetailsDTO update(Long id, @Valid ItemUpdateDTO itemUpdateDTO, Integer clientVersion) {
         Item item = itemRepository.findByIdWithRelatedObjects(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Item.class, id));
+        if (!item.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
+        }
         itemMapper.updateItemFromDTO(itemUpdateDTO, item);
         itemRepository.save(item);
         return itemMapper.mapToDetailsDTO(item);
     }
 
-    public void delete(Long id) {
-        if (!itemRepository.existsById(id)) {
-            throw new ResourceNotFoundException(Item.class, id);
+    public void delete(Long id, Integer clientVersion) {
+        Item item = itemRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Item.class, id));
+        if (!item.getVersion().equals(clientVersion)) {
+            throw new PreconditionFailedException();
         }
-        itemRepository.deleteById(id);
+        itemRepository.delete(item);
     }
 }

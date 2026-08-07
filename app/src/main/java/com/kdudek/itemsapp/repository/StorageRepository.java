@@ -20,4 +20,6 @@ public interface StorageRepository extends JpaRepository<Storage, Long>, JpaSpec
     Optional<Storage> findByIdWithParent(@Param("id") Long id);
 
     Page<Storage> findAllByParent_Id(Long parentId, Pageable pageable);
+
+    boolean existsByIdAndVersion(Long id, Integer version);
 }
