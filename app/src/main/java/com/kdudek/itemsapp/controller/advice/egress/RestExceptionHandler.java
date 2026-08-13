@@ -210,7 +210,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return problemDetail;
     }
 
-    private static final class Constants {
+    public static final class Constants {
 
         public static final String TIMESTAMP_FIELD_NAME = "timestamp";
 

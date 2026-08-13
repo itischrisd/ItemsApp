@@ -105,7 +105,7 @@ Planned user functionality and technical elements has been split into categories
 
 ### Could have
 
-❌ Idempotency-Key for POST  
+✅ Idempotency-Key for POST (PoC)  
 ❌ Dockerization for full stack  
 ❌ Frontend with DaisyUI  
 ❌ generalize Books, Storage and Items into one supertype  
